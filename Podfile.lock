@@ -1,0 +1,57 @@
+PODS:
+  - Alamofire (4.4.0)
+  - FLAnimatedImage (1.0.16)
+  - iOSDropDown (0.3.4)
+  - PINCache (3.0.1-beta.4):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
+    - PINCache/Core (= 3.0.1-beta.4)
+  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.4):
+    - PINOperation (= 1.0.3)
+  - PINOperation (1.0.3)
+  - PINRemoteImage (3.0.0-beta.9):
+    - PINRemoteImage/FLAnimatedImage (= 3.0.0-beta.9)
+    - PINRemoteImage/PINCache (= 3.0.0-beta.9)
+  - PINRemoteImage/Core (3.0.0-beta.9):
+    - PINOperation
+  - PINRemoteImage/FLAnimatedImage (3.0.0-beta.9):
+    - FLAnimatedImage (>= 1.0)
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.9):
+    - PINCache (= 3.0.1-beta.4)
+    - PINRemoteImage/Core
+  - SwiftyJSON (3.1.4)
+  - Toast-Swift (3.0.1)
+
+DEPENDENCIES:
+  - Alamofire (= 4.4)
+  - iOSDropDown
+  - PINRemoteImage (= 3.0.0-beta.9)
+  - SwiftyJSON (~> 3.0)
+  - Toast-Swift (~> 3.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - FLAnimatedImage
+    - iOSDropDown
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - SwiftyJSON
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  FLAnimatedImage: 8f3e854ebf9680b71f0b6e700939687fc4d82b4b
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
+  PINRemoteImage: e4e02e15a6f96cedbcef2abf1c9c1228dc9897d7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+
+PODFILE CHECKSUM: 3afd3ebb7441415ae92bb9fb6788a1109bc3481d
+
+COCOAPODS: 1.5.2

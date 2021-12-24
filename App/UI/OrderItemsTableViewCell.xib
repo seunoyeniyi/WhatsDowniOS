@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="OrderItemsTableViewCell" customModule="Phuck_Brand" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEA-Qq-1wG">
+                        <rect key="frame" x="13" y="13" width="20" height="26.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26.5" id="0Z2-6t-lkX"/>
+                            <constraint firstAttribute="width" constant="20" id="ker-2K-LeY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xiaomi Air 2 Se.50 tws wirels bluetooh earphone mi tws earbuds true airdots pro 20 hours battery touch control" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9U-kP-CMX">
+                        <rect key="frame" x="38" y="13" width="224" height="26.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26.5" id="4Yr-IN-Nrl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-G8-EF1">
+                        <rect key="frame" x="267" y="5" width="48" height="42.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42.5" id="Xon-5p-j2f"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xo4-G8-EF1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="29M-IO-2ys"/>
+                    <constraint firstAttribute="trailing" secondItem="xo4-G8-EF1" secondAttribute="trailing" constant="5" id="3y2-SF-WP0"/>
+                    <constraint firstItem="CEA-Qq-1wG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="6sU-Rv-8JA"/>
+                    <constraint firstItem="CEA-Qq-1wG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="9NW-1T-epi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="v9U-kP-CMX" secondAttribute="trailing" constant="50" id="LKb-0b-bVg"/>
+                    <constraint firstItem="v9U-kP-CMX" firstAttribute="leading" secondItem="CEA-Qq-1wG" secondAttribute="trailing" constant="5" id="VyF-EJ-MZw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="v9U-kP-CMX" secondAttribute="bottom" constant="5" id="WH8-Z6-qDD"/>
+                    <constraint firstItem="v9U-kP-CMX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Zy0-HX-pP3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CEA-Qq-1wG" secondAttribute="bottom" constant="5" id="deW-OP-sUw"/>
+                    <constraint firstAttribute="bottom" secondItem="xo4-G8-EF1" secondAttribute="bottom" constant="5" id="wLN-6L-y4g"/>
+                    <constraint firstItem="xo4-G8-EF1" firstAttribute="leading" secondItem="v9U-kP-CMX" secondAttribute="trailing" constant="5" id="wpF-Sp-f1t"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="price" destination="xo4-G8-EF1" id="rrO-Ac-tf1"/>
+                <outlet property="quantity" destination="CEA-Qq-1wG" id="Ckl-xU-Ub5"/>
+                <outlet property="title" destination="v9U-kP-CMX" id="WvM-Sc-AHl"/>
+            </connections>
+            <point key="canvasLocation" x="50" y="63.5"/>
+        </tableViewCell>
+    </objects>
+</document>

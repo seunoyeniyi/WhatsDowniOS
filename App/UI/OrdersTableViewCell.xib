@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="OrdersTableViewCell" customModule="Phuck_Brand" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDB-ey-kQr">
+                        <rect key="frame" x="0.0" y="5" width="320" height="119.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYp-j9-Xc5">
+                                <rect key="frame" x="10" y="10" width="300" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzz-aJ-gD0">
+                                <rect key="frame" x="10" y="32" width="300" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.84313725490000002" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00-00-000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ym-Xe-QhJ">
+                                <rect key="frame" x="10" y="55" width="300" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lc1-Al-x9d">
+                                <rect key="frame" x="10" y="74.5" width="300" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on Delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUX-JK-1pG">
+                                <rect key="frame" x="10" y="96.5" width="109" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="aaX-bM-yF8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8_data_pending_1" translatesAutoresizingMaskIntoConstraints="NO" id="M8B-DV-2eC">
+                                <rect key="frame" x="124" y="97.5" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="0SK-1q-AHA"/>
+                                    <constraint firstAttribute="height" constant="15" id="oeG-Iu-sj7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvC-6e-g8o">
+                                <rect key="frame" x="249" y="49.5" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lc1-Al-x9d" secondAttribute="trailing" constant="10" id="0Uc-8L-gtC"/>
+                            <constraint firstItem="6ym-Xe-QhJ" firstAttribute="top" secondItem="Bzz-aJ-gD0" secondAttribute="bottom" constant="5" id="27S-4P-wHp"/>
+                            <constraint firstItem="Bzz-aJ-gD0" firstAttribute="top" secondItem="cYp-j9-Xc5" secondAttribute="bottom" constant="5" id="58g-eT-YY3"/>
+                            <constraint firstAttribute="trailing" secondItem="Bzz-aJ-gD0" secondAttribute="trailing" constant="10" id="5Kp-CM-bhz"/>
+                            <constraint firstItem="6ym-Xe-QhJ" firstAttribute="leading" secondItem="yDB-ey-kQr" secondAttribute="leading" constant="10" id="BQz-Xa-f6K"/>
+                            <constraint firstItem="M8B-DV-2eC" firstAttribute="leading" secondItem="lUX-JK-1pG" secondAttribute="trailing" constant="5" id="C89-Kd-bjS"/>
+                            <constraint firstItem="lUX-JK-1pG" firstAttribute="top" secondItem="lc1-Al-x9d" secondAttribute="bottom" constant="5" id="D16-EK-qaR"/>
+                            <constraint firstItem="M8B-DV-2eC" firstAttribute="centerY" secondItem="lUX-JK-1pG" secondAttribute="centerY" id="FGu-Hb-zw1"/>
+                            <constraint firstAttribute="trailing" secondItem="cYp-j9-Xc5" secondAttribute="trailing" constant="10" id="JZI-bT-beE"/>
+                            <constraint firstItem="Bzz-aJ-gD0" firstAttribute="leading" secondItem="yDB-ey-kQr" secondAttribute="leading" constant="10" id="SC1-DP-DRY"/>
+                            <constraint firstAttribute="trailing" secondItem="6ym-Xe-QhJ" secondAttribute="trailing" constant="10" id="Zlx-O1-SD9"/>
+                            <constraint firstItem="cYp-j9-Xc5" firstAttribute="leading" secondItem="yDB-ey-kQr" secondAttribute="leading" constant="10" id="ajV-MF-on9"/>
+                            <constraint firstItem="BvC-6e-g8o" firstAttribute="centerY" secondItem="yDB-ey-kQr" secondAttribute="centerY" id="edU-k2-sOh"/>
+                            <constraint firstItem="lc1-Al-x9d" firstAttribute="leading" secondItem="yDB-ey-kQr" secondAttribute="leading" constant="10" id="ic1-sq-R56"/>
+                            <constraint firstItem="lc1-Al-x9d" firstAttribute="top" secondItem="6ym-Xe-QhJ" secondAttribute="bottom" constant="5" id="kOR-k4-vly"/>
+                            <constraint firstAttribute="bottom" secondItem="lUX-JK-1pG" secondAttribute="bottom" constant="6" id="lnd-pd-uGc"/>
+                            <constraint firstItem="cYp-j9-Xc5" firstAttribute="top" secondItem="yDB-ey-kQr" secondAttribute="top" constant="10" id="qRp-1n-pRx"/>
+                            <constraint firstItem="lUX-JK-1pG" firstAttribute="leading" secondItem="yDB-ey-kQr" secondAttribute="leading" constant="10" id="qsx-K9-apO"/>
+                            <constraint firstAttribute="trailing" secondItem="BvC-6e-g8o" secondAttribute="trailing" constant="33" id="vva-Yh-WMw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="yDB-ey-kQr" secondAttribute="trailing" id="Vu6-L1-4ZJ"/>
+                    <constraint firstItem="yDB-ey-kQr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Zq4-3b-Sjb"/>
+                    <constraint firstItem="yDB-ey-kQr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pDL-tW-4Hb"/>
+                    <constraint firstAttribute="bottom" secondItem="yDB-ey-kQr" secondAttribute="bottom" constant="5" id="q3h-8s-aXG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="orderContainer" destination="yDB-ey-kQr" id="Z9n-4Z-Y8g"/>
+                <outlet property="orderDate" destination="6ym-Xe-QhJ" id="Rd7-RT-wKC"/>
+                <outlet property="orderID" destination="Bzz-aJ-gD0" id="7R1-Ul-o3b"/>
+                <outlet property="orderPaymentMethod" destination="lUX-JK-1pG" id="eXA-fA-dWK"/>
+                <outlet property="orderStatusImg" destination="M8B-DV-2eC" id="ML2-Ef-G25"/>
+                <outlet property="orderTotalPrice" destination="BvC-6e-g8o" id="etz-BE-XvF"/>
+            </connections>
+            <point key="canvasLocation" x="39" y="103"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icons8_data_pending_1" width="26" height="26"/>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+framework module Pods_WhatsDown {
+  umbrella header "Pods-WhatsDown-umbrella.h"
+
+  export *
+  module * { export * }
+}

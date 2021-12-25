@@ -42,6 +42,12 @@
 		D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = D67F87172775C670009BF4A7 /* WhatsDown-Black.png */; };
 		D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67F87192775CA11009BF4A7 /* WhatsDown-Icon.png */; };
 		D67F871C2775CD7F009BF4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F871B2775CD7F009BF4A7 /* MainViewController.swift */; };
+		D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */; };
+		D67F87242775DED2009BF4A7 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */; };
+		D67F87252775DED2009BF4A7 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871F2775DED0009BF4A7 /* Montserrat-Thin.ttf */; };
+		D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87202775DED0009BF4A7 /* Montserrat-Regular.ttf */; };
+		D67F87272775DED2009BF4A7 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87212775DED1009BF4A7 /* Montserrat-Black.ttf */; };
+		D67F87282775DED2009BF4A7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87222775DED2009BF4A7 /* Montserrat-Medium.ttf */; };
 		D681A638274046F30073D0C3 /* ShopDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681A636274046F30073D0C3 /* ShopDataViewController.swift */; };
 		D681A63C274047270073D0C3 /* ShopPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681A63A274047270073D0C3 /* ShopPageViewController.swift */; };
 		D681A63F27405B860073D0C3 /* ShopPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D681A63E27405B860073D0C3 /* ShopPager.storyboard */; };
@@ -73,6 +79,10 @@
 		D6E7E365276B7316001CDC7B /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E7E364276B7316001CDC7B /* LoadingView.xib */; };
 		D6EE047727626813001A88DA /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE047627626813001A88DA /* PriceFormatter.swift */; };
 		D6EE047927627219001A88DA /* AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE047827627219001A88DA /* AddToCart.swift */; };
+		D6FCB126277636B50042FBCC /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */; };
+		D6FCB129277640120042FBCC /* ProductCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */; };
+		D6FCB12A277640120042FBCC /* ProductCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */; };
+		D6FCB12C2776468D0042FBCC /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FCB12B2776468D0042FBCC /* CustomViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +123,12 @@
 		D67F87172775C670009BF4A7 /* WhatsDown-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Black.png"; path = "../../../Downloads/WhatsDown/WhatsDown-Black.png"; sourceTree = "<group>"; };
 		D67F87192775CA11009BF4A7 /* WhatsDown-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Icon.png"; path = "../../../Downloads/WhatsDown/ic_launcher-61c590bd4fc29/ic_launcher-61c590bd4fc29/ios/WhatsDown-Icon.png"; sourceTree = "<group>"; };
 		D67F871B2775CD7F009BF4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		D67F871F2775DED0009BF4A7 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Thin.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		D67F87202775DED0009BF4A7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D67F87212775DED1009BF4A7 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		D67F87222775DED2009BF4A7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D681A636274046F30073D0C3 /* ShopDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataViewController.swift; sourceTree = "<group>"; };
 		D681A63A274047270073D0C3 /* ShopPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPageViewController.swift; sourceTree = "<group>"; };
 		D681A63E27405B860073D0C3 /* ShopPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopPager.storyboard; sourceTree = "<group>"; };
@@ -148,6 +164,10 @@
 		D6E7E364276B7316001CDC7B /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D6EE047627626813001A88DA /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 		D6EE047827627219001A88DA /* AddToCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCart.swift; sourceTree = "<group>"; };
+		D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		D6FCB12B2776468D0042FBCC /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +219,10 @@
 				D66BF9E9277238B3001CA06F /* OrderItemsTableViewCell.swift */,
 				D66BF9EA277238B3001CA06F /* OrderItemsTableViewCell.xib */,
 				D618744027754276000EE4DF /* CustomUI.swift */,
+				D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */,
+				D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */,
+				D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */,
+				D6FCB12B2776468D0042FBCC /* CustomViews.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -239,6 +263,12 @@
 		D6C176402730B8D800714298 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D67F87212775DED1009BF4A7 /* Montserrat-Black.ttf */,
+				D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */,
+				D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */,
+				D67F87222775DED2009BF4A7 /* Montserrat-Medium.ttf */,
+				D67F87202775DED0009BF4A7 /* Montserrat-Regular.ttf */,
+				D67F871F2775DED0009BF4A7 /* Montserrat-Thin.ttf */,
 				D6E7E35D276B628F001CDC7B /* SSRadioButtonsController */,
 				D63609C92739C85900AD2B1B /* UI */,
 				D6BAC13F27381077001A4825 /* handlers */,
@@ -367,25 +397,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				D66BF9F027726190001CA06F /* BrowserViewController.xib in Resources */,
+				D67F87272775DED2009BF4A7 /* Montserrat-Black.ttf in Resources */,
 				D681A63F27405B860073D0C3 /* ShopPager.storyboard in Resources */,
 				D6C4E05327373AD200A49BB3 /* LoginViewController.xib in Resources */,
 				D613F86A2764E13600F84AE7 /* CheckoutAddressViewController.xib in Resources */,
 				D609C4462770E8E000DC5FDE /* OrdersViewController.xib in Resources */,
 				D66BF9F42772670B001CA06F /* ProfileAddressViewController.xib in Resources */,
 				D630289A276D66FD00AB6642 /* WebPaymentViewController.xib in Resources */,
+				D67F87282775DED2009BF4A7 /* Montserrat-Medium.ttf in Resources */,
 				D6C1764E2730B8D800714298 /* LaunchScreen.storyboard in Resources */,
 				D66BF9E82771FEAE001CA06F /* OrderViewController.xib in Resources */,
+				D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */,
 				D66BF9EC277238B3001CA06F /* OrderItemsTableViewCell.xib in Resources */,
 				D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */,
 				D6123A18276A538B003404D5 /* PaymentViewController.xib in Resources */,
 				D609C44A2770F19900DC5FDE /* OrdersTableViewCell.xib in Resources */,
 				D6D842DE275980E90067B9FE /* CartViewController.xib in Resources */,
+				D67F87252775DED2009BF4A7 /* Montserrat-Thin.ttf in Resources */,
 				D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */,
+				D67F87242775DED2009BF4A7 /* Montserrat-Light.ttf in Resources */,
 				D6E7E365276B7316001CDC7B /* LoadingView.xib in Resources */,
 				D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */,
 				D689ABB1276225CE009CA318 /* CartTableViewCell.xib in Resources */,
 				D6328F48274B82840034DA73 /* ProductViewController.xib in Resources */,
+				D6FCB12A277640120042FBCC /* ProductCardCollectionViewCell.xib in Resources */,
 				D6C176492730B8D800714298 /* Main.storyboard in Resources */,
+				D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */,
 				D67F87142775C3F3009BF4A7 /* README.md in Resources */,
 				D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */,
 				D6C4E05727373AEC00A49BB3 /* RegisterViewController.xib in Resources */,
@@ -461,9 +498,11 @@
 				D689ABB0276225CE009CA318 /* CartTableViewCell.swift in Sources */,
 				D6EE047927627219001A88DA /* AddToCart.swift in Sources */,
 				D637F678274FD09A00CF5A57 /* Handler.swift in Sources */,
+				D6FCB12C2776468D0042FBCC /* CustomViews.swift in Sources */,
 				D618744527754D9E000EE4DF /* MainSearchViewController.swift in Sources */,
 				D681A63C274047270073D0C3 /* ShopPageViewController.swift in Sources */,
 				D618744B277551EF000EE4DF /* MainCartViewController.swift in Sources */,
+				D6FCB129277640120042FBCC /* ProductCardCollectionViewCell.swift in Sources */,
 				D613F86C2764E6BF00F84AE7 /* Protocols.swift in Sources */,
 				D66BF9EB277238B3001CA06F /* OrderItemsTableViewCell.swift in Sources */,
 				D618744927754E7F000EE4DF /* MainCategoriesViewController.swift in Sources */,
@@ -476,6 +515,7 @@
 				D66B93722757F67400F5CC0C /* MenuTableViewCell.swift in Sources */,
 				D681A638274046F30073D0C3 /* ShopDataViewController.swift in Sources */,
 				D6B51E6E27501C14003ED7C0 /* AttributeTableViewCell.swift in Sources */,
+				D6FCB126277636B50042FBCC /* BannerCollectionViewCell.swift in Sources */,
 				D6C4E05627373AEC00A49BB3 /* RegisterViewController.swift in Sources */,
 				D6BAC13E27380035001A4825 /* Site.swift in Sources */,
 				D6E7E35F276B62FB001CDC7B /* SSRadioButton.swift in Sources */,

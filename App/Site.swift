@@ -11,7 +11,7 @@ class Site {
     public final let APP_NAME: String = "Phuck Brand"
     public final let PRIMARY_COLOR: Int = 0x000000
     public final let PROTOCOL: String = "https";
-    public final let DOMAIN: String =  "givephuck.com"; //"192.168.43.11"; // "192.168.43.223"; //"10.0.2.2"; //
+    public final let DOMAIN: String =  "whatsdown.in"; //"192.168.43.11"; // "192.168.43.223"; //"10.0.2.2"; //
     public final let ADDRESS: String
     public final let CART: String
     public final let ADD_TO_CART: String
@@ -32,6 +32,12 @@ class Site {
     public final let UPDATE_WALLET_ADDRESS: String
     public final let WALLET_ADDRESS: String
     public final let PHUCK_GAMERS: String
+    public final let ADD_TO_WISH_LIST: String
+    public final let REMOVE_FROM_WISH_LIST: String
+    public final let WISH_LIST: String
+    public final let BANNERS: String
+    public final let COMPLETE_ORDER_PAGE: String
+    public final let APPLY_REWARD: String
     
     init() {
         ADDRESS = PROTOCOL + "://" + DOMAIN + "/";
@@ -54,6 +60,12 @@ class Site {
         UPDATE_WALLET_ADDRESS = ADDRESS + "wp-json/skye-api/v1/update-wallet-address/";
         WALLET_ADDRESS = ADDRESS + "wp-json/skye-api/v1/wallet-address/";
         PHUCK_GAMERS = ADDRESS + "wp-json/phuck-gamers/";
+        ADD_TO_WISH_LIST = ADDRESS + "wp-json/skye-api/v1/add-to-wishlist/";
+        REMOVE_FROM_WISH_LIST = ADDRESS + "wp-json/skye-api/v1/remove-from-wishlist/";
+        WISH_LIST = ADDRESS + "wp-json/skye-api/v1/wishlists/";
+        BANNERS = ADDRESS + "wp-json/skye-api/v1/banners/";
+        COMPLETE_ORDER_PAGE = ADDRESS + "app-complete-order/";
+        APPLY_REWARD = ADDRESS + "wp-json/skye-api/v1/apply-cart-reward/";
     }
     
 

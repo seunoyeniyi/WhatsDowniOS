@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductCardCollectionViewCell" customModule="WhatsDown" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="VtF-4U-TyS">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="3le-Ef-DaK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHUCK OFF SANATA Unisex Long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKP-Rw-nG1">
+                        <rect key="frame" x="5" y="152" width="140" height="30.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From $5.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqq-Gk-A4T">
+                        <rect key="frame" x="5" y="190.5" width="140" height="14.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oqq-Gk-A4T" secondAttribute="trailing" constant="5" id="0k8-Am-6kp"/>
+                <constraint firstItem="sKP-Rw-nG1" firstAttribute="top" secondItem="VtF-4U-TyS" secondAttribute="bottom" constant="2" id="13T-6U-eGL"/>
+                <constraint firstItem="oqq-Gk-A4T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="3RJ-iA-iWq"/>
+                <constraint firstItem="VtF-4U-TyS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="E2Y-lr-8v9"/>
+                <constraint firstItem="sKP-Rw-nG1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Ivh-0g-N4k"/>
+                <constraint firstAttribute="trailing" secondItem="VtF-4U-TyS" secondAttribute="trailing" id="Jqy-H2-ivE"/>
+                <constraint firstAttribute="trailing" secondItem="sKP-Rw-nG1" secondAttribute="trailing" constant="5" id="XNz-Ym-uF4"/>
+                <constraint firstAttribute="bottom" secondItem="oqq-Gk-A4T" secondAttribute="bottom" constant="5" id="YAn-EF-Kbh"/>
+                <constraint firstItem="VtF-4U-TyS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZVK-3t-Efe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="97" height="125"/>
+            <connections>
+                <outlet property="productImage" destination="VtF-4U-TyS" id="UJH-a7-Q4V"/>
+                <outlet property="productPrice" destination="oqq-Gk-A4T" id="Hka-1G-asM"/>
+                <outlet property="productTitle" destination="sKP-Rw-nG1" id="7Dt-nd-epo"/>
+            </connections>
+            <point key="canvasLocation" x="48.5" y="89.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="sample_placeholder" width="800" height="600"/>
+    </resources>
+</document>

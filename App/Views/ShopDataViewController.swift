@@ -113,6 +113,7 @@ class ShopDataViewController: UIViewController {
             //after every thing
         }
     }
+ 
     @IBAction func refreshTapped(_ sender: Any) {
         fetchProducts(paged: defaultPaged, showDialog: true)
     }

@@ -34,6 +34,21 @@ extension UIViewController {
         self.tabBarController?.tabBar.layer.borderColor = UIColor.gray.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
+    
+    func setupNavLogo() {
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
+        let logo = UIImage(named: "WhatsDown-Black")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = logo
+        logoContainer.addSubview(imageView)
+        self.navigationItem.titleView = logoContainer
+    }
+    
+    func removeNavBarBorder() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
 
 

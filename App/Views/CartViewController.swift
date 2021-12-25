@@ -246,13 +246,7 @@ class CartViewController: UIViewController {
             self.present(checkoutController, animated: true, completion: nil)
         } else {
             let loginViewController = LoginViewController()
-            loginViewController.onDoneBlock = { logged in
-                //refresh userSession
-                self.userSession.reload()
-                if (self.userSession.logged()) {
-                    self.present(checkoutController, animated: true, completion: nil)
-                }
-            }
+            loginViewController.delegate = self
             self.present(loginViewController, animated: true)
         }
         
@@ -426,5 +420,14 @@ extension CartViewController: WebPaymentDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
-    
 }
+
+extension CartViewController: LoginDelegate {
+    func onLoginDone(logged: Bool) {
+        //refresh userSession
+        self.userSession.reload()
+    }
+}
+
+
+

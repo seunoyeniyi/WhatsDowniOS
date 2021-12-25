@@ -35,10 +35,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         setupMenuController()
         
-        loginViewController.onDoneBlock = { logged in
-            //refresh userSession
-            self.userSession.reload()
-        }
+       
         
     }
     

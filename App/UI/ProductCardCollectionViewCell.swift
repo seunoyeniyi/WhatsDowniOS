@@ -21,9 +21,13 @@ class ProductCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productPrice: UILabel!
     @IBOutlet var wishListBtn: WishListButton!
     
+    var cartNotification: UILabel!
+    
     var productID: String!
     var hasWishList: Bool = false
+    var parentView: UIView!
     
+    let userSession = UserSession()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +39,10 @@ class ProductCardCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBAction func wishListBtnTapped(_ sender: WishListButton) {
+        if (!userSession.logged()) {
+            parentView.makeToast("Please login first!")
+            return
+        }
         if (hasWishList) {
             self.cardDelegate?.updateWishlist(product_id: productID, action: "remove")
             hasWishList = false

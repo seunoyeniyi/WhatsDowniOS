@@ -108,81 +108,49 @@ class WishListButton: UIButton {
       
     }
 }
-//
-//class ShimmerView: UIView, CAAnimationDelegate {
-//
-//    override public class var layerClass: AnyClass { return CAGradientLayer.self }
-//
-//    var gradientLayer: CAGradientLayer { return layer as! CAGradientLayer }
-//
-//
-//    var gradientSet = [[CGColor]]()
-//    var currentGradient: Int = 0
-//
-//    let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-//    let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-//    let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
-//
-//
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupView()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        setupView()
-//    }
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        setupView()
-//    }
-//    override func awakeFromNib() {
-//        setupView()
-//    }
-//    override func prepareForInterfaceBuilder() {
-//        super.prepareForInterfaceBuilder()
-//        setupView()
-//    }
-//
-//    func setupView() {
-//
-//        gradientSet.append([gradientOne, gradientTwo])
-//        gradientSet.append([gradientTwo, gradientThree])
-//        gradientSet.append([gradientThree, gradientOne])
-//
-//        gradientLayer.colors = gradientSet[currentGradient]
-//        gradientLayer.startPoint = CGPoint(x:0, y:0)
-//        gradientLayer.endPoint = CGPoint(x:1, y:1)
-//        gradientLayer.drawsAsynchronously = true
-//
-//        //animate
-//        animateGradient()
-//
-//    }
-//
-//    func animateGradient() {
-//        if currentGradient < gradientSet.count - 1 {
-//            currentGradient += 1
-//        } else {
-//            currentGradient = 0
-//        }
-//
-//        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-//        gradientChangeAnimation.duration = 5.0
-//        gradientChangeAnimation.toValue = gradientSet[currentGradient]
-//        gradientChangeAnimation.fillMode = kCAFillModeForwards
-//        gradientChangeAnimation.isRemovedOnCompletion = false
-//        gradientLayer.add(gradientChangeAnimation, forKey: "colorChange")
-//    }
-//
-//    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-//        if flag {
-//            gradientLayer.colors = gradientSet[currentGradient]
-//            animateGradient()
-//        }
-//    }
-//
-//}
 
+class ListView: UIView {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        backgroundColor = UIColor(rgb: 0xF1F1F1)
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        backgroundColor = UIColor.white
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        backgroundColor = UIColor.white
+    }
+    
+}
+
+class BorderView: UIView {
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            setupView()
+        }
+    }
+    @IBInspectable var borderColor: UIColor = UIColor.black {
+        didSet {
+            setupView()
+        }
+    }
+    @IBInspectable var borderWidth: CGFloat = 1.0 {
+        didSet {
+            setupView()
+        }
+    }
+    override func awakeFromNib() {
+        setupView()
+    }
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
+    func setupView() {
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+    }
+}

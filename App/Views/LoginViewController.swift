@@ -11,8 +11,13 @@ import Alamofire
 import Toast_Swift
 import SwiftyJSON
 
-
+protocol LoginDelegate {
+    func onLoginDone(logged: Bool)
+}
 class LoginViewController: UIViewController {
+    
+    var delegate: LoginDelegate?
+    
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet var passwordField: UITextField!
@@ -20,7 +25,6 @@ class LoginViewController: UIViewController {
     
     
     let userSession = UserSession()
-    var onDoneBlock : ((Bool) -> Void)?
     let registerViewController = RegisterViewController()
     
     override func viewDidLoad() {
@@ -31,8 +35,10 @@ class LoginViewController: UIViewController {
         
         registerViewController.onDoneBlock = { registered in
             if registered {
-                self.onDoneBlock!(true)
-                self.dismiss(animated: false, completion: nil)
+                
+                self.dismiss(animated: false, completion: {
+                    self.delegate?.onLoginDone(logged: true)
+                })
             }
         }
         
@@ -85,9 +91,10 @@ class LoginViewController: UIViewController {
                     self.userSession.createLoginSession(userID: json["ID"].stringValue, xusername: data["user_login"].stringValue, xemail: data["user_email"].stringValue, logged: true)
                     self.view.makeToast("Welcome Back!")
                     self.userSession.reload()
-                    self.onDoneBlock!(true)
                     activityViewController.dismiss(animated: false, completion: nil)
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.onLoginDone(logged: true)
+                    })
 //                    print(data)
                 }
             } else {
@@ -106,8 +113,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func cancelTapped(_ sender: Any) {
-        self.onDoneBlock!(false)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.onLoginDone(logged: false)
+        })
     }
     
     

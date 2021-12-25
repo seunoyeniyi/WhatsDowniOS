@@ -20,6 +20,13 @@ class MainViewController: UIViewController {
     @IBOutlet var bannerRefreshBtn: UIButton!
     @IBOutlet var productsShimmer: UIView!
     @IBOutlet var productRefreshBtn: UIButton!
+    @IBOutlet var topCartBtn: UIBarButtonItem!
+    
+    let transition = SlideInTransition()
+    var menuViewController: MenuViewController!
+    let loginViewController = LoginViewController()
+    
+    var cartNotification: UILabel!
     
     
     let bannerReuseIdentifier: String = "BannerCollectionViewCell"
@@ -38,6 +45,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupMenuController()
         self.setupNavLogo()
         self.removeNavBarBorder()
         
@@ -53,9 +61,20 @@ class MainViewController: UIViewController {
         self.productCollectionView.delegate = self
         self.productCollectionView.dataSource = self
         
+        setupCartNotification()
+        
         fetchBanners()
         fetchProducts(paged: defaultPaged, shim: true)
         
+    }
+    
+    func setupMenuController() {
+        transition.myDelegate = self
+        self.modalPresentationStyle = .fullScreen
+        menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        menuViewController.delegate = self
     }
     
     func fetchBanners() {
@@ -78,7 +97,7 @@ class MainViewController: UIViewController {
                 //check if the result has a value
                 if let json_result = response.result.value {
                     let json = JSON(json_result)
-                    print(json)
+                    //print(json)
                     let banners = json["results"]
                     
                     if (banners.count > 0) {
@@ -137,7 +156,10 @@ class MainViewController: UIViewController {
             self.productRefreshBtn.isHidden = true
         }
         
-        let url = Site.init().SIMPLE_PRODUCTS + "?orderby=popularity&per_page=20&paged=\(paged)";
+        var url = Site.init().SIMPLE_PRODUCTS + "?orderby=popularity&per_page=20&paged=\(paged)";
+        if (userSession.logged()) {
+            url += "&user_id=" + userSession.ID;
+        }
         
        
         Alamofire.request(url).responseJSON { (response) -> Void in
@@ -209,6 +231,73 @@ class MainViewController: UIViewController {
         fetchProducts(paged: currentPaged, shim: true)
     }
     
+    @IBAction func newReleaseViewAllTapped(_ sender: Any) {
+    }
+    @IBAction func trendingViewAllTapped(_ sender: Any) {
+    }
+    @IBAction func endViewAllTapped(_ sender: Any) {
+    }
+    
+    
+    @IBAction func menuTapped(_ sender: Any) {
+        //to avoid bad width sizing
+        menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        menuViewController.delegate = self
+        present(menuViewController, animated: true)
+    }
+    
+    func login() {
+        self.present(loginViewController, animated: true)
+    }
+    
+    @objc func cartMenuTapped(_ sender: UIButton) {
+        
+    }
+    
+    func setupCartNotification() {
+        let filterBtn = UIButton(type: .system)
+        filterBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        filterBtn.setImage(UIImage(named: "icons8_shopping_bag")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        filterBtn.tintColor = UIColor.black
+        filterBtn.addTarget(self, action: #selector(cartMenuTapped(_:)), for: .touchUpInside)
+        
+        cartNotification = UILabel.init(frame: CGRect.init(x: 20, y: 2, width: 15, height: 15))
+        cartNotification.backgroundColor = UIColor.black
+        cartNotification.clipsToBounds = true
+        cartNotification.layer.cornerRadius = 7
+        cartNotification.textColor = UIColor.white
+        cartNotification.font = cartNotification.font.withSize(10)
+        cartNotification.textAlignment = .center
+        cartNotification.text = "0"
+        filterBtn.addSubview(cartNotification)
+        topCartBtn.customView = filterBtn
+        
+        cartNotification.isHidden = true //hidden by default
+        
+        //update cartNofication from server
+        updateCartNotification()
+    }
+    
+    
+    func updateCartNotification() {
+        let url = Site.init().CART + userSession.ID
+        
+        Alamofire.request(url).responseJSON { (response) -> Void in
+            //check if the result has a value
+            if let json_result = response.result.value {
+                let json = JSON(json_result)
+                if (json["contents_count"].intValue > 0) {
+                    self.cartNotification.text = json["contents_count"].stringValue
+                    self.cartNotification.isHidden = false
+                } else {
+                    self.cartNotification.isHidden = true
+                }
+            }
+        }
+    }
+    
 }
 
 
@@ -231,6 +320,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else { //else for product
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as! ProductCardCollectionViewCell
+            cell.parentView = self.view
             cell.cardDelegate = self
             cell.productID = self.products[indexPath.row]["ID"]!
             cell.hasWishList = self.products[indexPath.row]["in_wishlist"]! == "true"
@@ -251,7 +341,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.view.frame.size.width/2) - 25, height: 210)
+        if collectionView == self.bannerCollectionView {
+            return CGSize(width: 206, height: 178)
+        } else {
+            return CGSize(width: (self.view.frame.size.width/2) - 25, height: 210)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -263,12 +358,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell?.backgroundColor = UIColor(rgb: 0xFFFFFF)
     }
  
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if (indexPath.row == products.count - 5 && !self.productIsFetching) {
-//            let nextPage = self.currentPaged + 1
-//            fetchProducts(paged: nextPage, shim: false)
-//        }
-//    }
     
 }
 
@@ -282,3 +371,89 @@ extension MainViewController: ProductCardDelegate {
         
     }
 }
+
+
+
+//FOR MENU CONTROLLER
+extension MainViewController: ModalDelegate {
+    
+    
+    func menuItemsClicked(menuType: MenuType) {
+        switch menuType {
+        case .login:
+            self.login()
+            return
+        case .wishlist:
+            return
+        case .my_orders:
+            if (self.userSession.logged()) {
+                let orderController = OrdersViewController()
+                orderController.orderStatus = "all"
+                self.present(orderController, animated: true, completion: nil)
+            } else {
+                self.view.makeToast("Please login first!")
+            }
+        case .pending_delivery:
+            if (self.userSession.logged()) {
+                let orderController = OrdersViewController()
+                orderController.orderStatus = "processing"
+                self.present(orderController, animated: true, completion: nil)
+            } else {
+                self.view.makeToast("Please login first!")
+            }
+        case .pending_payments:
+            if (self.userSession.logged()) {
+                let orderController = OrdersViewController()
+                orderController.orderStatus = "pending"
+                self.present(orderController, animated: true, completion: nil)
+            } else {
+                self.view.makeToast("Please login first!")
+            }
+        case .completed_orders:
+            if (self.userSession.logged()) {
+                let orderController = OrdersViewController()
+                orderController.orderStatus = "complete"
+                self.present(orderController, animated: true, completion: nil)
+            } else {
+                self.view.makeToast("Please login first!")
+            }
+        case .shipping_address:
+            if (self.userSession.logged()) {
+                let profileAddress = ProfileAddressViewController()
+                self.present(profileAddress, animated: true, completion: nil)
+            } else {
+                self.view.makeToast("Please login first!")
+            }
+            return
+        case .about_us:
+            let browser = BrowserViewController()
+            browser.headTitle = "About us"
+            browser.url = Site.init().ADDRESS + "about-us"
+            self.present(browser, animated: true, completion: nil)
+            return
+        case .logout:
+            self.userSession.logout()
+            self.userSession.reload()
+        }
+    }
+}
+
+extension MainViewController: MySlideTransitionDelegate {
+    func onBackTapped() { //on menu back tapped
+        menuViewController.myDismiss()
+    }
+    
+    
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return self.transition
+    }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return self.transition
+    }
+}
+

@@ -32,6 +32,8 @@ class MainViewController: UIViewController {
     var currentPaged: Int = 1
     
     var productIsFetching = false
+    
+    let userSession = UserSession()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +137,7 @@ class MainViewController: UIViewController {
             self.productRefreshBtn.isHidden = true
         }
         
-        let url = Site.init().SIMPLE_PRODUCTS + "?per_page=20&paged=\(paged)";
+        let url = Site.init().SIMPLE_PRODUCTS + "?orderby=popularity&per_page=20&paged=\(paged)";
         
        
         Alamofire.request(url).responseJSON { (response) -> Void in
@@ -152,6 +154,9 @@ class MainViewController: UIViewController {
                     let product_type = subJson["product_type"].stringValue;
                     let ptype = subJson["type"].stringValue;
                     let description = subJson["description"].stringValue;
+                    let in_wishlist = subJson["in_wishlist"].stringValue;
+//                    let categories = subJson["categories"].stringValue;
+                    let stock_status = subJson["stock_status"].stringValue;
                     
                     self.products.append([
                         "ID": id,
@@ -161,14 +166,15 @@ class MainViewController: UIViewController {
                         "product_type": product_type,
                         "type": ptype,
                         "description": description,
+                        "in_wishlist": in_wishlist,
+                        "stock_status": stock_status
                         ])
                 }
                 
                 DispatchQueue.main.async {
                     self.productCollectionView.reloadData()
-                
-                    self.productCollectionViewHeightC.constant = CGFloat(150 * (self.products.count / 2))
-                    self.productCollectionView.setNeedsLayout()
+                    self.productCollectionViewHeightC.constant = CGFloat((210 + 15) * 10)
+//                    self.productCollectionView.layoutIfNeeded()
                 }
                 
                 if json["pagination"].exists() {
@@ -225,6 +231,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else { //else for product
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as! ProductCardCollectionViewCell
+            cell.cardDelegate = self
+            cell.productID = self.products[indexPath.row]["ID"]!
+            cell.hasWishList = self.products[indexPath.row]["in_wishlist"]! == "true"
             cell.productImage.pin_setImage(from: URL(string: self.products[indexPath.row]["image"]!))
             cell.productTitle.text = self.products[indexPath.row]["name"]!
             
@@ -254,11 +263,22 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell?.backgroundColor = UIColor(rgb: 0xFFFFFF)
     }
  
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (indexPath.row == products.count - 5 && !self.productIsFetching) {
-            let nextPage = self.currentPaged + 1
-            fetchProducts(paged: nextPage, shim: false)
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if (indexPath.row == products.count - 5 && !self.productIsFetching) {
+//            let nextPage = self.currentPaged + 1
+//            fetchProducts(paged: nextPage, shim: false)
+//        }
+//    }
     
+}
+
+extension MainViewController: ProductCardDelegate {
+    func updateWishlist(product_id: String, action: String) {
+        if (userSession.logged()) {
+            self.doUpdateWishlist(user_id: userSession.ID, product_id: product_id, action: action)
+        } else {
+            self.view.makeToast("Please login first!")
+        }
+        
+    }
 }

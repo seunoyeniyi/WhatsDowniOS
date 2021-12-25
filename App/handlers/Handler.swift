@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 extension UIButton {
     func styleIt(radius: Double = 4.0) {
@@ -48,6 +49,31 @@ extension UIViewController {
     func removeNavBarBorder() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+
+    func doUpdateWishlist(user_id: String, product_id: String, action: String) {
+    
+        var url = Site.init().ADD_TO_WISH_LIST + user_id + "/" + product_id;
+        if (action == "remove") {
+            url = Site.init().REMOVE_FROM_WISH_LIST + user_id + "/" + product_id;
+        }
+        
+        let parameters: [String: AnyObject] = [:]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            (response:DataResponse) in
+            if let json_result = response.result.value {
+                let json = JSON(json_result)
+                if (action == "add") {
+                    if (json[""].count > 0) {
+                        self.view.makeToast("Added to wishlist!", image: UIImage(named: "icons8_checked"))
+                    }
+                } else {
+                    self.view.makeToast("Removed from wishlist!", image: UIImage(named: "icons8_checked"))
+                }
+            }
+        }
+        
     }
 }
 

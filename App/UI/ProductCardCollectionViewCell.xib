@@ -42,6 +42,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dE7-fo-K2m" customClass="WishListButton" customModule="WhatsDown" customModuleProvider="target">
+                        <rect key="frame" x="115" y="117" width="25" height="25"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="PCE-T1-U4z"/>
+                            <constraint firstAttribute="width" constant="25" id="g69-zn-UnE"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                        <state key="normal" image="icons8_heart_outline">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="wishListBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5gT-oa-jKP"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,6 +70,8 @@
                 <constraint firstAttribute="trailing" secondItem="sKP-Rw-nG1" secondAttribute="trailing" constant="5" id="XNz-Ym-uF4"/>
                 <constraint firstAttribute="bottom" secondItem="oqq-Gk-A4T" secondAttribute="bottom" constant="5" id="YAn-EF-Kbh"/>
                 <constraint firstItem="VtF-4U-TyS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZVK-3t-Efe"/>
+                <constraint firstItem="sKP-Rw-nG1" firstAttribute="top" secondItem="dE7-fo-K2m" secondAttribute="bottom" constant="10" id="e5S-c7-wWD"/>
+                <constraint firstAttribute="trailing" secondItem="dE7-fo-K2m" secondAttribute="trailing" constant="10" id="qPy-zX-SX8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="97" height="125"/>
@@ -62,11 +79,13 @@
                 <outlet property="productImage" destination="VtF-4U-TyS" id="UJH-a7-Q4V"/>
                 <outlet property="productPrice" destination="oqq-Gk-A4T" id="Hka-1G-asM"/>
                 <outlet property="productTitle" destination="sKP-Rw-nG1" id="7Dt-nd-epo"/>
+                <outlet property="wishListBtn" destination="dE7-fo-K2m" id="bCW-ue-Snm"/>
             </connections>
             <point key="canvasLocation" x="48.5" y="89.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="icons8_heart_outline" width="50" height="50"/>
         <image name="sample_placeholder" width="800" height="600"/>
     </resources>
 </document>

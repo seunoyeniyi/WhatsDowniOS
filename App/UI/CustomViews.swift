@@ -15,8 +15,8 @@ class ShimmerView: UIView {
     
         var gradientLayer: CAGradientLayer { return layer as! CAGradientLayer }
     
-    var gradientColorOne : CGColor = UIColor(white: 0.85, alpha: 1.0).cgColor
-    var gradientColorTwo : CGColor = UIColor(white: 0.95, alpha: 1.0).cgColor
+    var gradientColorOne : CGColor = UIColor(white: 0.95, alpha: 0.6).cgColor
+    var gradientColorTwo : CGColor = UIColor(white: 1, alpha: 0.6).cgColor
     
     
     
@@ -73,6 +73,41 @@ class DynamicHeightCollectionView: UICollectionView {
     }
 }
 
+class WishListButton: UIButton {
+    
+            override init(frame: CGRect) {
+                super.init(frame: frame)
+                setupView()
+            }
+    
+            required init?(coder aDecoder: NSCoder) {
+                super.init(coder: aDecoder)
+                setupView()
+            }
+            override func layoutSubviews() {
+                super.layoutSubviews()
+                setupView()
+            }
+            override func awakeFromNib() {
+                setupView()
+            }
+            override func prepareForInterfaceBuilder() {
+                super.prepareForInterfaceBuilder()
+                setupView()
+            }
+    
+        
+    func setupView() {
+        layer.shadowColor = UIColor(red: 0, green: 178/255, blue: 186/255, alpha: 1.0).cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = 1.0
+        layer.masksToBounds = false
+        layer.cornerRadius = 0.5 * bounds.size.width
+        
+      
+    }
+}
 //
 //class ShimmerView: UIView, CAAnimationDelegate {
 //

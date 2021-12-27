@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 
 
+
 class ProductViewController: UIViewController {
     
     
@@ -36,6 +37,8 @@ class ProductViewController: UIViewController {
     @IBOutlet var attrTableViewHeightC: NSLayoutConstraint!
     @IBOutlet var cartActivity: UIActivityIndicatorView!
     @IBOutlet var refreshBtn: UIButton!
+    @IBOutlet var wishListBtn: WishListButton!
+    @IBOutlet var galleryCollectionView: UICollectionView!
     
     let userSession = UserSession()
     
@@ -48,6 +51,8 @@ class ProductViewController: UIViewController {
     var productType: String!
     var productType2: String!
     var productDescription: String!
+    var in_wishlist: Bool = false
+    var parentID: String!
 
     var cartProductID: String!
     
@@ -55,6 +60,8 @@ class ProductViewController: UIViewController {
     
     var cartNotification: UILabel!
     
+    let galleryReuseIdentifier = "GalleryCollectionViewCell"
+    var galleries: Array<String> = []
     
     var attributes: Array<Dictionary<String, Any>> = []
     let attributeCellReuseIdentifier = "AttributeTableViewCell"
@@ -64,18 +71,50 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.parentID = productID //for the first tiem
+        
+        topNavigationBar.setBackgroundImage(UIImage(), for: .default)
+        topNavigationBar.shadowImage = UIImage()
+        topNavigationBar.isTranslucent = true
+        topNavigationBar.backgroundColor = .clear
+        
         
         setBackButton()
         setupCartNotification()
         
         self.theCart.delegate = self
+        
+        
+        self.galleries.append(productImage) //add the comming url first
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: (self.view.frame.size.width - 50), height: 400)
+        self.galleryCollectionView.collectionViewLayout = layout
+        let galleryCell = UINib(nibName: galleryReuseIdentifier, bundle: nil)
+        self.galleryCollectionView.register(galleryCell, forCellWithReuseIdentifier: galleryReuseIdentifier)
+        
+        self.galleryCollectionView.delegate = self
+        self.galleryCollectionView.dataSource = self
+        
+        
+        
+        
+        
 
+        //wishlist button
+        if (in_wishlist) {
+            self.wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
+        } else {
+            self.wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
+        }
+        
 
         thumbnailView.pin_setImage(from: URL(string: productImage)!)
         titleLabel.text = productName
         descriptionLabel.attributedText = productDescription.htmlToAttributedString
         cartProductID = productID
-        styleThisBtn(btn: addToCartBtn)
+      
         
         let attrCell = UINib(nibName: attributeCellReuseIdentifier, bundle: nil)
         self.attributesTableView.register(attrCell, forCellReuseIdentifier: attributeCellReuseIdentifier)
@@ -121,6 +160,7 @@ class ProductViewController: UIViewController {
     
     
     
+    
     func fetchDetail() {
         if (!Connectivity.isConnectedToInternet) {
             self.view.makeToast("Bad internet connection!")
@@ -152,6 +192,18 @@ class ProductViewController: UIViewController {
             if let json_result = response.result.value {
                 let json = JSON(json_result)
                 
+                //set galleries
+                self.galleries = []
+                self.galleries.append(self.productImage)//add the thumbnail
+                
+                for (_, url): (String, JSON) in json["gallery_images"] {
+                    self.galleries.append(url.stringValue)
+                }
+                DispatchQueue.main.async {
+                    self.galleryCollectionView.reloadData()
+                }
+                
+                
                 //for category tag after titlte
                 let categories = json["categories"]
                 if (categories.count > 0) {
@@ -159,8 +211,10 @@ class ProductViewController: UIViewController {
                     self.categoryLabel.text = category["name"].stringValue
                 }
                 
+                
+                
                 if (json["type"].stringValue == "variable" || json["product_type"].stringValue == "variable") {
-                    self.priceLabel.text = "From " + Site.init().CURRENCY + json["price"].stringValue
+                    self.priceLabel.text = "From " + Site.init().CURRENCY + PriceFormatter.format(price: json["price"].stringValue)
                     self.variations = json["variations"]
                     //update attributes table view
                     let attributes = json["attributes"];
@@ -177,7 +231,7 @@ class ProductViewController: UIViewController {
                         self.attributesTableView.isHidden = false
                     }
                 } else { //simple product
-                    self.priceLabel.text = Site.init().CURRENCY + json["price"].stringValue
+                    self.priceLabel.text = Site.init().CURRENCY + PriceFormatter.format(price: json["price"].stringValue)
                 }
                 
                 
@@ -237,9 +291,29 @@ class ProductViewController: UIViewController {
     }
     
     
+    @IBAction func wishListBtnTapped(_ sender: WishListButton) {
+        if (userSession.logged()) {
+
+            
+            if (in_wishlist) {
+                self.doUpdateWishlist(user_id: userSession.ID, product_id: self.parentID, action: "remove")
+                self.in_wishlist = false
+                self.wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
+            } else {
+                self.doUpdateWishlist(user_id: userSession.ID, product_id: self.parentID, action: "add")
+                self.in_wishlist = true
+                self.wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
+            }
+            
+        } else {
+            self.view.makeToast("Please login first!")
+        }
+        
+        
+    }
     
     @objc func backTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissWithCondition(animated: true, completion: nil)
     }
     //to hide default navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -253,18 +327,18 @@ class ProductViewController: UIViewController {
     
     @objc func cartMenuTapped(_ sender: UIButton) {
         let cartPage = CartViewController()
-        self.present(cartPage, animated: false)
+        self.presentWithCondition(controller: cartPage, animated: true, completion: nil)
     }
     
     func setupCartNotification() {
         let filterBtn = UIButton(type: .system)
         filterBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        filterBtn.setImage(UIImage(named: "icons8_shopping_cart")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        filterBtn.setImage(UIImage(named: "icons8_shopping_bag")?.withRenderingMode(.alwaysTemplate), for: .normal)
         filterBtn.tintColor = UIColor.black
         filterBtn.addTarget(self, action: #selector(cartMenuTapped(_:)), for: .touchUpInside)
         
         self.cartNotification = UILabel.init(frame: CGRect.init(x: 20, y: 2, width: 15, height: 15))
-        self.cartNotification.backgroundColor = UIColor.red
+        self.cartNotification.backgroundColor = UIColor.black
         self.cartNotification.clipsToBounds = true
         self.cartNotification.layer.cornerRadius = 7
         self.cartNotification.textColor = UIColor.white
@@ -298,15 +372,6 @@ class ProductViewController: UIViewController {
         }
     }
 
-    
-    func styleThisBtn(btn: UIButton) {
-        btn.layer.shadowColor = UIColor(red: 0, green: 178/255, blue: 186/255, alpha: 1.0).cgColor
-        btn.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        btn.layer.shadowOpacity = 0.5
-        btn.layer.shadowRadius = 1.0
-        btn.layer.masksToBounds = false
-        btn.layer.cornerRadius = 4.0
-    }
 
 }
 
@@ -319,7 +384,7 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.attributesTableView.dequeueReusableCell(withIdentifier: attributeCellReuseIdentifier) as! AttributeTableViewCell
-        cell.titleLabel?.text = self.attributes[indexPath.row]["label"] as? String
+        cell.titleLabel?.text = (self.attributes[indexPath.row]["label"] as? String)?.capitalizingFirstLetter()
         cell.attributeName = self.attributes[indexPath.row]["name"] as? String
         cell.attributeDelegate = self
         
@@ -376,7 +441,7 @@ extension ProductViewController: AttributeSelect {
                 //now let compare selectedOptions with each compareAttributes in the loop
                 if NSDictionary(dictionary: selectedOptions).isEqual(to: compareAttributes) {
                     matchFound = true
-                    self.attributePriceLabel.text = "$" + variation["price"].stringValue
+                    self.attributePriceLabel.text = "$" + PriceFormatter.format(price: variation["price"].stringValue)
                     self.cartProductID = variation["ID"].stringValue
                     self.attributePriceLabel.isHidden = false
                     self.attributePriceLabelHeightC.constant = 20
@@ -416,3 +481,40 @@ extension ProductViewController: AddToCartDelegate {
     
     
 }
+
+
+
+
+
+
+extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.galleries.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: galleryReuseIdentifier, for: indexPath) as! GalleryCollectionViewCell
+                cell.imageItem.pin_setImage(from: URL(string: self.galleries[indexPath.row]))
+            
+            return cell
+  
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (self.galleries.count > 1) {
+            return CGSize(width: (self.view.frame.size.width - 50), height: 400)
+        } else {
+            return CGSize(width: self.view.frame.size.width, height: 400)
+        }
+        
+    }
+    
+   
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       //did selected
+    }
+    
+}
+

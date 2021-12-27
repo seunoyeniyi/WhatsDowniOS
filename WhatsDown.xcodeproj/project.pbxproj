@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		23FE67E9A68237279E50229B /* Pods_WhatsDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4186ADFF57BCA7D8D7593893 /* Pods_WhatsDown.framework */; };
+		D6023612277A307E00BB51A6 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6023610277A307E00BB51A6 /* GalleryCollectionViewCell.swift */; };
+		D6023613277A307E00BB51A6 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6023611277A307E00BB51A6 /* GalleryCollectionViewCell.xib */; };
+		D6023616277A3AB000BB51A6 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6023614277A3AB000BB51A6 /* WishlistViewController.swift */; };
+		D6023617277A3AB000BB51A6 /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6023615277A3AB000BB51A6 /* WishlistViewController.xib */; };
 		D609C4452770E8E000DC5FDE /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609C4432770E8E000DC5FDE /* OrdersViewController.swift */; };
 		D609C4462770E8E000DC5FDE /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D609C4442770E8E000DC5FDE /* OrdersViewController.xib */; };
 		D609C4492770F19900DC5FDE /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609C4472770F19900DC5FDE /* OrdersTableViewCell.swift */; };
@@ -66,6 +70,10 @@
 		D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */; };
 		D6B7079E276E993B000F5E2C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B7079D276E993B000F5E2C /* MainTabBarController.swift */; };
 		D6BAC13E27380035001A4825 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC13D27380035001A4825 /* Site.swift */; };
+		D6BB354A2779B26400F777FD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB35482779B26400F777FD /* SearchViewController.swift */; };
+		D6BB354B2779B26400F777FD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BB35492779B26400F777FD /* SearchViewController.xib */; };
+		D6BB354E2779CCD600F777FD /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB354C2779CCD600F777FD /* ShopViewController.swift */; };
+		D6BB354F2779CCD600F777FD /* ShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BB354D2779CCD600F777FD /* ShopViewController.xib */; };
 		D6C176422730B8D800714298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C176412730B8D800714298 /* AppDelegate.swift */; };
 		D6C176442730B8D800714298 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C176432730B8D800714298 /* MainHomeViewController.swift */; };
 		D6C176492730B8D800714298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C176472730B8D800714298 /* Main.storyboard */; };
@@ -97,6 +105,10 @@
 		4186ADFF57BCA7D8D7593893 /* Pods_WhatsDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D23E005CC0819F846DF08F /* Pods-WhatsDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsDown.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsDown/Pods-WhatsDown.debug.xcconfig"; sourceTree = "<group>"; };
 		8ED296CD83F0E76909DB3370 /* Pods-WhatsDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsDown.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsDown/Pods-WhatsDown.release.xcconfig"; sourceTree = "<group>"; };
+		D6023610277A307E00BB51A6 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6023611277A307E00BB51A6 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		D6023614277A3AB000BB51A6 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		D6023615277A3AB000BB51A6 /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
 		D609C4432770E8E000DC5FDE /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		D609C4442770E8E000DC5FDE /* OrdersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersViewController.xib; sourceTree = "<group>"; };
 		D609C4472770F19900DC5FDE /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +167,10 @@
 		D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeTableViewCell.xib; sourceTree = "<group>"; };
 		D6B7079D276E993B000F5E2C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D6BAC13D27380035001A4825 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		D6BB35482779B26400F777FD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D6BB35492779B26400F777FD /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		D6BB354C2779CCD600F777FD /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		D6BB354D2779CCD600F777FD /* ShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopViewController.xib; sourceTree = "<group>"; };
 		D6C1763E2730B8D800714298 /* WhatsDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C176412730B8D800714298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C176432730B8D800714298 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +261,8 @@
 				D630784927790088000DC955 /* ProductsShimmerController.xib */,
 				D630784C27791327000DC955 /* FilterViewController.swift */,
 				D630784D27791327000DC955 /* FilterViewController.xib */,
+				D6023610277A307E00BB51A6 /* GalleryCollectionViewCell.swift */,
+				D6023611277A307E00BB51A6 /* GalleryCollectionViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -347,6 +365,12 @@
 				D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */,
 				D6F120742778D08B00BBAE59 /* ArchiveViewController.swift */,
 				D6F120752778D08B00BBAE59 /* ArchiveViewController.xib */,
+				D6BB35482779B26400F777FD /* SearchViewController.swift */,
+				D6BB35492779B26400F777FD /* SearchViewController.xib */,
+				D6BB354C2779CCD600F777FD /* ShopViewController.swift */,
+				D6BB354D2779CCD600F777FD /* ShopViewController.xib */,
+				D6023614277A3AB000BB51A6 /* WishlistViewController.swift */,
+				D6023615277A3AB000BB51A6 /* WishlistViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -433,7 +457,9 @@
 				D6C1764E2730B8D800714298 /* LaunchScreen.storyboard in Resources */,
 				D630784F27791327000DC955 /* FilterViewController.xib in Resources */,
 				D66BF9E82771FEAE001CA06F /* OrderViewController.xib in Resources */,
+				D6BB354F2779CCD600F777FD /* ShopViewController.xib in Resources */,
 				D6F120772778D08B00BBAE59 /* ArchiveViewController.xib in Resources */,
+				D6BB354B2779B26400F777FD /* SearchViewController.xib in Resources */,
 				D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */,
 				D66BF9EC277238B3001CA06F /* OrderItemsTableViewCell.xib in Resources */,
 				D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */,
@@ -448,9 +474,11 @@
 				D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */,
 				D689ABB1276225CE009CA318 /* CartTableViewCell.xib in Resources */,
 				D6328F48274B82840034DA73 /* ProductViewController.xib in Resources */,
+				D6023613277A307E00BB51A6 /* GalleryCollectionViewCell.xib in Resources */,
 				D6FCB12A277640120042FBCC /* ProductCardCollectionViewCell.xib in Resources */,
 				D6C176492730B8D800714298 /* Main.storyboard in Resources */,
 				D630784B27790088000DC955 /* ProductsShimmerController.xib in Resources */,
+				D6023617277A3AB000BB51A6 /* WishlistViewController.xib in Resources */,
 				D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */,
 				D67F87142775C3F3009BF4A7 /* README.md in Resources */,
 				D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */,
@@ -524,12 +552,15 @@
 				D6302899276D66FD00AB6642 /* WebPaymentViewController.swift in Sources */,
 				D68C83C2274AD0050034E300 /* ProductCollectionViewCell.swift in Sources */,
 				D6C4E05227373AD200A49BB3 /* LoginViewController.swift in Sources */,
+				D6023616277A3AB000BB51A6 /* WishlistViewController.swift in Sources */,
 				D613F8692764E13600F84AE7 /* CheckoutAddressViewController.swift in Sources */,
+				D6BB354E2779CCD600F777FD /* ShopViewController.swift in Sources */,
 				D681A6412741597E0073D0C3 /* PageCategoryCollectionViewCell.swift in Sources */,
 				D689ABB0276225CE009CA318 /* CartTableViewCell.swift in Sources */,
 				D6EE047927627219001A88DA /* AddToCart.swift in Sources */,
 				D637F678274FD09A00CF5A57 /* Handler.swift in Sources */,
 				D6FCB12C2776468D0042FBCC /* CustomViews.swift in Sources */,
+				D6023612277A307E00BB51A6 /* GalleryCollectionViewCell.swift in Sources */,
 				D618744527754D9E000EE4DF /* MainSearchViewController.swift in Sources */,
 				D681A63C274047270073D0C3 /* ShopPageViewController.swift in Sources */,
 				D618744B277551EF000EE4DF /* MainCartViewController.swift in Sources */,
@@ -562,6 +593,7 @@
 				D6C176422730B8D800714298 /* AppDelegate.swift in Sources */,
 				D67F871C2775CD7F009BF4A7 /* MainViewController.swift in Sources */,
 				D66BF9F32772670B001CA06F /* ProfileAddressViewController.swift in Sources */,
+				D6BB354A2779B26400F777FD /* SearchViewController.swift in Sources */,
 				D609C4452770E8E000DC5FDE /* OrdersViewController.swift in Sources */,
 				D618744727754DB0000EE4DF /* MainAccountViewController.swift in Sources */,
 				D6C176442730B8D800714298 /* MainHomeViewController.swift in Sources */,

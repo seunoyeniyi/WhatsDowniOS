@@ -27,7 +27,12 @@ class MainViewController: UIViewController {
     let loginViewController = LoginViewController()
     var orderController = OrdersViewController()
     let profileAddress = ProfileAddressViewController()
-    let browser = BrowserViewController()
+    var browser = BrowserViewController()
+    var searchController = SearchViewController()
+    var shopController = ShopViewController()
+    var productPage = ProductViewController()
+    var cartController = CartViewController()
+    var wishlistController = WishlistViewController()
     
     var cartNotification: UILabel!
     
@@ -207,7 +212,7 @@ class MainViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.productCollectionView.reloadData()
-                    self.productCollectionViewHeightC.constant = CGFloat((210 + 15) * 10)
+                    self.productCollectionViewHeightC.constant = CGFloat((210 + 10) * 10)
 //                    self.productCollectionView.layoutIfNeeded()
                 }
                 
@@ -246,12 +251,29 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func newReleaseViewAllTapped(_ sender: Any) {
-    }
-    @IBAction func trendingViewAllTapped(_ sender: Any) {
-    }
-    @IBAction func endViewAllTapped(_ sender: Any) {
+        shopController = ShopViewController()
+        shopController.sort_by = "date"
+        self.presentWithCondition(controller: shopController, animated: true, completion: nil)
     }
     
+    @IBAction func trendingViewAllTapped(_ sender: Any) {
+        let shopController = ShopViewController()
+        shopController.sort_by = "popularity"
+        self.presentWithCondition(controller: shopController, animated: true, completion: nil)
+    }
+    @IBAction func endViewAllTapped(_ sender: Any) {
+        shopController = ShopViewController()
+        self.presentWithCondition(controller: shopController, animated: true, completion: nil)
+    }
+    
+    @IBAction func searchTapped(_ sender: Any) {
+        searchController = SearchViewController()
+        if (self.isModal) {
+            self.present(searchController, animated: true, completion: nil)
+        } else {
+            self.navigationController?.pushViewController(searchController, animated: true)
+        }
+    }
     
     @IBAction func menuTapped(_ sender: Any) {
         //to avoid bad width sizing
@@ -266,8 +288,10 @@ class MainViewController: UIViewController {
         self.present(loginViewController, animated: true)
     }
     
+    
     @objc func cartMenuTapped(_ sender: UIButton) {
-        
+        cartController = CartViewController()
+        self.presentWithCondition(controller: cartController, animated: true, completion: nil)
     }
     
     func setupCartNotification() {
@@ -312,7 +336,14 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.userSession.reload()
+        self.updateCartNotification()
+    }
+    
 }
+
+
 
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -391,11 +422,28 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 archiveController.category_title = cat_title
                 archiveController.category_description = self.banners[indexPath.row]["description"]!
                 self.navigationController?.pushViewController(archiveController, animated: true)
+            } else if (self.banners[indexPath.row]["on_click_to"]! == "shop") {
+                shopController = ShopViewController()
+                self.presentWithCondition(controller: shopController, animated: true, completion: nil)
+            } else if (self.banners[indexPath.row]["on_click_to"]! == "url") {
+                browser = BrowserViewController()
+                browser.url = self.banners[indexPath.row]["url"]!
+                self.presentWithCondition(controller: browser, animated: true, completion: nil)
             }
             
             
         } else { //for products
             
+            productPage = ProductViewController()
+            productPage.productID = self.products[indexPath.item]["ID"]!
+            productPage.productName = self.products[indexPath.item]["name"]!
+            productPage.productImage = self.products[indexPath.item]["image"]!
+            productPage.productPrice = self.products[indexPath.item]["price"]!
+            productPage.productType = self.products[indexPath.item]["product_type"]!
+            productPage.productType2 = self.products[indexPath.item]["type"]!
+            productPage.productDescription = self.products[indexPath.item]["description"]!
+            productPage.in_wishlist = self.products[indexPath.item]["in_wishlist"]! == "true"
+            self.presentWithCondition(controller: productPage, animated: true, completion: nil)
             
             
         }
@@ -431,6 +479,8 @@ extension MainViewController: ModalDelegate {
             self.login()
             return
         case .wishlist:
+            wishlistController = WishlistViewController()
+            self.presentWithCondition(controller: wishlistController, animated: true, completion: nil)
             return
         case .orders:
             if (self.userSession.logged()) {

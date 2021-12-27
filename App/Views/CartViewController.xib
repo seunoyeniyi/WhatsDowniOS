@@ -5,11 +5,12 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Phuck_Brand" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="WhatsDown" customModuleProvider="target">
             <connections>
                 <outlet property="applyCouponBtn" destination="bSV-vG-FbS" id="yba-kE-ner"/>
                 <outlet property="carNavigationBar" destination="3nu-IB-9kE" id="JTy-uC-B5G"/>
@@ -48,7 +49,7 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Cart" id="KfY-7I-xtJ">
-                            <barButtonItem key="rightBarButtonItem" image="icons8_shopping_cart" id="I1F-xO-g13"/>
+                            <barButtonItem key="rightBarButtonItem" image="icons8_shopping_bag" id="I1F-xO-g13"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
@@ -79,7 +80,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-vG-FbS">
                                                     <rect key="frame" x="255" y="0.0" width="80" height="30"/>
-                                                    <color key="backgroundColor" red="0.84313725490000002" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="Primary"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="G5S-QK-fs3"/>
                                                     </constraints>
@@ -171,7 +172,7 @@
                                         </stackView>
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-Am-Gss">
                                             <rect key="frame" x="10" y="80" width="335" height="40"/>
-                                            <color key="backgroundColor" red="0.84313725490000002" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="Primary"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="xKQ-Tv-FkI"/>
                                             </constraints>
@@ -225,7 +226,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <state key="normal" title="CONTINUE SHOPPING">
-                                        <color key="titleColor" red="0.84313725490000002" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" name="Primary"/>
                                     </state>
                                     <connections>
                                         <action selector="continueShoppingTapped:" destination="-1" eventType="touchUpInside" id="gaS-6P-bAM"/>
@@ -245,7 +246,7 @@
                                 </activityIndicatorView>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utr-1I-i1T">
                                     <rect key="frame" x="127" y="80" width="120" height="29"/>
-                                    <color key="backgroundColor" red="0.84313725490000002" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="Primary"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="dJJ-KD-phR"/>
                                     </constraints>
@@ -308,6 +309,9 @@
         </view>
     </objects>
     <resources>
-        <image name="icons8_shopping_cart" width="20" height="20"/>
+        <image name="icons8_shopping_bag" width="20" height="20"/>
+        <namedColor name="Primary">
+            <color red="0.024000000208616257" green="0.0040000001899898052" blue="0.0040000001899898052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

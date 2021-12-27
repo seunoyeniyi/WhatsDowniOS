@@ -11,7 +11,7 @@ import SwiftyJSON
 import Toast_Swift
 import Alamofire
 
-class CartViewController: UIViewController {
+class CartViewController: NoBarViewController {
 
     @IBOutlet var carNavigationBar: UINavigationBar!
     @IBOutlet var cartNavigationItem: UINavigationItem!
@@ -100,7 +100,7 @@ class CartViewController: UIViewController {
         cartNavigationItem.leftBarButtonItems = [spacer, backBarButton]
     }
     @objc func backTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissWithCondition(animated: true, completion: nil)
     }
     
     
@@ -262,12 +262,12 @@ class CartViewController: UIViewController {
     func setupCartNotification() {
         let filterBtn = UIButton(type: .system)
         filterBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        filterBtn.setImage(UIImage(named: "icons8_shopping_cart")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        filterBtn.setImage(UIImage(named: "icons8_shopping_bag")?.withRenderingMode(.alwaysTemplate), for: .normal)
         filterBtn.tintColor = UIColor.black
         filterBtn.addTarget(self, action: #selector(cartMenuTapped(_:)), for: .touchUpInside)
         
         self.cartNotification = UILabel.init(frame: CGRect.init(x: 20, y: 2, width: 15, height: 15))
-        self.cartNotification.backgroundColor = UIColor.red
+        self.cartNotification.backgroundColor = UIColor.black
         self.cartNotification.clipsToBounds = true
         self.cartNotification.layer.cornerRadius = 7
         self.cartNotification.textColor = UIColor.white

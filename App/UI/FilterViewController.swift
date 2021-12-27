@@ -43,6 +43,8 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        priceRangeLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: initialLower) + "  - " + Site.init().CURRENCY + PriceFormatter.format(price: initialUpper)
 
         priceSlider.frame = CGRect(x: 0, y: 0, width: sliderViewContainer.frame.width, height: sliderViewContainer.frame.height)
         priceSlider.minimumValue = 0.0

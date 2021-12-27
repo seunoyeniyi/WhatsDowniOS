@@ -77,6 +77,22 @@ extension UIViewController {
             }
         }
         
+    
+    }
+    
+    func presentWithCondition(controller: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        if (self.isModal) {
+            self.present(controller, animated: animated, completion: completion)
+        } else {
+            self.navigationController?.pushViewController(controller, animated: animated)
+        }
+    }
+    func dismissWithCondition(animated: Bool, completion: (() -> Void)?) {
+        if (self.isModal) {
+            self.dismiss(animated: animated, completion: completion)
+        } else {
+            self.navigationController?.popViewController(animated: animated)
+        }
     }
 
     var isModal: Bool {

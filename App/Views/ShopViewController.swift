@@ -1,33 +1,31 @@
 //
-//  ArchiveViewController.swift
+//  ShopViewController.swift
 //  WhatsDown
 //
-//  Created by Seun Oyeniyi on 12/26/21.
+//  Created by Seun Oyeniyi on 12/27/21.
 //  Copyright © 2021 Phuck Brand. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
+import iOSDropDown
 
-class ArchiveViewController: NoBarViewController {
+class ShopViewController: NoBarViewController {
     @IBOutlet var topNavigationItem: UINavigationItem!
     @IBOutlet var topCartBtn: UIBarButtonItem!
     @IBOutlet var productCollectionView: UICollectionView!
     @IBOutlet var productShimmerContainer: ShimmerViewContainer!
-    @IBOutlet var categoryTitleLbl: UILabel!
-    @IBOutlet var categoryDescription: UILabel!
     @IBOutlet var refreshBtn: UIButton!
     @IBOutlet var errorLbl: UILabel!
+    @IBOutlet var sortDropDown: DropDown!
     
     var cartNotification: UILabel!
     
     var category_name: String = ""
     var product_tag = ""
     var product_price_range: Array<String> = []
-    
-    var category_title: String = ""
-    var category_description: String = "Category" //for banner
+    var sort_by = "title menu_order"
     
     
     let productReuseIdentifier: String = "ProductCardCollectionViewCell"
@@ -50,9 +48,7 @@ class ArchiveViewController: NoBarViewController {
         super.viewDidLoad()
         
         self.setupNavLogo(theNavigationItem: self.topNavigationItem)
-        
-        categoryTitleLbl.text = category_title
-        categoryDescription.text = category_description
+    
         
         errorLbl.isHidden = true
         
@@ -73,13 +69,69 @@ class ArchiveViewController: NoBarViewController {
         
         filterController.delegate = self
         
-        fetchProducts(category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: defaultPaged, shim: true)
-    
+        let sortStrings: Array<String> = [
+            "Default sorting",
+            "Sort by Popularity",
+            "Sort by average rating",
+            "Sort by latest",
+            "Sort by price: low to high",
+            "Sort by price: hgih to low"
+        ]
+        
+        sortDropDown.optionArray = sortStrings
+        sortDropDown.isSearchEnable = false
+        sortDropDown.layer.borderWidth = 0
+        sortDropDown.layer.borderColor = UIColor.white.cgColor
+        sortDropDown.clipsToBounds = true
+        sortDropDown.borderColor = UIColor.white
+        sortDropDown.borderWidth = 0
+        
+        
+        sortDropDown.didSelect{(selectedText, index, id) in
+            switch index {
+            case 0:
+                self.sort_by = "title menu_order";
+            case 1:
+                self.sort_by = "popularity";
+            case 2:
+                self.sort_by = "rating";
+            case 3:
+                self.sort_by = "date";
+            case 4:
+                self.sort_by = "price";
+            case 5:
+                self.sort_by = "price-desc";
+            default:
+                self.sort_by = "title menu_order"
+            }
+            self.fetchProducts(sort: self.sort_by, category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: self.defaultPaged, shim: true, emptyProducts: true)
+        }
+        
+        switch self.sort_by {
+        case "title menu_order":
+            self.sortDropDown.text = sortStrings[0]
+        case "popularity":
+            self.sortDropDown.text = sortStrings[1]
+        case "rating":
+            self.sortDropDown.text = sortStrings[2]
+        case "date":
+            self.sortDropDown.text = sortStrings[3]
+        case  "price":
+            self.sortDropDown.text = sortStrings[4]
+        case "price-desc":
+            self.sortDropDown.text = sortStrings[5]
+        default:
+            self.sortDropDown.text = sortStrings[0]
+        }
+        
+        
+        fetchProducts(sort: self.sort_by, category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: defaultPaged, shim: true, emptyProducts: true)
+        
         
     }
     
     
-    func fetchProducts(category: String, tag: String, priceRange: Array<String>, paged: Int, shim: Bool, emptyProducts: Bool = false) {
+    func fetchProducts(sort: String, category: String, tag: String, priceRange: Array<String>, paged: Int, shim: Bool, emptyProducts: Bool = false) {
         if (!Connectivity.isConnectedToInternet) {
             self.view.makeToast("Bad internet connection!")
             if (shim) {
@@ -99,8 +151,22 @@ class ArchiveViewController: NoBarViewController {
             self.errorLbl.isHidden = true
         }
         
-       
+        
         var url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&user_id=" + userSession.ID;
+        
+        switch sort {
+        case "title menu_order":
+            url += ""//because it is doing shit here
+        case "price":
+            url += "&orderby=meta_value_num&meta_key=_price&order=asc"
+        case "price-desc":
+            url += "&orderby=meta_value_num&meta_key=_price&order=desc"
+        case "date":
+            url += "&orderby=date&order=DESC"
+        default:
+             url += "&orderby=" + sort + "&order=asc"
+        }
+        
         if (category.count > 0) {
             url += "&cat=" + category
         }
@@ -108,10 +174,10 @@ class ArchiveViewController: NoBarViewController {
             url += "&tag=" + tag
         }
         if (priceRange.count > 1) {
-            url += "&price_range=" + priceRange[0] + "|" + priceRange[1]
+            url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&user_id=" + userSession.ID + "&price_range=" + priceRange[0] + "|" + priceRange[1]
         }
         
-//        print(url)
+//                print(url)
         
         
         Alamofire.request(url).responseJSON { (response) -> Void in
@@ -181,8 +247,9 @@ class ArchiveViewController: NoBarViewController {
     }
     
     
+    
     @IBAction func refreshBtnTapped(_ sender: Any) {
-        fetchProducts(category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: currentPaged, shim: true, emptyProducts: true)
+        fetchProducts(sort: self.sort_by, category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: currentPaged, shim: true, emptyProducts: true)
     }
     @IBAction func backTapped(_ sender: Any) {
         if (self.isModal) {
@@ -191,7 +258,8 @@ class ArchiveViewController: NoBarViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-   
+    
+    
     @IBAction func filterTapped(_ sender: Any) {
         self.present(self.filterController, animated: false, completion: nil)
     }
@@ -203,7 +271,6 @@ class ArchiveViewController: NoBarViewController {
             self.navigationController?.pushViewController(searchController, animated: true)
         }
     }
-    
     
     @objc func cartMenuTapped(_ sender: UIButton) {
         cartController = CartViewController()
@@ -252,52 +319,51 @@ class ArchiveViewController: NoBarViewController {
         }
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         self.userSession.reload()
         self.updateCartNotification()
     }
+    
 }
 
 
 
-
-extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ShopViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
- 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as! ProductCardCollectionViewCell
-            cell.parentView = self.view
-            cell.cardDelegate = self
-            cell.productID = self.products[indexPath.row]["ID"]!
-            cell.hasWishList = self.products[indexPath.row]["in_wishlist"]! == "true"
-            cell.productImage.pin_setImage(from: URL(string: self.products[indexPath.row]["image"]!))
-            cell.productTitle.text = self.products[indexPath.row]["name"]!
-            
-            //variable
-            if self.products[indexPath.row]["product_type"]! == "variable" || self.products[indexPath.row]["type"]! == "variable" {
-                cell.productPrice.text = "From " + Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
-            } else { //single product
-                cell.productPrice.text = Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
-            }
-            //wishlist button
-            if (cell.hasWishList) {
-                cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
-            } else {
-                cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
-            }
-            
-            
-            return cell
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as! ProductCardCollectionViewCell
+        cell.parentView = self.view
+        cell.cardDelegate = self
+        cell.productID = self.products[indexPath.row]["ID"]!
+        cell.hasWishList = self.products[indexPath.row]["in_wishlist"]! == "true"
+        cell.productImage.pin_setImage(from: URL(string: self.products[indexPath.row]["image"]!))
+        cell.productTitle.text = self.products[indexPath.row]["name"]!
+        
+        //variable
+        if self.products[indexPath.row]["product_type"]! == "variable" || self.products[indexPath.row]["type"]! == "variable" {
+            cell.productPrice.text = "From " + Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
+        } else { //single product
+            cell.productPrice.text = Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
+        }
+        //wishlist button
+        if (cell.hasWishList) {
+            cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
+        } else {
+            cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
+        }
+        
+        
+        return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: (self.view.frame.size.width/2) - 25, height: 210)
+        return CGSize(width: (self.view.frame.size.width/2) - 25, height: 210)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -310,6 +376,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     //SELECTION
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         productPage = ProductViewController()
         productPage.productID = self.products[indexPath.item]["ID"]!
@@ -327,12 +394,12 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if (indexPath.row == self.products.count - 5 && !self.productIsFetching) {
             let nextPage = self.currentPaged + 1
-            fetchProducts(category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: nextPage, shim: false)
+            fetchProducts(sort: self.sort_by, category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: nextPage, shim: false)
         }
     }
 }
 
-extension ArchiveViewController: ProductCardDelegate {
+extension ShopViewController: ProductCardDelegate {
     func updateWishlist(product_id: String, action: String) {
         if (userSession.logged()) {
             self.doUpdateWishlist(user_id: userSession.ID, product_id: product_id, action: action)
@@ -344,27 +411,23 @@ extension ArchiveViewController: ProductCardDelegate {
 }
 
 
-extension ArchiveViewController: FilterDelegate {
+extension ShopViewController: FilterDelegate {
     func onFilterSubmit(category: String, tag: String, priceRange: Array<String>) {
-        if (category.count > 0) {
-            self.category_name = category
-            self.categoryTitleLbl.text = category.capitalizingFirstLetter().replacingOccurrences(of: "-", with: " ")
-            self.categoryDescription.text = "Category"
-        }
+
+        self.category_name = category
         
         self.product_tag = tag
-    
+        
         if (priceRange.count > 1) {
             self.product_price_range = priceRange
         }
         
         self.currentPaged = 1 //reset to 1
-      
-        self.fetchProducts(category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: self.currentPaged, shim: true, emptyProducts: true)
+        
+        self.fetchProducts(sort: self.sort_by, category: self.category_name, tag: self.product_tag, priceRange: self.product_price_range, paged: self.currentPaged, shim: true, emptyProducts: true)
         
     }
 }
-
 
 
 

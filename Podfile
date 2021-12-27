@@ -15,5 +15,6 @@ use_frameworks!
   #gonna use this when updated system: pod ‘GMStepper’
   #pod ‘MultiSlider’, ‘1.0.0’
   pod ‘WARangeSlider’
+
  
 end

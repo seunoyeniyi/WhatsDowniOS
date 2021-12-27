@@ -32,13 +32,10 @@ class ProductCardCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if (hasWishList) {
-            wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
-        } else {
-            wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
-        }
     }
     @IBAction func wishListBtnTapped(_ sender: WishListButton) {
+
+        userSession.reload()
         if (!userSession.logged()) {
             parentView.makeToast("Please login first!")
             return

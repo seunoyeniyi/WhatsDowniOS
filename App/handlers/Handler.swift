@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 extension UIButton {
     func styleIt(radius: Double = 4.0) {
@@ -36,14 +37,14 @@ extension UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
     }
     
-    func setupNavLogo() {
+    func setupNavLogo(theNavigationItem: UINavigationItem) {
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let logo = UIImage(named: "WhatsDown-Black")
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         imageView.contentMode = .scaleAspectFit
         imageView.image = logo
         logoContainer.addSubview(imageView)
-        self.navigationItem.titleView = logoContainer
+        theNavigationItem.titleView = logoContainer
     }
     
     func removeNavBarBorder() {
@@ -52,7 +53,9 @@ extension UIViewController {
     }
 
     func doUpdateWishlist(user_id: String, product_id: String, action: String) {
-    
+        var style = ToastStyle()
+        style.imageSize = CGSize(width: 20, height: 20)
+        
         var url = Site.init().ADD_TO_WISH_LIST + user_id + "/" + product_id;
         if (action == "remove") {
             url = Site.init().REMOVE_FROM_WISH_LIST + user_id + "/" + product_id;
@@ -65,20 +68,37 @@ extension UIViewController {
             if let json_result = response.result.value {
                 let json = JSON(json_result)
                 if (action == "add") {
-                    if (json[""].count > 0) {
-                        self.view.makeToast("Added to wishlist!", image: UIImage(named: "icons8_checked"))
+                    if (json["results"].count > 0) {
+                        self.view.makeToast("Added to wishlist!", image: UIImage(named: "icons8_checked"), style: style)
                     }
                 } else {
-                    self.view.makeToast("Removed from wishlist!", image: UIImage(named: "icons8_checked"))
+                    self.view.makeToast("Removed from wishlist!", image: UIImage(named: "icons8_checked"), style: style)
                 }
             }
         }
         
     }
 
-    
+    var isModal: Bool {
+        let presentingIsModal = presentingViewController != nil
+        let presentingIsNavigation = navigationController?.presentingViewController?.presentedViewController == navigationController
+        let presentingIsTabBar = tabBarController?.presentingViewController is UITabBarController
+        
+        return presentingIsModal || presentingIsNavigation || presentingIsTabBar
+    }
 }
 
+class NoBarViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+}
 
 
 extension String {
@@ -92,6 +112,13 @@ extension String {
     }
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
+    }
+    
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }
 

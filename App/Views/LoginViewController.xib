@@ -5,11 +5,12 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Phuck_Brand" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="WhatsDown" customModuleProvider="target">
             <connections>
                 <outlet property="loginBtn" destination="p7v-kz-W7L" id="vJt-KE-KoA"/>
                 <outlet property="passwordField" destination="5uu-U3-VSb" id="Ule-rr-Y23"/>
@@ -26,7 +27,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="221-zM-cGg">
                     <rect key="frame" x="20" y="54" width="48" height="30"/>
                     <state key="normal" title="Cancel">
-                        <color key="titleColor" red="0.84903162717819214" green="0.52631771564483643" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" name="Link"/>
                     </state>
                     <connections>
                         <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="dVV-Mq-Lha"/>
@@ -38,7 +39,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqZ-Hu-QZE">
                             <rect key="frame" x="0.0" y="0.0" width="315" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" red="0.84903162717819214" green="0.52631771564483643" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" name="Primary"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username or email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGY-6C-3z4">
@@ -61,7 +62,7 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-kz-W7L">
                             <rect key="frame" x="0.0" y="161" width="315" height="40"/>
-                            <color key="backgroundColor" red="0.84903162717819214" green="0.52631771564483643" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="Primary"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="zkw-7u-f7x"/>
                             </constraints>
@@ -78,13 +79,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-Kv-zqp">
                                     <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Link"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LG-zu-k2Z">
                                     <rect key="frame" x="157.66666666666663" y="0.0" width="157.33333333333337" height="30"/>
                                     <state key="normal" title="Register">
-                                        <color key="titleColor" red="0.84903162717819214" green="0.52631771564483643" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleColor" name="Primary"/>
                                     </state>
                                     <connections>
                                         <action selector="registerTapped:" destination="-1" eventType="touchUpInside" id="GtK-qp-CIX"/>
@@ -107,4 +108,12 @@
             <point key="canvasLocation" x="24.5" y="53"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Link">
+            <color white="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.024000000208616257" green="0.0040000001899898052" blue="0.0040000001899898052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

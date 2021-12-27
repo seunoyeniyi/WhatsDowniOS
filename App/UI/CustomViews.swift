@@ -50,15 +50,39 @@ class ShimmerView: UIView {
         gradientLayer.add(animation, forKey: animation.keyPath)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        startAnimating()
+    func stopAnimating() {
+        let gradientLayer = addGradientLayer()
+        gradientLayer.removeAllAnimations()
     }
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-            startAnimating()
-        }
     
+}
+
+class ShimmerViewContainer: UIView {
+    func startProcesses(of view: UIView) {
+        for subView in view.subviews {
+            if (subView.isKind(of: ShimmerView.self)) {
+                let shimView = subView as! ShimmerView
+                shimView.startAnimating()
+            }
+            startProcesses(of: subView)
+        }
+    }
+    func startShimmering() {
+        startProcesses(of: self)
+    }
+    
+    func stopProcesses(of view: UIView) {
+        for subView in view.subviews {
+            if (subView.isKind(of: ShimmerView.self)) {
+                let shimView = subView as! ShimmerView
+                shimView.stopAnimating()
+            }
+            stopProcesses(of: subView)
+        }
+    }
+    func stopShimmering() {
+        stopProcesses(of: self)
+    }
 }
 
 class DynamicHeightCollectionView: UICollectionView {
@@ -154,3 +178,31 @@ class BorderView: UIView {
         self.layer.borderWidth = borderWidth
     }
 }
+
+
+class CircleLabel: UILabel {
+    
+    @IBInspectable var cornerRadius: CGFloat = 7 {
+        didSet {
+            setupView()
+        }
+    }
+  
+    override func awakeFromNib() {
+        setupView()
+    }
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
+    func setupView() {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadius
+        self.textAlignment = .center
+    }
+    
+    
+}
+
+

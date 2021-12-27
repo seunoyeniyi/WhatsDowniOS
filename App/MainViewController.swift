@@ -16,15 +16,18 @@ class MainViewController: UIViewController {
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var productCollectionView: UICollectionView!
     @IBOutlet var productCollectionViewHeightC: NSLayoutConstraint!
-    @IBOutlet var bannerShimmer: UIView!
+    @IBOutlet var bannerShimmer: ShimmerViewContainer!
     @IBOutlet var bannerRefreshBtn: UIButton!
-    @IBOutlet var productsShimmer: UIView!
+    @IBOutlet var productsShimmer: ShimmerViewContainer!
     @IBOutlet var productRefreshBtn: UIButton!
     @IBOutlet var topCartBtn: UIBarButtonItem!
     
     let transition = SlideInTransition()
     var menuViewController: MenuViewController!
     let loginViewController = LoginViewController()
+    var orderController = OrdersViewController()
+    let profileAddress = ProfileAddressViewController()
+    let browser = BrowserViewController()
     
     var cartNotification: UILabel!
     
@@ -46,8 +49,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupMenuController()
-        self.setupNavLogo()
+        self.setupNavLogo(theNavigationItem: self.navigationItem)
         self.removeNavBarBorder()
+        
+        loginViewController.delegate = self
         
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
@@ -81,12 +86,14 @@ class MainViewController: UIViewController {
             if (!Connectivity.isConnectedToInternet) {
                 self.view.makeToast("Bad internet connection!")
                 self.bannerShimmer.isHidden = false
+                self.bannerShimmer.stopShimmering()
                 self.bannerRefreshBtn.isHidden = false
                 return
             }
             
             
             self.bannerShimmer.isHidden = false
+            self.bannerShimmer.startShimmering()
             self.bannerRefreshBtn.isHidden = true
             
             
@@ -101,7 +108,7 @@ class MainViewController: UIViewController {
                     let banners = json["results"]
                     
                     if (banners.count > 0) {
-                        
+                        self.banners = []
                         for (_, banner): (String, JSON) in banners {
                             self.banners.append([
                                 "title": banner["title"].stringValue,
@@ -132,6 +139,8 @@ class MainViewController: UIViewController {
                     self.bannerShimmer.isHidden = false
                     self.bannerRefreshBtn.isHidden = false
                 }
+                
+                self.bannerShimmer.stopShimmering()
            
             }
         
@@ -144,6 +153,7 @@ class MainViewController: UIViewController {
             self.view.makeToast("Bad internet connection!")
             if (shim) {
                 self.productsShimmer.isHidden = false
+                self.productsShimmer.stopShimmering()
                 self.productRefreshBtn.isHidden = false
             }
             return
@@ -153,6 +163,7 @@ class MainViewController: UIViewController {
         
         if (shim) {
             self.productsShimmer.isHidden = false
+            self.productsShimmer.startShimmering()
             self.productRefreshBtn.isHidden = true
         }
         
@@ -168,6 +179,7 @@ class MainViewController: UIViewController {
                 let json = JSON(json_result)
                 let results = json["results"] //array
                 
+                self.products = []
                 for (_, subJson): (String, JSON) in results {
                     let id = subJson["ID"].stringValue;
                     let name = subJson["name"].stringValue;
@@ -208,12 +220,14 @@ class MainViewController: UIViewController {
                 
                 if (shim) {
                     self.productsShimmer.isHidden = true
+                    self.productsShimmer.stopShimmering()
                     self.productRefreshBtn.isHidden = true
                 }
             } else {
                 //no result
                 if (shim) {
                     self.productsShimmer.isHidden = false
+                    self.productsShimmer.stopShimmering()
                     self.productRefreshBtn.isHidden = false
                 }
             }
@@ -327,10 +341,17 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.productImage.pin_setImage(from: URL(string: self.products[indexPath.row]["image"]!))
             cell.productTitle.text = self.products[indexPath.row]["name"]!
             
+            //variable
             if self.products[indexPath.row]["product_type"]! == "variable" || self.products[indexPath.row]["type"]! == "variable" {
-                cell.productPrice.text = "From " + Site.init().CURRENCY + self.products[indexPath.row]["price"]!
+                cell.productPrice.text = "From " + Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
+            } else { //single product
+                cell.productPrice.text = Site.init().CURRENCY + PriceFormatter.format(price: self.products[indexPath.row]["price"]!)
+            }
+            //wishlist button
+            if (cell.hasWishList) {
+                cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline_1"), for: .normal)
             } else {
-                cell.productPrice.text = Site.init().CURRENCY + self.products[indexPath.row]["price"]!
+                cell.wishListBtn.setImage(UIImage(named: "icons8_heart_outline"), for: .normal)
             }
             
             
@@ -358,6 +379,27 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell?.backgroundColor = UIColor(rgb: 0xFFFFFF)
     }
  
+    //SELECTION
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (collectionView == self.bannerCollectionView) { //for banners
+            if (self.banners[indexPath.row]["on_click_to"]! == "category") {
+                let archiveController = ArchiveViewController()
+                archiveController.category_name = self.banners[indexPath.row]["category"]!
+                var cat_title: String = self.banners[indexPath.row]["category"]!
+                cat_title = cat_title.capitalizingFirstLetter()
+                cat_title = cat_title.replacingOccurrences(of: "-", with: " ")
+                archiveController.category_title = cat_title
+                archiveController.category_description = self.banners[indexPath.row]["description"]!
+                self.navigationController?.pushViewController(archiveController, animated: true)
+            }
+            
+            
+        } else { //for products
+            
+            
+            
+        }
+    }
     
 }
 
@@ -380,60 +422,41 @@ extension MainViewController: ModalDelegate {
     
     func menuItemsClicked(menuType: MenuType) {
         switch menuType {
+        case .home:
+            return //already at home
+        case .cancel:
+            self.menuViewController.dismiss(animated: true, completion: nil)
+            return
         case .login:
             self.login()
             return
         case .wishlist:
             return
-        case .my_orders:
+        case .orders:
             if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "all"
-                self.present(orderController, animated: true, completion: nil)
+                self.orderController = OrdersViewController()
+                self.orderController.orderStatus = "all"
+//                self.present(self.orderController, animated: true, completion: nil)
+                self.navigationController?.pushViewController(orderController, animated: true)
             } else {
                 self.view.makeToast("Please login first!")
             }
-        case .pending_delivery:
+        case .account:
             if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "processing"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .pending_payments:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "pending"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .completed_orders:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "complete"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .shipping_address:
-            if (self.userSession.logged()) {
-                let profileAddress = ProfileAddressViewController()
-                self.present(profileAddress, animated: true, completion: nil)
+                self.present(self.profileAddress, animated: true, completion: nil)
             } else {
                 self.view.makeToast("Please login first!")
             }
             return
-        case .about_us:
-            let browser = BrowserViewController()
-            browser.headTitle = "About us"
-            browser.url = Site.init().ADDRESS + "about-us"
-            self.present(browser, animated: true, completion: nil)
+        case .support:
+            self.browser.headTitle = "Support"
+            self.browser.url = Site.init().ADDRESS + "support"
+            self.present(self.browser, animated: true, completion: nil)
             return
         case .logout:
             self.userSession.logout()
             self.userSession.reload()
+            self.fetchProducts(paged: 1, shim: true)
         }
     }
 }
@@ -454,6 +477,17 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         return self.transition
+    }
+}
+
+extension MainViewController: LoginDelegate, RegisterDelegate {
+    func onLoginDone(logged: Bool) {
+        userSession.reload()
+        fetchProducts(paged: 1, shim: true)
+    }
+    func onRegistrationDone(registered: Bool) {
+        userSession.reload()
+        fetchProducts(paged: 1, shim: true)
     }
 }
 

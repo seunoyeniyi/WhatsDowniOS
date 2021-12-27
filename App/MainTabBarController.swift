@@ -102,55 +102,65 @@ extension MainTabBarController: ModalDelegate {
             self.login()
         case .wishlist:
                 return
-        case .my_orders:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "all"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .pending_delivery:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "processing"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .pending_payments:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "pending"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .completed_orders:
-            if (self.userSession.logged()) {
-                let orderController = OrdersViewController()
-                orderController.orderStatus = "complete"
-                self.present(orderController, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-        case .shipping_address:
-            if (self.userSession.logged()) {
-                let profileAddress = ProfileAddressViewController()
-                self.present(profileAddress, animated: true, completion: nil)
-            } else {
-                self.view.makeToast("Please login first!")
-            }
-            return
-        case .about_us:
-            let browser = BrowserViewController()
-            browser.headTitle = "About us"
-            browser.url = Site.init().ADDRESS + "about-us"
-            self.present(browser, animated: true, completion: nil)
-            return
+//        case .my_orders:
+//            if (self.userSession.logged()) {
+//                let orderController = OrdersViewController()
+//                orderController.orderStatus = "all"
+//                self.present(orderController, animated: true, completion: nil)
+//            } else {
+//                self.view.makeToast("Please login first!")
+//            }
+//        case .pending_delivery:
+//            if (self.userSession.logged()) {
+//                let orderController = OrdersViewController()
+//                orderController.orderStatus = "processing"
+//                self.present(orderController, animated: true, completion: nil)
+//            } else {
+//                self.view.makeToast("Please login first!")
+//            }
+//        case .pending_payments:
+//            if (self.userSession.logged()) {
+//                let orderController = OrdersViewController()
+//                orderController.orderStatus = "pending"
+//                self.present(orderController, animated: true, completion: nil)
+//            } else {
+//                self.view.makeToast("Please login first!")
+//            }
+//        case .completed_orders:
+//            if (self.userSession.logged()) {
+//                let orderController = OrdersViewController()
+//                orderController.orderStatus = "complete"
+//                self.present(orderController, animated: true, completion: nil)
+//            } else {
+//                self.view.makeToast("Please login first!")
+//            }
+//        case .shipping_address:
+//            if (self.userSession.logged()) {
+//                let profileAddress = ProfileAddressViewController()
+//                self.present(profileAddress, animated: true, completion: nil)
+//            } else {
+//                self.view.makeToast("Please login first!")
+//            }
+//            return
+//        case .about_us:
+//            let browser = BrowserViewController()
+//            browser.headTitle = "About us"
+//            browser.url = Site.init().ADDRESS + "about-us"
+//            self.present(browser, animated: true, completion: nil)
+//            return
         case .logout:
             self.userSession.logout()
             self.userSession.reload()
+        case .home:
+            return
+        case .account:
+            return
+        case .orders:
+            return
+        case .support:
+            return
+        case .cancel:
+            return
         }
     }
 }

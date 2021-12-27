@@ -24,6 +24,10 @@
 		D618744B277551EF000EE4DF /* MainCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744A277551EF000EE4DF /* MainCartViewController.swift */; };
 		D6302899276D66FD00AB6642 /* WebPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6302897276D66FD00AB6642 /* WebPaymentViewController.swift */; };
 		D630289A276D66FD00AB6642 /* WebPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6302898276D66FD00AB6642 /* WebPaymentViewController.xib */; };
+		D630784A27790088000DC955 /* ProductsShimmerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630784827790088000DC955 /* ProductsShimmerController.swift */; };
+		D630784B27790088000DC955 /* ProductsShimmerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630784927790088000DC955 /* ProductsShimmerController.xib */; };
+		D630784E27791327000DC955 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630784C27791327000DC955 /* FilterViewController.swift */; };
+		D630784F27791327000DC955 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D630784D27791327000DC955 /* FilterViewController.xib */; };
 		D6328F47274B82840034DA73 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6328F45274B82840034DA73 /* ProductViewController.swift */; };
 		D6328F48274B82840034DA73 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6328F46274B82840034DA73 /* ProductViewController.xib */; };
 		D63609CB2739C91200AD2B1B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63609CA2739C91200AD2B1B /* ActivityViewController.swift */; };
@@ -56,6 +60,7 @@
 		D689ABB0276225CE009CA318 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689ABAE276225CE009CA318 /* CartTableViewCell.swift */; };
 		D689ABB1276225CE009CA318 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D689ABAF276225CE009CA318 /* CartTableViewCell.xib */; };
 		D68C83C2274AD0050034E300 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C83C1274AD0050034E300 /* ProductCollectionViewCell.swift */; };
+		D69351492777BEE30093EFF8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69351482777BEE30093EFF8 /* Colors.xcassets */; };
 		D6AE0380275801BB00CD1D3A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AE037F275801BB00CD1D3A /* MenuViewController.swift */; };
 		D6B51E6E27501C14003ED7C0 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B51E6C27501C14003ED7C0 /* AttributeTableViewCell.swift */; };
 		D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */; };
@@ -77,8 +82,11 @@
 		D6E7E361276B6337001CDC7B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E7E360276B6337001CDC7B /* SSRadioButtonsController.swift */; };
 		D6E7E363276B72A9001CDC7B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E7E362276B72A9001CDC7B /* LoadingView.swift */; };
 		D6E7E365276B7316001CDC7B /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E7E364276B7316001CDC7B /* LoadingView.xib */; };
+		D6EC6979277926290023DD5C /* WARangeSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6EC697A277926290023DD5C /* WARangeSlider.framework */; };
 		D6EE047727626813001A88DA /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE047627626813001A88DA /* PriceFormatter.swift */; };
 		D6EE047927627219001A88DA /* AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE047827627219001A88DA /* AddToCart.swift */; };
+		D6F120762778D08B00BBAE59 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F120742778D08B00BBAE59 /* ArchiveViewController.swift */; };
+		D6F120772778D08B00BBAE59 /* ArchiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F120752778D08B00BBAE59 /* ArchiveViewController.xib */; };
 		D6FCB126277636B50042FBCC /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */; };
 		D6FCB129277640120042FBCC /* ProductCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */; };
 		D6FCB12A277640120042FBCC /* ProductCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */; };
@@ -105,6 +113,10 @@
 		D618744A277551EF000EE4DF /* MainCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCartViewController.swift; sourceTree = "<group>"; };
 		D6302897276D66FD00AB6642 /* WebPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPaymentViewController.swift; sourceTree = "<group>"; };
 		D6302898276D66FD00AB6642 /* WebPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebPaymentViewController.xib; sourceTree = "<group>"; };
+		D630784827790088000DC955 /* ProductsShimmerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShimmerController.swift; sourceTree = "<group>"; };
+		D630784927790088000DC955 /* ProductsShimmerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsShimmerController.xib; sourceTree = "<group>"; };
+		D630784C27791327000DC955 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		D630784D27791327000DC955 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		D6328F45274B82840034DA73 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D6328F46274B82840034DA73 /* ProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
 		D63609CA2739C91200AD2B1B /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +149,7 @@
 		D689ABAE276225CE009CA318 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		D689ABAF276225CE009CA318 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		D68C83C1274AD0050034E300 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		D69351482777BEE30093EFF8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D6AE037F275801BB00CD1D3A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D6B51E6C27501C14003ED7C0 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
 		D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeTableViewCell.xib; sourceTree = "<group>"; };
@@ -162,8 +175,11 @@
 		D6E7E360276B6337001CDC7B /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		D6E7E362276B72A9001CDC7B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D6E7E364276B7316001CDC7B /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		D6EC697A277926290023DD5C /* WARangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WARangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EE047627626813001A88DA /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 		D6EE047827627219001A88DA /* AddToCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCart.swift; sourceTree = "<group>"; };
+		D6F120742778D08B00BBAE59 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
+		D6F120752778D08B00BBAE59 /* ArchiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveViewController.xib; sourceTree = "<group>"; };
 		D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -175,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EC6979277926290023DD5C /* WARangeSlider.framework in Frameworks */,
 				D688400C27527C1300F4E797 /* iOSDropDown.framework in Frameworks */,
 				23FE67E9A68237279E50229B /* Pods_WhatsDown.framework in Frameworks */,
 			);
@@ -195,6 +212,7 @@
 		9C86F9BD450661FF3E9AF69E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6EC697A277926290023DD5C /* WARangeSlider.framework */,
 				D6E7E35C276B6105001CDC7B /* MBRadioButton.framework */,
 				D6E7E35A276B5DC4001CDC7B /* MBRadioButton.framework */,
 				D688400D27527C1300F4E797 /* iOSDropDown.framework */,
@@ -206,6 +224,8 @@
 		D63609C92739C85900AD2B1B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D618744027754276000EE4DF /* CustomUI.swift */,
+				D6FCB12B2776468D0042FBCC /* CustomViews.swift */,
 				D63609CA2739C91200AD2B1B /* ActivityViewController.swift */,
 				D681A6402741597E0073D0C3 /* PageCategoryCollectionViewCell.swift */,
 				D68C83C1274AD0050034E300 /* ProductCollectionViewCell.swift */,
@@ -218,11 +238,13 @@
 				D609C4482770F19900DC5FDE /* OrdersTableViewCell.xib */,
 				D66BF9E9277238B3001CA06F /* OrderItemsTableViewCell.swift */,
 				D66BF9EA277238B3001CA06F /* OrderItemsTableViewCell.xib */,
-				D618744027754276000EE4DF /* CustomUI.swift */,
 				D6FCB125277636B50042FBCC /* BannerCollectionViewCell.swift */,
 				D6FCB127277640120042FBCC /* ProductCardCollectionViewCell.swift */,
 				D6FCB128277640120042FBCC /* ProductCardCollectionViewCell.xib */,
-				D6FCB12B2776468D0042FBCC /* CustomViews.swift */,
+				D630784827790088000DC955 /* ProductsShimmerController.swift */,
+				D630784927790088000DC955 /* ProductsShimmerController.xib */,
+				D630784C27791327000DC955 /* FilterViewController.swift */,
+				D630784D27791327000DC955 /* FilterViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -282,6 +304,7 @@
 				D618744627754DB0000EE4DF /* MainAccountViewController.swift */,
 				D6C176472730B8D800714298 /* Main.storyboard */,
 				D6C1764A2730B8D800714298 /* Assets.xcassets */,
+				D69351482777BEE30093EFF8 /* Colors.xcassets */,
 				D6C1764C2730B8D800714298 /* LaunchScreen.storyboard */,
 				D6C1764F2730B8D800714298 /* Info.plist */,
 				D6C4E04D2737360300A49BB3 /* SlideInTransition.swift */,
@@ -322,6 +345,8 @@
 				D66BF9EE27726190001CA06F /* BrowserViewController.xib */,
 				D66BF9F12772670B001CA06F /* ProfileAddressViewController.swift */,
 				D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */,
+				D6F120742778D08B00BBAE59 /* ArchiveViewController.swift */,
+				D6F120752778D08B00BBAE59 /* ArchiveViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,12 +431,15 @@
 				D630289A276D66FD00AB6642 /* WebPaymentViewController.xib in Resources */,
 				D67F87282775DED2009BF4A7 /* Montserrat-Medium.ttf in Resources */,
 				D6C1764E2730B8D800714298 /* LaunchScreen.storyboard in Resources */,
+				D630784F27791327000DC955 /* FilterViewController.xib in Resources */,
 				D66BF9E82771FEAE001CA06F /* OrderViewController.xib in Resources */,
+				D6F120772778D08B00BBAE59 /* ArchiveViewController.xib in Resources */,
 				D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */,
 				D66BF9EC277238B3001CA06F /* OrderItemsTableViewCell.xib in Resources */,
 				D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */,
 				D6123A18276A538B003404D5 /* PaymentViewController.xib in Resources */,
 				D609C44A2770F19900DC5FDE /* OrdersTableViewCell.xib in Resources */,
+				D69351492777BEE30093EFF8 /* Colors.xcassets in Resources */,
 				D6D842DE275980E90067B9FE /* CartViewController.xib in Resources */,
 				D67F87252775DED2009BF4A7 /* Montserrat-Thin.ttf in Resources */,
 				D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */,
@@ -422,6 +450,7 @@
 				D6328F48274B82840034DA73 /* ProductViewController.xib in Resources */,
 				D6FCB12A277640120042FBCC /* ProductCardCollectionViewCell.xib in Resources */,
 				D6C176492730B8D800714298 /* Main.storyboard in Resources */,
+				D630784B27790088000DC955 /* ProductsShimmerController.xib in Resources */,
 				D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */,
 				D67F87142775C3F3009BF4A7 /* README.md in Resources */,
 				D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */,
@@ -464,6 +493,7 @@
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/WARangeSlider/WARangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -475,6 +505,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WARangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,9 +537,11 @@
 				D613F86C2764E6BF00F84AE7 /* Protocols.swift in Sources */,
 				D66BF9EB277238B3001CA06F /* OrderItemsTableViewCell.swift in Sources */,
 				D618744927754E7F000EE4DF /* MainCategoriesViewController.swift in Sources */,
+				D630784A27790088000DC955 /* ProductsShimmerController.swift in Sources */,
 				D66BF9E72771FEAE001CA06F /* OrderViewController.swift in Sources */,
 				D6E7E361276B6337001CDC7B /* SSRadioButtonsController.swift in Sources */,
 				D6E7E363276B72A9001CDC7B /* LoadingView.swift in Sources */,
+				D630784E27791327000DC955 /* FilterViewController.swift in Sources */,
 				D63609CB2739C91200AD2B1B /* ActivityViewController.swift in Sources */,
 				D618744127754276000EE4DF /* CustomUI.swift in Sources */,
 				D6EE047727626813001A88DA /* PriceFormatter.swift in Sources */,
@@ -517,6 +550,7 @@
 				D6B51E6E27501C14003ED7C0 /* AttributeTableViewCell.swift in Sources */,
 				D6FCB126277636B50042FBCC /* BannerCollectionViewCell.swift in Sources */,
 				D6C4E05627373AEC00A49BB3 /* RegisterViewController.swift in Sources */,
+				D6F120762778D08B00BBAE59 /* ArchiveViewController.swift in Sources */,
 				D6BAC13E27380035001A4825 /* Site.swift in Sources */,
 				D6E7E35F276B62FB001CDC7B /* SSRadioButton.swift in Sources */,
 				D63609CD2739DA8200AD2B1B /* UserSession.swift in Sources */,

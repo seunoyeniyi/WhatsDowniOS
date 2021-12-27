@@ -9,11 +9,13 @@
 import UIKit
 
 class UserSession: NSObject {
-    let defaults = `UserDefaults`.standard
+    var defaults = `UserDefaults`.standard
     
     var ID: String = "0"
     var username: String = ""
     var email: String = ""
+    var last_orders_count = "0"
+    var last_cart_count = "0"
     var date: Date = Date()
     
     override init() {
@@ -28,6 +30,12 @@ class UserSession: NSObject {
         }
         if let default_date = defaults.object(forKey: "date") {
             self.date = default_date as! Date
+        }
+        if let default_orders_count = defaults.object(forKey: "last_orders_count") {
+            self.last_orders_count = String(describing: default_orders_count)
+        }
+        if let default_cart_count = defaults.object(forKey: "last_cart_count") {
+            self.last_cart_count = String(describing: default_cart_count)
         }
     }
     
@@ -51,16 +59,22 @@ class UserSession: NSObject {
             "username": defaults.object(forKey: "username") ?? "",
             "email": defaults.object(forKey: "email") ?? "",
             "date": defaults.object(forKey: "date") ?? Date(),
-            "logged": defaults.object(forKey: "logged") ?? false
+            "logged": defaults.object(forKey: "logged") ?? false,
+            "last_orders_count": defaults.object(forKey: "last_orders_count") ?? "0",
+            "last_cart_count": defaults.object(forKey: "last_cart_count") ?? "0"
         ]
         return data
     }
     
     func reload() {
+        defaults = `UserDefaults`.standard //re-fetch defaults
+        
         self.ID = (defaults.object(forKey: "ID") ?? "0") as! String
         self.username = (defaults.object(forKey: "username") ?? "") as! String
         self.email = (defaults.object(forKey: "email") ?? "") as! String
         self.date = (defaults.object(forKey: "date") ?? Date()) as! Date
+        self.last_orders_count = (defaults.object(forKey: "last_orders_count") ?? "0") as! String
+        self.last_cart_count = (defaults.object(forKey: "last_cart_count") ?? "0") as! String
     }
     
     func add_wallet_address(address: String) {

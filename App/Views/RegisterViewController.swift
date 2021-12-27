@@ -11,16 +11,22 @@ import Alamofire
 import Toast_Swift
 import SwiftyJSON
 
+protocol RegisterDelegate {
+    func onRegistrationDone(registered: Bool)
+}
+
 class RegisterViewController: UIViewController {
+    
+    var delegate: RegisterDelegate?
+    
     @IBOutlet var registerBtn: UIButton!
-    @IBOutlet var walletField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var usernameField: UITextField!
     
     
     let userSession = UserSession()
-    var onDoneBlock : ((Bool) -> Void)?
+  
     
 
     override func viewDidLoad() {
@@ -46,7 +52,6 @@ class RegisterViewController: UIViewController {
         let username = usernameField.text
         let email = emailField.text
         let password = passwordField.text
-        let wallet = walletField.text
         
         if ((username?.count)! < 2) {
             self.view.makeToast("Username or email required!")
@@ -69,8 +74,7 @@ class RegisterViewController: UIViewController {
         var parameters: [String: AnyObject] = [
             "username" : username as AnyObject,
             "email" : email as AnyObject,
-            "password" : password as AnyObject,
-            "tron_wallet" : wallet as AnyObject
+            "password" : password as AnyObject
         ]
         if (userSession.ID != "0") { //ID maybe hash code for anonymoush user
             parameters["replace_cart_user"] = userSession.ID as AnyObject
@@ -97,8 +101,12 @@ class RegisterViewController: UIViewController {
                     self.userSession.reload()
                     activityViewController.dismiss(animated: false, completion: nil)
                     
-                    self.dismiss(animated: true, completion: nil)
-                    self.onDoneBlock!(true)
+                    self.dismiss(animated: true, completion: {
+                        if let delegate = self.delegate {
+                            delegate.onRegistrationDone(registered: true)
+                        }
+                    })
+                    
                     //                    print(data)
                 }
             } else {
@@ -108,23 +116,22 @@ class RegisterViewController: UIViewController {
         }
     }
     @IBAction func loginTapped(_ sender: Any) {
-        self.onDoneBlock!(false)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.onRegistrationDone(registered: false)
+            }
+        })
     }
     @IBAction func cancelTapped(_ sender: Any) {
-        self.onDoneBlock!(false)
-        self.dismiss(animated: true, completion: nil)
+        
+        self.dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.onRegistrationDone(registered: false)
+            }
+        })
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     func styleThisBtn(btn: UIButton) {
         btn.layer.shadowColor = UIColor(red: 0, green: 178/255, blue: 186/255, alpha: 1.0).cgColor

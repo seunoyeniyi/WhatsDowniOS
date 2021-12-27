@@ -33,14 +33,7 @@ class LoginViewController: UIViewController {
         
         styleThisBtn(btn: loginBtn)
         
-        registerViewController.onDoneBlock = { registered in
-            if registered {
-                
-                self.dismiss(animated: false, completion: {
-                    self.delegate?.onLoginDone(logged: true)
-                })
-            }
-        }
+        registerViewController.delegate = self
         
     }
     
@@ -93,7 +86,9 @@ class LoginViewController: UIViewController {
                     self.userSession.reload()
                     activityViewController.dismiss(animated: false, completion: nil)
                     self.dismiss(animated: true, completion: {
-                        self.delegate?.onLoginDone(logged: true)
+                        if let delegate = self.delegate {
+                            delegate.onLoginDone(logged: true)
+                        }
                     })
 //                    print(data)
                 }
@@ -114,7 +109,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: {
-            self.delegate?.onLoginDone(logged: false)
+            if let delegate = self.delegate {
+                delegate.onLoginDone(logged: false)
+            }
         })
     }
     
@@ -137,14 +134,17 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+extension LoginViewController: RegisterDelegate {
+    func onRegistrationDone(registered: Bool) {
+        if registered {
+            
+            self.dismiss(animated: false, completion: {
+                if let delegate = self.delegate {
+                    delegate.onLoginDone(logged: true)
+                }
+                
+            })
+        }
     }
-    */
-
 }

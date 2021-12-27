@@ -11,10 +11,16 @@ import Foundation
 class PriceFormatter {
     public static func format(price: String) -> String {
         let priceDouble: Double = Double(price)!
-        return String(format: "%.2f", priceDouble)
+        //back to double
+        let toDouble = Double(String(format: "%.2f", priceDouble))
+        
+        return (toDouble?.formattedWithSeparator)!
     }
     
     public static func format(price: Double) -> String {
-        return String(format: "%.2f", price)
+        //back to double
+        let toDouble = Double(String(format: "%.2f", price))
+        
+        return (toDouble?.formattedWithSeparator)!
     }
 }

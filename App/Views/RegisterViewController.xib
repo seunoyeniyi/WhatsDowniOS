@@ -5,18 +5,18 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="Phuck_Brand" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="WhatsDown" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="F2z-Kt-ki6" id="g21-AO-zDo"/>
                 <outlet property="passwordField" destination="Fgv-qJ-d2G" id="o8K-S0-umx"/>
                 <outlet property="registerBtn" destination="Fd3-Ve-k1s" id="Def-0l-Vlr"/>
                 <outlet property="usernameField" destination="c25-Wn-SIs" id="k6r-bw-4JB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="walletField" destination="Wk9-4J-2RG" id="cny-Ah-WJf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,19 +27,19 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vb8-2W-BjU">
                     <rect key="frame" x="20" y="30" width="48" height="30"/>
                     <state key="normal" title="Cancel">
-                        <color key="titleColor" red="0.84903162717819214" green="0.52631771564483643" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" name="Link"/>
                     </state>
                     <connections>
                         <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="ngA-cv-SQa"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6N6-2z-TRi">
-                    <rect key="frame" x="30" y="85.5" width="315" height="356"/>
+                    <rect key="frame" x="30" y="113" width="315" height="301"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-La-hcy">
                             <rect key="frame" x="0.0" y="0.0" width="315" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" red="0.84903162720000003" green="0.52631771559999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" name="Primary"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c25-Wn-SIs">
@@ -69,18 +69,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Tron wallet address (if any)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wk9-4J-2RG">
-                            <rect key="frame" x="0.0" y="216" width="315" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="Mxh-xx-vph"/>
-                            </constraints>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-Ve-k1s">
-                            <rect key="frame" x="0.0" y="271" width="315" height="40"/>
-                            <color key="backgroundColor" red="0.84903162720000003" green="0.52631771559999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="0.0" y="216" width="315" height="40"/>
+                            <color key="backgroundColor" name="Primary"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="g3N-m1-os7"/>
                             </constraints>
@@ -92,18 +83,18 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="shb-qM-BtU">
-                            <rect key="frame" x="0.0" y="326" width="315" height="30"/>
+                            <rect key="frame" x="0.0" y="271" width="315" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have  account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApC-pL-JDl">
                                     <rect key="frame" x="0.0" y="0.0" width="259.5" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Link"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx6-Rp-tfR">
                                     <rect key="frame" x="259.5" y="0.0" width="55.5" height="30"/>
                                     <state key="normal" title="Login">
-                                        <color key="titleColor" red="0.84903162720000003" green="0.52631771559999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleColor" name="Primary"/>
                                     </state>
                                     <connections>
                                         <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="H5o-JN-hUa"/>
@@ -125,4 +116,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Link">
+            <color white="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.024000000208616257" green="0.0040000001899898052" blue="0.0040000001899898052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

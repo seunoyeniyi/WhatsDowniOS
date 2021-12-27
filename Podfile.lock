@@ -23,6 +23,7 @@ PODS:
     - PINRemoteImage/Core
   - SwiftyJSON (3.1.4)
   - Toast-Swift (3.0.1)
+  - WARangeSlider (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (= 4.4)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - PINRemoteImage (= 3.0.0-beta.9)
   - SwiftyJSON (~> 3.0)
   - Toast-Swift (~> 3.0)
+  - WARangeSlider
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,6 +43,7 @@ SPEC REPOS:
     - PINRemoteImage
     - SwiftyJSON
     - Toast-Swift
+    - WARangeSlider
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -51,7 +54,8 @@ SPEC CHECKSUMS:
   PINRemoteImage: e4e02e15a6f96cedbcef2abf1c9c1228dc9897d7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 3afd3ebb7441415ae92bb9fb6788a1109bc3481d
+PODFILE CHECKSUM: a8193acae7d6fb5871e6004fbcda5e853e77af49
 
 COCOAPODS: 1.5.2

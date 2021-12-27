@@ -13,5 +13,7 @@ use_frameworks!
   pod ‘PINRemoteImage’, ‘3.0.0-beta.9’
   pod ‘iOSDropDown’
   #gonna use this when updated system: pod ‘GMStepper’
+  #pod ‘MultiSlider’, ‘1.0.0’
+  pod ‘WARangeSlider’
  
 end

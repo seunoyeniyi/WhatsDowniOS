@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63CDBE30B36DD83F733ABD217B2E0EF4"
+               BlueprintIdentifier = "9452B57B09F3762172AB2C86F6FCCFFF"
                BuildableName = "Toast_Swift.framework"
                BlueprintName = "Toast-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63CDBE30B36DD83F733ABD217B2E0EF4"
+            BlueprintIdentifier = "9452B57B09F3762172AB2C86F6FCCFFF"
             BuildableName = "Toast_Swift.framework"
             BlueprintName = "Toast-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">

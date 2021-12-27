@@ -9,7 +9,6 @@
 import Foundation
 class Site {
     public final let APP_NAME: String = "Phuck Brand"
-    public final let PRIMARY_COLOR: Int = 0x000000
     public final let PROTOCOL: String = "https";
     public final let DOMAIN: String =  "whatsdown.in"; //"192.168.43.11"; // "192.168.43.223"; //"10.0.2.2"; //
     public final let ADDRESS: String
@@ -29,6 +28,7 @@ class Site {
     public final let ORDERS: String
     public final let ORDER: String
     public final let CATEGORIES: String
+    public final let TAGS: String
     public final let UPDATE_WALLET_ADDRESS: String
     public final let WALLET_ADDRESS: String
     public final let PHUCK_GAMERS: String
@@ -57,6 +57,7 @@ class Site {
         ORDERS = ADDRESS + "wp-json/skye-api/v1/orders/";
         ORDER = ADDRESS + "wp-json/skye-api/v1/order/";
         CATEGORIES = ADDRESS + "wp-json/skye-api/v1/categories/";
+        TAGS = ADDRESS + "wp-json/skye-api/v1/tags/";
         UPDATE_WALLET_ADDRESS = ADDRESS + "wp-json/skye-api/v1/update-wallet-address/";
         WALLET_ADDRESS = ADDRESS + "wp-json/skye-api/v1/wallet-address/";
         PHUCK_GAMERS = ADDRESS + "wp-json/phuck-gamers/";

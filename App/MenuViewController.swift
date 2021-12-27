@@ -9,97 +9,132 @@
 import UIKit
 
 enum MenuType: Int {
-    case login
+    case home
+    case account
     case wishlist
-    case my_orders
-    case pending_delivery
-    case pending_payments
-    case completed_orders
-    case shipping_address
-    case about_us
+    case orders
+    case support
+    case cancel
+    case login
     case logout
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuViewController: UIViewController {
     
     let userSession = UserSession()
     
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var logoutBtn: UIButton!
+    @IBOutlet var viewProfileBtn: UIButton!
+    @IBOutlet var ordersNotificationLbl: CircleLabel!
+    @IBOutlet var homeListView: ListView!
+    @IBOutlet var accountListView: ListView!
+    @IBOutlet var wishlistListView: ListView!
+    @IBOutlet var ordersListView: ListView!
+    @IBOutlet var supportListView: ListView!
     
     
     var delegate: ModalDelegate?
     
-    
-    let menuLists: Array<Dictionary<String, String>> = [
-        ["name": "Login", "image": "icons8_login"],
-        ["name": "Wishlist", "image": "icons8_middle_finger_1"],
-        ["name": "My Orders", "image": "icons8_product"],
-        ["name": "Pending Delivery", "image": "icons8_data_pending"],
-        ["name": "Pending Payments", "image": "icons8_payment_history"],
-        ["name": "Completed Orders", "image": "icons8_task_completed"],
-        ["name": "Shipping Address", "image": "icons8_address"],
-        ["name": "About us", "image": "icons8_info"],
-        ["name": "Logout", "image": "icons8_logout_rounded_left"],
-        ]
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if (userSession.logged()) {
             usernameLabel.text = userSession.username
+            viewProfileBtn.setTitle("View Profile", for: .normal)
+            logoutBtn.setTitle("Log Out", for: .normal)
         } else {
             usernameLabel.text = "Hi!"
+            viewProfileBtn.setTitle("Login", for: .normal)
+            logoutBtn.setTitle("Login", for: .normal)
         }
+    
+        if (Int(userSession.last_orders_count) ?? 0 > 0) {
+            ordersNotificationLbl.isHidden = false
+            ordersNotificationLbl.text = userSession.last_orders_count
+        } else {
+            ordersNotificationLbl.isHidden = true
+            ordersNotificationLbl.text = "0"
+        }
+        
+        
+        homeListView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.homeTapped(_:))))
+        accountListView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.accountTapped(_:))))
+        wishlistListView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.wishListTapped(_:))))
+        ordersListView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.ordersTapped(_:))))
+        supportListView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.supportTapped(_:))))
+        
         
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let menuType = MenuType(rawValue: indexPath.row) else { return }
-
+    @objc func homeTapped(_ sender: UITapGestureRecognizer? = nil) {
         dismiss(animated: true, completion: {
             if let delegate = self.delegate {
-                delegate.menuItemsClicked(menuType: menuType)
+                delegate.menuItemsClicked(menuType: MenuType.home)
+            }
+        })
+    }
+    @objc func accountTapped(_ sender: UITapGestureRecognizer? = nil) {
+       profileFunc()
+    }
+    @objc func wishListTapped(_ sender: UITapGestureRecognizer? = nil) {
+        dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.menuItemsClicked(menuType: MenuType.wishlist)
+            }
+        })
+    }
+    @objc func ordersTapped(_ sender: UITapGestureRecognizer? = nil) {
+        dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.menuItemsClicked(menuType: MenuType.orders)
+            }
+        })
+    }
+    @objc func supportTapped(_ sender: UITapGestureRecognizer? = nil) {
+        dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                    delegate.menuItemsClicked(menuType: MenuType.support)
+                }
+        })
+    }
+    
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    func profileFunc() {
+        dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                if (self.userSession.logged()) {
+                    delegate.menuItemsClicked(menuType: MenuType.account)
+                } else {
+                    delegate.menuItemsClicked(menuType: MenuType.login)
+                }
+            }
+        })
+    }
+    @IBAction func viewProfileTapped(_ sender: Any) {
+        profileFunc()
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                if (self.userSession.logged()) {
+                    delegate.menuItemsClicked(menuType: MenuType.logout)
+                } else {
+                    delegate.menuItemsClicked(menuType: MenuType.login)
+                }
+                
             }
         })
     }
     
-    // MARK: - Table view data source
-    
-    
-    //must tell the number of rows to display
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return menuLists.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            if userSession.logged()  { return 0 }
-        }
-        if indexPath.row == 8 {
-            if !userSession.logged()  { return 0 }
-        }
-        
-        return tableView.rowHeight
-    }
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableCell", for: indexPath) as! MenuTableViewCell
-        cell.titleLbl.text = menuLists[indexPath.row]["name"]
-        cell.imageIcon.image = UIImage(named: menuLists[indexPath.row]["image"]!)
-        
-        return cell
-    }
-    
     func myDismiss() {
-        dismiss(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
-  
-    
+
 }
 

@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import iOSDropDown
 
 class OrdersViewController: UIViewController {
     @IBOutlet var theNavigationItem: UINavigationItem!
@@ -18,6 +19,8 @@ class OrdersViewController: UIViewController {
     @IBOutlet var tryAgainBtn: UIButton!
     @IBOutlet var loadingView: UIView!
     @IBOutlet var ordersTableView: UITableView!
+    @IBOutlet var statusDropDown: DropDown!
+    
     
     let userSession = UserSession()
     
@@ -26,18 +29,39 @@ class OrdersViewController: UIViewController {
     var orders: Array<Dictionary<String, String>> = []
     var orderStatus: String = "all"
     
+    
+    let statuses: Array<String> = [
+        "all",
+        "completed",
+        "processing",
+        "pending"
+    ]
+    let statusesString: Array<String> = [
+        "All",
+        "Completed",
+        "Processing",
+        "Pending "
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        statusDropDown.optionArray = statusesString
+        statusDropDown.isSearchEnable = false
         
         switch orderStatus {
         case "complete", "completed", "wc-completed":
             self.theNavigationItem.title = "Completed Orders"
+            self.statusDropDown.text = self.statusesString[1]
         case "processing", "wc-processing":
             self.theNavigationItem.title = "Processing Orders"
+            self.statusDropDown.text = self.statusesString[2]
         case "pending", "wc-pending":
             self.theNavigationItem.title = "Pending Orders"
+            self.statusDropDown.text = self.statusesString[3]
         default:
             self.theNavigationItem.title = "Orders"
+            self.statusDropDown.text = self.statusesString[0]
         }
         
         let ordersCell = UINib(nibName: ordersCellReuseIdentifier, bundle: nil)
@@ -48,9 +72,24 @@ class OrdersViewController: UIViewController {
         self.ordersTableView.dataSource = self
         
         styleThisBtn(btn: tryAgainBtn)
+        
+        statusDropDown.didSelect{(selectedText, index, id) in
+            self.orderStatus = self.statuses[index]
+            self.fetchOrders()
+        }
 
         fetchOrders()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
     func fetchOrders() {
         if (!Connectivity.isConnectedToInternet) {
@@ -86,6 +125,7 @@ class OrdersViewController: UIViewController {
 //                print(json)
                 let orders = json["orders"]
                 if orders.count > 0 {
+                    self.orders = []
                     for (_, order): (String, JSON) in orders {
                         self.orders.append([
                             "ID": order["ID"].stringValue,
@@ -118,7 +158,12 @@ class OrdersViewController: UIViewController {
     
     
     @IBAction func backTapped(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        if (self.isModal) {
+            self.dismiss(animated: false, completion: nil)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     @IBAction func tryAgainTapped(_ sender: Any) {
         fetchOrders()

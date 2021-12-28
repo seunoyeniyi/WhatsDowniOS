@@ -22,10 +22,6 @@
 		D613F86A2764E13600F84AE7 /* CheckoutAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D613F8682764E13600F84AE7 /* CheckoutAddressViewController.xib */; };
 		D613F86C2764E6BF00F84AE7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D613F86B2764E6BF00F84AE7 /* Protocols.swift */; };
 		D618744127754276000EE4DF /* CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744027754276000EE4DF /* CustomUI.swift */; };
-		D618744527754D9E000EE4DF /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744427754D9E000EE4DF /* MainSearchViewController.swift */; };
-		D618744727754DB0000EE4DF /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744627754DB0000EE4DF /* MainAccountViewController.swift */; };
-		D618744927754E7F000EE4DF /* MainCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744827754E7F000EE4DF /* MainCategoriesViewController.swift */; };
-		D618744B277551EF000EE4DF /* MainCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D618744A277551EF000EE4DF /* MainCartViewController.swift */; };
 		D6302899276D66FD00AB6642 /* WebPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6302897276D66FD00AB6642 /* WebPaymentViewController.swift */; };
 		D630289A276D66FD00AB6642 /* WebPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6302898276D66FD00AB6642 /* WebPaymentViewController.xib */; };
 		D630784A27790088000DC955 /* ProductsShimmerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630784827790088000DC955 /* ProductsShimmerController.swift */; };
@@ -46,9 +42,9 @@
 		D66BF9F027726190001CA06F /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66BF9EE27726190001CA06F /* BrowserViewController.xib */; };
 		D66BF9F32772670B001CA06F /* ProfileAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66BF9F12772670B001CA06F /* ProfileAddressViewController.swift */; };
 		D66BF9F42772670B001CA06F /* ProfileAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */; };
+		D67C3E8F277AAC4000831716 /* WhatsDown-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */; };
 		D67F87142775C3F3009BF4A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D67F87132775C3F2009BF4A7 /* README.md */; };
 		D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = D67F87172775C670009BF4A7 /* WhatsDown-Black.png */; };
-		D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67F87192775CA11009BF4A7 /* WhatsDown-Icon.png */; };
 		D67F871C2775CD7F009BF4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F871B2775CD7F009BF4A7 /* MainViewController.swift */; };
 		D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */; };
 		D67F87242775DED2009BF4A7 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */; };
@@ -56,10 +52,6 @@
 		D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87202775DED0009BF4A7 /* Montserrat-Regular.ttf */; };
 		D67F87272775DED2009BF4A7 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87212775DED1009BF4A7 /* Montserrat-Black.ttf */; };
 		D67F87282775DED2009BF4A7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F87222775DED2009BF4A7 /* Montserrat-Medium.ttf */; };
-		D681A638274046F30073D0C3 /* ShopDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681A636274046F30073D0C3 /* ShopDataViewController.swift */; };
-		D681A63C274047270073D0C3 /* ShopPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681A63A274047270073D0C3 /* ShopPageViewController.swift */; };
-		D681A63F27405B860073D0C3 /* ShopPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D681A63E27405B860073D0C3 /* ShopPager.storyboard */; };
-		D681A6412741597E0073D0C3 /* PageCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681A6402741597E0073D0C3 /* PageCategoryCollectionViewCell.swift */; };
 		D688400C27527C1300F4E797 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D688400D27527C1300F4E797 /* iOSDropDown.framework */; };
 		D689ABB0276225CE009CA318 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D689ABAE276225CE009CA318 /* CartTableViewCell.swift */; };
 		D689ABB1276225CE009CA318 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D689ABAF276225CE009CA318 /* CartTableViewCell.xib */; };
@@ -68,14 +60,12 @@
 		D6AE0380275801BB00CD1D3A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AE037F275801BB00CD1D3A /* MenuViewController.swift */; };
 		D6B51E6E27501C14003ED7C0 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B51E6C27501C14003ED7C0 /* AttributeTableViewCell.swift */; };
 		D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */; };
-		D6B7079E276E993B000F5E2C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B7079D276E993B000F5E2C /* MainTabBarController.swift */; };
 		D6BAC13E27380035001A4825 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC13D27380035001A4825 /* Site.swift */; };
 		D6BB354A2779B26400F777FD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB35482779B26400F777FD /* SearchViewController.swift */; };
 		D6BB354B2779B26400F777FD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BB35492779B26400F777FD /* SearchViewController.xib */; };
 		D6BB354E2779CCD600F777FD /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BB354C2779CCD600F777FD /* ShopViewController.swift */; };
 		D6BB354F2779CCD600F777FD /* ShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BB354D2779CCD600F777FD /* ShopViewController.xib */; };
 		D6C176422730B8D800714298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C176412730B8D800714298 /* AppDelegate.swift */; };
-		D6C176442730B8D800714298 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C176432730B8D800714298 /* MainHomeViewController.swift */; };
 		D6C176492730B8D800714298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C176472730B8D800714298 /* Main.storyboard */; };
 		D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C1764A2730B8D800714298 /* Assets.xcassets */; };
 		D6C1764E2730B8D800714298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C1764C2730B8D800714298 /* LaunchScreen.storyboard */; };
@@ -119,10 +109,6 @@
 		D613F8682764E13600F84AE7 /* CheckoutAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutAddressViewController.xib; sourceTree = "<group>"; };
 		D613F86B2764E6BF00F84AE7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		D618744027754276000EE4DF /* CustomUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUI.swift; sourceTree = "<group>"; };
-		D618744427754D9E000EE4DF /* MainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
-		D618744627754DB0000EE4DF /* MainAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountViewController.swift; sourceTree = "<group>"; };
-		D618744827754E7F000EE4DF /* MainCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesViewController.swift; sourceTree = "<group>"; };
-		D618744A277551EF000EE4DF /* MainCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCartViewController.swift; sourceTree = "<group>"; };
 		D6302897276D66FD00AB6642 /* WebPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPaymentViewController.swift; sourceTree = "<group>"; };
 		D6302898276D66FD00AB6642 /* WebPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebPaymentViewController.xib; sourceTree = "<group>"; };
 		D630784827790088000DC955 /* ProductsShimmerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShimmerController.swift; sourceTree = "<group>"; };
@@ -143,9 +129,9 @@
 		D66BF9EE27726190001CA06F /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		D66BF9F12772670B001CA06F /* ProfileAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddressViewController.swift; sourceTree = "<group>"; };
 		D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddressViewController.xib; sourceTree = "<group>"; };
+		D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Icon.png"; path = "../../../Downloads/WhatsDown/ic_launcher-61ca736e2ffdd/ios/WhatsDown-Icon.png"; sourceTree = "<group>"; };
 		D67F87132775C3F2009BF4A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D67F87172775C670009BF4A7 /* WhatsDown-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Black.png"; path = "../../../Downloads/WhatsDown/WhatsDown-Black.png"; sourceTree = "<group>"; };
-		D67F87192775CA11009BF4A7 /* WhatsDown-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Icon.png"; path = "../../../Downloads/WhatsDown/ic_launcher-61c590bd4fc29/ic_launcher-61c590bd4fc29/ios/WhatsDown-Icon.png"; sourceTree = "<group>"; };
 		D67F871B2775CD7F009BF4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -153,10 +139,6 @@
 		D67F87202775DED0009BF4A7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		D67F87212775DED1009BF4A7 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		D67F87222775DED2009BF4A7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		D681A636274046F30073D0C3 /* ShopDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataViewController.swift; sourceTree = "<group>"; };
-		D681A63A274047270073D0C3 /* ShopPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPageViewController.swift; sourceTree = "<group>"; };
-		D681A63E27405B860073D0C3 /* ShopPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopPager.storyboard; sourceTree = "<group>"; };
-		D681A6402741597E0073D0C3 /* PageCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D688400D27527C1300F4E797 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D689ABAE276225CE009CA318 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		D689ABAF276225CE009CA318 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
@@ -165,7 +147,6 @@
 		D6AE037F275801BB00CD1D3A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D6B51E6C27501C14003ED7C0 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
 		D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeTableViewCell.xib; sourceTree = "<group>"; };
-		D6B7079D276E993B000F5E2C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D6BAC13D27380035001A4825 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		D6BB35482779B26400F777FD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D6BB35492779B26400F777FD /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -173,7 +154,6 @@
 		D6BB354D2779CCD600F777FD /* ShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopViewController.xib; sourceTree = "<group>"; };
 		D6C1763E2730B8D800714298 /* WhatsDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C176412730B8D800714298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D6C176432730B8D800714298 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
 		D6C176482730B8D800714298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6C1764A2730B8D800714298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6C1764D2730B8D800714298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -243,7 +223,6 @@
 				D618744027754276000EE4DF /* CustomUI.swift */,
 				D6FCB12B2776468D0042FBCC /* CustomViews.swift */,
 				D63609CA2739C91200AD2B1B /* ActivityViewController.swift */,
-				D681A6402741597E0073D0C3 /* PageCategoryCollectionViewCell.swift */,
 				D68C83C1274AD0050034E300 /* ProductCollectionViewCell.swift */,
 				D6B51E6C27501C14003ED7C0 /* AttributeTableViewCell.swift */,
 				D6B51E6D27501C14003ED7C0 /* AttributeTableViewCell.xib */,
@@ -315,11 +294,6 @@
 				D6C4E04F27373AA200A49BB3 /* Views */,
 				D6C176412730B8D800714298 /* AppDelegate.swift */,
 				D67F871B2775CD7F009BF4A7 /* MainViewController.swift */,
-				D6C176432730B8D800714298 /* MainHomeViewController.swift */,
-				D618744A277551EF000EE4DF /* MainCartViewController.swift */,
-				D618744827754E7F000EE4DF /* MainCategoriesViewController.swift */,
-				D618744427754D9E000EE4DF /* MainSearchViewController.swift */,
-				D618744627754DB0000EE4DF /* MainAccountViewController.swift */,
 				D6C176472730B8D800714298 /* Main.storyboard */,
 				D6C1764A2730B8D800714298 /* Assets.xcassets */,
 				D69351482777BEE30093EFF8 /* Colors.xcassets */,
@@ -328,9 +302,8 @@
 				D6C4E04D2737360300A49BB3 /* SlideInTransition.swift */,
 				D6BAC13D27380035001A4825 /* Site.swift */,
 				D6AE037F275801BB00CD1D3A /* MenuViewController.swift */,
-				D6B7079D276E993B000F5E2C /* MainTabBarController.swift */,
 				D67F87172775C670009BF4A7 /* WhatsDown-Black.png */,
-				D67F87192775CA11009BF4A7 /* WhatsDown-Icon.png */,
+				D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -342,9 +315,6 @@
 				D6C4E05127373AD200A49BB3 /* LoginViewController.xib */,
 				D6C4E05427373AEC00A49BB3 /* RegisterViewController.swift */,
 				D6C4E05527373AEC00A49BB3 /* RegisterViewController.xib */,
-				D681A636274046F30073D0C3 /* ShopDataViewController.swift */,
-				D681A63A274047270073D0C3 /* ShopPageViewController.swift */,
-				D681A63E27405B860073D0C3 /* ShopPager.storyboard */,
 				D6328F45274B82840034DA73 /* ProductViewController.swift */,
 				D6328F46274B82840034DA73 /* ProductViewController.xib */,
 				D6D842DB275980E90067B9FE /* CartViewController.swift */,
@@ -447,7 +417,6 @@
 			files = (
 				D66BF9F027726190001CA06F /* BrowserViewController.xib in Resources */,
 				D67F87272775DED2009BF4A7 /* Montserrat-Black.ttf in Resources */,
-				D681A63F27405B860073D0C3 /* ShopPager.storyboard in Resources */,
 				D6C4E05327373AD200A49BB3 /* LoginViewController.xib in Resources */,
 				D613F86A2764E13600F84AE7 /* CheckoutAddressViewController.xib in Resources */,
 				D609C4462770E8E000DC5FDE /* OrdersViewController.xib in Resources */,
@@ -461,6 +430,7 @@
 				D6F120772778D08B00BBAE59 /* ArchiveViewController.xib in Resources */,
 				D6BB354B2779B26400F777FD /* SearchViewController.xib in Resources */,
 				D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */,
+				D67C3E8F277AAC4000831716 /* WhatsDown-Icon.png in Resources */,
 				D66BF9EC277238B3001CA06F /* OrderItemsTableViewCell.xib in Resources */,
 				D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */,
 				D6123A18276A538B003404D5 /* PaymentViewController.xib in Resources */,
@@ -481,7 +451,6 @@
 				D6023617277A3AB000BB51A6 /* WishlistViewController.xib in Resources */,
 				D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */,
 				D67F87142775C3F3009BF4A7 /* README.md in Resources */,
-				D67F871A2775CA12009BF4A7 /* WhatsDown-Icon.png in Resources */,
 				D6C4E05727373AEC00A49BB3 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,19 +524,14 @@
 				D6023616277A3AB000BB51A6 /* WishlistViewController.swift in Sources */,
 				D613F8692764E13600F84AE7 /* CheckoutAddressViewController.swift in Sources */,
 				D6BB354E2779CCD600F777FD /* ShopViewController.swift in Sources */,
-				D681A6412741597E0073D0C3 /* PageCategoryCollectionViewCell.swift in Sources */,
 				D689ABB0276225CE009CA318 /* CartTableViewCell.swift in Sources */,
 				D6EE047927627219001A88DA /* AddToCart.swift in Sources */,
 				D637F678274FD09A00CF5A57 /* Handler.swift in Sources */,
 				D6FCB12C2776468D0042FBCC /* CustomViews.swift in Sources */,
 				D6023612277A307E00BB51A6 /* GalleryCollectionViewCell.swift in Sources */,
-				D618744527754D9E000EE4DF /* MainSearchViewController.swift in Sources */,
-				D681A63C274047270073D0C3 /* ShopPageViewController.swift in Sources */,
-				D618744B277551EF000EE4DF /* MainCartViewController.swift in Sources */,
 				D6FCB129277640120042FBCC /* ProductCardCollectionViewCell.swift in Sources */,
 				D613F86C2764E6BF00F84AE7 /* Protocols.swift in Sources */,
 				D66BF9EB277238B3001CA06F /* OrderItemsTableViewCell.swift in Sources */,
-				D618744927754E7F000EE4DF /* MainCategoriesViewController.swift in Sources */,
 				D630784A27790088000DC955 /* ProductsShimmerController.swift in Sources */,
 				D66BF9E72771FEAE001CA06F /* OrderViewController.swift in Sources */,
 				D6E7E361276B6337001CDC7B /* SSRadioButtonsController.swift in Sources */,
@@ -577,7 +541,6 @@
 				D618744127754276000EE4DF /* CustomUI.swift in Sources */,
 				D6EE047727626813001A88DA /* PriceFormatter.swift in Sources */,
 				D66B93722757F67400F5CC0C /* MenuTableViewCell.swift in Sources */,
-				D681A638274046F30073D0C3 /* ShopDataViewController.swift in Sources */,
 				D6B51E6E27501C14003ED7C0 /* AttributeTableViewCell.swift in Sources */,
 				D6FCB126277636B50042FBCC /* BannerCollectionViewCell.swift in Sources */,
 				D6C4E05627373AEC00A49BB3 /* RegisterViewController.swift in Sources */,
@@ -587,7 +550,6 @@
 				D63609CD2739DA8200AD2B1B /* UserSession.swift in Sources */,
 				D66BF9EF27726190001CA06F /* BrowserViewController.swift in Sources */,
 				D6C4E04E2737360300A49BB3 /* SlideInTransition.swift in Sources */,
-				D6B7079E276E993B000F5E2C /* MainTabBarController.swift in Sources */,
 				D609C4492770F19900DC5FDE /* OrdersTableViewCell.swift in Sources */,
 				D6123A17276A538B003404D5 /* PaymentViewController.swift in Sources */,
 				D6C176422730B8D800714298 /* AppDelegate.swift in Sources */,
@@ -595,8 +557,6 @@
 				D66BF9F32772670B001CA06F /* ProfileAddressViewController.swift in Sources */,
 				D6BB354A2779B26400F777FD /* SearchViewController.swift in Sources */,
 				D609C4452770E8E000DC5FDE /* OrdersViewController.swift in Sources */,
-				D618744727754DB0000EE4DF /* MainAccountViewController.swift in Sources */,
-				D6C176442730B8D800714298 /* MainHomeViewController.swift in Sources */,
 				D6D842DD275980E90067B9FE /* CartViewController.swift in Sources */,
 				D6328F47274B82840034DA73 /* ProductViewController.swift in Sources */,
 			);

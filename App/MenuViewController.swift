@@ -19,6 +19,10 @@ enum MenuType: Int {
     case logout
 }
 
+protocol ModalDelegate {
+    func menuItemsClicked(menuType: MenuType)
+}
+
 class MenuViewController: UIViewController {
     
     let userSession = UserSession()

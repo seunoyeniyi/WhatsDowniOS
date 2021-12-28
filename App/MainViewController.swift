@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import PINRemoteImage
 
 class MainViewController: UIViewController {
     

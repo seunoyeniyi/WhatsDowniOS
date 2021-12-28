@@ -86,7 +86,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MLv-zN-gFh">
-                    <rect key="frame" x="20" y="121" width="335" height="546"/>
+                    <rect key="frame" x="20" y="126" width="335" height="541"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Za6-4U-h9T">
                         <size key="itemSize" width="50" height="50"/>
@@ -126,7 +126,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="MLv-zN-gFh" firstAttribute="top" secondItem="Sd3-VS-emu" secondAttribute="bottom" id="3ay-Va-NCD"/>
+                <constraint firstItem="MLv-zN-gFh" firstAttribute="top" secondItem="Sd3-VS-emu" secondAttribute="bottom" constant="5" id="3ay-Va-NCD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lGk-eY-eed" secondAttribute="trailing" id="AMH-fU-S3D"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lGk-eY-eed" secondAttribute="bottom" id="CA4-Zf-ycL"/>
                 <constraint firstItem="Sd3-VS-emu" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="DhF-PU-afb"/>

@@ -471,7 +471,8 @@ extension MainViewController: ModalDelegate {
     func menuItemsClicked(menuType: MenuType) {
         switch menuType {
         case .home:
-            return //already at home
+//            fetchBanners()
+            fetchProducts(paged: 1, shim: true)
         case .cancel:
             self.menuViewController.dismiss(animated: true, completion: nil)
             return

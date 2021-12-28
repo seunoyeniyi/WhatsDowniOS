@@ -77,6 +77,17 @@ class UserSession: NSObject {
         self.last_cart_count = (defaults.object(forKey: "last_cart_count") ?? "0") as! String
     }
     
+    func update_last_orders_count(count: String) {
+        defaults.set(count, forKey: "last_orders_count")
+        defaults.synchronize()
+        self.last_orders_count = count
+    }
+    func update_last_cart_count(count: String) {
+        defaults.set(count, forKey: "last_cart_count")
+        defaults.synchronize()
+        self.last_cart_count = count
+    }
+    
     func add_wallet_address(address: String) {
         defaults.set(address, forKey: "wallet_address")
         defaults.synchronize()

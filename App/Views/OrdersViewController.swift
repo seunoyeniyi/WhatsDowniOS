@@ -21,6 +21,7 @@ class OrdersViewController: UIViewController {
     @IBOutlet var ordersTableView: UITableView!
     @IBOutlet var statusDropDown: DropDown!
     
+
     
     let userSession = UserSession()
     
@@ -91,6 +92,7 @@ class OrdersViewController: UIViewController {
     }
     
     
+    
     func fetchOrders() {
         if (!Connectivity.isConnectedToInternet) {
             self.view.makeToast("Bad internet connection!")
@@ -126,6 +128,7 @@ class OrdersViewController: UIViewController {
                 let orders = json["orders"]
                 if orders.count > 0 {
                     self.orders = []
+                    var last_orders_count = 0
                     for (_, order): (String, JSON) in orders {
                         self.orders.append([
                             "ID": order["ID"].stringValue,
@@ -135,7 +138,17 @@ class OrdersViewController: UIViewController {
                             "item_count": order["item_count"].stringValue,
                             "payment_method": order["payment_method"].stringValue
                             ])
+                        
+                        
+                        if (order["status"].stringValue == "processing" || order["status"].stringValue == "pending") {
+                            last_orders_count += 1
+                        }
+                        
                     }
+                    
+                    self.userSession.update_last_orders_count(count: String(last_orders_count))
+                    
+                    
                     
                     DispatchQueue.main.async {
                         self.ordersTableView.reloadData()
@@ -203,6 +216,10 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
         if (self.orders[indexPath.row]["payment_method"]! == "paypal" && self.orders[indexPath.row]["status"]! == "on-hold") {
             cell.orderStatusImg.image = UIImage(named: "icons8_cancel")
         }
+        
+        
+        
+        
         
 
         return cell

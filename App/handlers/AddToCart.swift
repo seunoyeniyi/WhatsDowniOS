@@ -50,6 +50,8 @@ class AddToCart {
                 }
                 
             
+                self.userSession.update_last_cart_count(count: json["contents_count"].stringValue);
+                
                 self.delegate?.cartAdded(totalItems: json["contents_count"].stringValue, subTotal: json["subtotal"].stringValue, total: json["total"].stringValue)
                 //will recalculate total for other app
                

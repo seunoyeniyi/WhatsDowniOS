@@ -253,56 +253,6 @@ class CheckoutAddressViewController: UIViewController {
     
     
     func submitDetails() {
-        if (!Connectivity.isConnectedToInternet) {
-            self.view.makeToast("Bad internet connection!")
-            return
-        }
-        
-        self.loadingView.isHidden = false
-        
-        //        CALCULATE SHIPPING COST FIRST
-        let printful_parameters: [String: AnyObject] = [
-            "recipient" : [
-                "address1": self.address1.text!,
-                "city": self.city.text!,
-                "country_code": self.selectedCountry,
-                "state_code": self.selectedState,
-                "zip": self.postCode.text!
-                
-                ] as AnyObject,
-            "items": self.cartItems as AnyObject
-        ]
-        
-//        let user = self.PRINTFUL_USERNAME
-//        let password = self.PRINTFUL_PASSWORD
-//        let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
-//        let base64Credentials = credentialData.base64EncodedString(options: [])
-//        let headers = ["Authorization": "Basic \(String(describing: base64Credentials))"]
-    
-        Alamofire.request("https://api.printful.com/shipping/rates", method: .post, parameters: printful_parameters, encoding: JSONEncoding.default, headers: nil).authenticate(user: self.PRINTFUL_USERNAME, password: self.PRINTFUL_PASSWORD).responseJSON {
-            (response:DataResponse) in
-            if let json_result = response.result.value {
-                let json = JSON(json_result)
-                if (json["code"].stringValue == "200") {
-                    let result = json["result"]
-                    let info = result[0]
-                    self.continueSubmission(shipping_cost: info["rate"].stringValue)
-                    
-                } else {
-//                    self.view.makeToast("Can't calculate cost of your location!")
-                    self.continueSubmission(shipping_cost: "5.4") //default price
-                }
-                
-            } else {
-                self.view.makeToast("Can't calculate cost! Please provide valid address OR Contact us")
-                self.loadingView.isHidden = true
-            }
-            
-        }
-        
-    }
-    
-    func continueSubmission(shipping_cost: String) {
         self.loadingView.isHidden = false
         
         let parameters: [String: AnyObject] = [
@@ -317,10 +267,9 @@ class CheckoutAddressViewController: UIViewController {
             "address_2": self.address2.text as AnyObject,
             "email": self.email.text as AnyObject,
             "phone": self.phoneNumber.text as AnyObject,
-            "selected_country": self.selectedCountry as AnyObject,
-            "selected_state": self.selectedState as AnyObject,
-            "shipping_provider": "printful" as AnyObject,
-            "shipping_provider_cost": shipping_cost as AnyObject
+//            "selected_country": self.selectedCountry as AnyObject,
+//            "selected_state": self.selectedState as AnyObject,
+     
         ]
         
         let url = Site.init().UPDATE_SHIPPING + userSession.ID;

@@ -132,20 +132,20 @@ class PaymentViewController: UIViewController {
                             if shipping_methods["flat_rate"].exists() {
                                 
                                 let flat_rate = shipping_methods["flat_rate"]
-                                let attributestTitle = ("<font size='4' face='Verdana, Geneva, sans-serif'>" + flat_rate["title"].stringValue + " <b>" + Site.init().CURRENCY + flat_rate["cost"].stringValue + "</b></font>").htmlToAttributedString
+                                let attributestTitle = ("<font size='4' face='Montserrat, Verdana, Geneva, sans-serif'>" + flat_rate["title"].stringValue + " <b>" + Site.init().CURRENCY + flat_rate["cost"].stringValue + "</b></font>").htmlToAttributedString
                                 self.flatRateBtn.setAttributedTitle(attributestTitle, for: .normal)
                                 
                             } else { self.flatRateBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)); self.flatRateBtn.isHidden = true; }
                             
                             if shipping_methods["local_pickup"].exists() {
                                 let local_pickup = shipping_methods["local_pickup"]
-                                let attributestTitle = ("<font size='4' face='Verdana, Geneva, sans-serif'>" + local_pickup["title"].stringValue + " <b>" + Site.init().CURRENCY + local_pickup["cost"].stringValue + "</b></font>").htmlToAttributedString
+                                let attributestTitle = ("<font size='4' face='Montserrat, Verdana, Geneva, sans-serif'>" + local_pickup["title"].stringValue + " <b>" + Site.init().CURRENCY + local_pickup["cost"].stringValue + "</b></font>").htmlToAttributedString
                                 self.localPickupBtn.setAttributedTitle(attributestTitle, for: .normal)
                             } else { self.localPickupBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)); self.localPickupBtn.isHidden = true; }
                             
                             if shipping_methods["free_shipping"].exists() {
                                 let free_shipping = shipping_methods["free_shipping"]
-                                let attributestTitle = ("<font size='4' face='Verdana, Geneva, sans-serif'>" + free_shipping["title"].stringValue + " <b>" + Site.init().CURRENCY + free_shipping["cost"].stringValue + "</b></font>").htmlToAttributedString
+                                let attributestTitle = ("<font size='4' face='Montserrat, Verdana, Geneva, sans-serif'>" + free_shipping["title"].stringValue + " <b>" + Site.init().CURRENCY + free_shipping["cost"].stringValue + "</b></font>").htmlToAttributedString
                                 self.freeShippingBtn.setAttributedTitle(attributestTitle, for: .normal)
                             } else { self.freeShippingBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)); self.freeShippingBtn.isHidden = true; }
                             
@@ -154,7 +154,7 @@ class PaymentViewController: UIViewController {
                             self.freeShippingBtn.isSelected = (json["shipping_method"].stringValue == "free_shipping")
                             
                         } else if json["shipping_method"].stringValue == "by_printful" {
-                            let attributestTitle = ("<font size='4' face='Verdana, Geneva, sans-serif'>Flat rate <b>" + Site.init().CURRENCY + json["shipping_cost"].stringValue + "</b></font>").htmlToAttributedString
+                            let attributestTitle = ("<font size='4' face='Montserrat, Verdana, Geneva, sans-serif'>Flat rate <b>" + Site.init().CURRENCY + json["shipping_cost"].stringValue + "</b></font>").htmlToAttributedString
                             self.flatRateBtn.setAttributedTitle(attributestTitle, for: .normal)
                             self.flatRateBtn.isSelected = true
                             
@@ -241,8 +241,8 @@ class PaymentViewController: UIViewController {
                 let json = JSON(json_result)
                 if json["has_coupon"].stringValue == "true" {
                     let subtotal = json["subtotal"].doubleValue
-                    let total = json["total"].doubleValue
                     let couponDiscount = json["coupon_discount"].doubleValue
+                    let total = subtotal - couponDiscount
                     
                     self.subtotalPrice.text = Site.init().CURRENCY + PriceFormatter.format(price: subtotal)
                     self.totalPrice.text = Site.init().CURRENCY + PriceFormatter.format(price: total)
@@ -310,6 +310,7 @@ class PaymentViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 } else {
                     //order created
+                    self.userSession.update_last_orders_count(count: String(Int(self.userSession.last_orders_count)! + 1));
                     //since order is currently a webview
                     let info = json["info"]
                     var checkout_url = info["checkout_payment_url"].stringValue

@@ -298,7 +298,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAq-4D-uUO" userLabel="Scroll Body">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="692"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="702"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="dWO-EV-4HH" userLabel="New Releases">
                                                 <rect key="frame" x="20" y="10" width="335" height="30"/>
@@ -498,7 +498,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vni-mH-3Uk">
-                                                <rect key="frame" x="20" y="299.33333333333331" width="335" height="329.99999999999994"/>
+                                                <rect key="frame" x="20" y="309.33333333333331" width="335" height="329.99999999999994"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="330" id="6hM-gG-UYx"/>
@@ -558,7 +558,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-L2-BQE">
-                                                <rect key="frame" x="20" y="629.33333333333337" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="639.33333333333337" width="335" height="50"/>
                                                 <color key="backgroundColor" name="Primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tOg-By-Bio"/>
@@ -571,7 +571,7 @@
                                                 </connections>
                                             </button>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-0o-Igm" userLabel="Products Shimmer" customClass="ShimmerViewContainer" customModule="WhatsDown" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="299.33333333333331" width="375" height="399.99999999999994"/>
+                                                <rect key="frame" x="0.0" y="309.33333333333331" width="375" height="399.99999999999994"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5j4-Ix-RY7" userLabel="Card">
                                                         <rect key="frame" x="20" y="5" width="152" height="209"/>
@@ -784,7 +784,7 @@
                                             <constraint firstItem="MxJ-ro-AxT" firstAttribute="top" secondItem="PB5-um-uem" secondAttribute="bottom" constant="20" id="g6a-8d-AyD"/>
                                             <constraint firstAttribute="trailing" secondItem="vni-mH-3Uk" secondAttribute="trailing" constant="20" id="hR3-zf-qfY"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="690" id="iTS-IX-a5s"/>
-                                            <constraint firstItem="ZQe-0o-Igm" firstAttribute="top" secondItem="MxJ-ro-AxT" secondAttribute="bottom" constant="5" id="jTy-OA-eg4"/>
+                                            <constraint firstItem="ZQe-0o-Igm" firstAttribute="top" secondItem="MxJ-ro-AxT" secondAttribute="bottom" constant="15" id="jTy-OA-eg4"/>
                                             <constraint firstItem="PB5-um-uem" firstAttribute="leading" secondItem="qAq-4D-uUO" secondAttribute="leading" id="jWd-EJ-O2O"/>
                                             <constraint firstItem="vni-mH-3Uk" firstAttribute="leading" secondItem="qAq-4D-uUO" secondAttribute="leading" constant="20" id="mAc-0h-m2m"/>
                                             <constraint firstAttribute="trailing" secondItem="Xk3-dN-Lky" secondAttribute="trailing" id="o4f-Xd-RHp"/>
@@ -793,7 +793,7 @@
                                             <constraint firstItem="Xk3-dN-Lky" firstAttribute="top" secondItem="I7t-L2-jjA" secondAttribute="bottom" constant="10" id="tij-Km-9tH"/>
                                             <constraint firstAttribute="trailing" secondItem="Xk3-dN-Lky" secondAttribute="trailing" id="vm3-kM-YPy"/>
                                             <constraint firstItem="I7t-L2-jjA" firstAttribute="leading" secondItem="qAq-4D-uUO" secondAttribute="leadingMargin" constant="12" id="wns-31-Qdx"/>
-                                            <constraint firstItem="vni-mH-3Uk" firstAttribute="top" secondItem="MxJ-ro-AxT" secondAttribute="bottom" constant="5" id="yEz-sD-dGu"/>
+                                            <constraint firstItem="vni-mH-3Uk" firstAttribute="top" secondItem="MxJ-ro-AxT" secondAttribute="bottom" constant="15" id="yEz-sD-dGu"/>
                                             <constraint firstItem="gbd-L2-BQE" firstAttribute="top" secondItem="vni-mH-3Uk" secondAttribute="bottom" id="ze8-mT-i45"/>
                                             <constraint firstItem="PB5-um-uem" firstAttribute="top" secondItem="I7t-L2-jjA" secondAttribute="bottom" constant="10" id="zic-l9-hDA"/>
                                         </constraints>
@@ -896,13 +896,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-Fn-Vax">
-                                        <rect key="frame" x="110" y="100.66666666666667" width="255" height="20"/>
+                                        <rect key="frame" x="110" y="101" width="255" height="20"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-Vg-96G">
-                                        <rect key="frame" x="110" y="122.66666666666669" width="255" height="28"/>
+                                        <rect key="frame" x="110" y="123" width="255" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="View Profile">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1373,9 +1373,6 @@
         </namedColor>
         <namedColor name="Red">
             <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="White">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

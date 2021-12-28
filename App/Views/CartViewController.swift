@@ -32,6 +32,10 @@ class CartViewController: NoBarViewController {
     @IBOutlet var couponTextField: UITextField!
     @IBOutlet var tryAgainBtn: UIButton!
     @IBOutlet var totalProgressView: UIView!
+    @IBOutlet var couponStack: UIStackView!
+    @IBOutlet var couponStackHeightC: NSLayoutConstraint!
+    @IBOutlet var couponDiscountLbl: UILabel!
+    @IBOutlet var loadingView: UIView!
     
     var cartNotification: UILabel!
     
@@ -60,8 +64,6 @@ class CartViewController: NoBarViewController {
         self.cartTableView.dataSource = self
         self.cartTableViewHeightC.constant = 0
         self.cartTableView.isHidden = true
-        self.couponView.isHidden = true
-        self.couponViewHeightC.constant = 0
         self.totalView.isHidden = true
         self.totalViewHeightC.constant = 0
         self.cartActivity.isHidden = false
@@ -74,8 +76,7 @@ class CartViewController: NoBarViewController {
         styleThisBtn(btn: continueShoppingBtn)
         styleThisBtn(btn: tryAgainBtn)
         
-        cartActivity.transform = CGAffineTransform(scaleX: 2, y: 2)
-        
+       
         fetchCart();
     }
     
@@ -107,29 +108,24 @@ class CartViewController: NoBarViewController {
     func fetchCart() {
         if (!Connectivity.isConnectedToInternet) {
             self.view.makeToast("Bad internet connection!")
-            self.cartTableViewHeightC.constant = 0
-            self.cartTableView.isHidden = true
-            self.couponView.isHidden = true
-            self.couponViewHeightC.constant = 0
+        
             self.totalView.isHidden = true
-            self.totalViewHeightC.constant = 0
+            self.loadingView.isHidden = false
             self.cartActivity.isHidden = true
             self.cartEmptyLbl.isHidden = false
             self.tryAgainBtn.isHidden = false
-            self.continueShoppingBtn.isHidden = true
+          
             return
         }
         
-        self.cartTableViewHeightC.constant = 0
-        self.cartTableView.isHidden = true
-        self.couponView.isHidden = true
-        self.couponViewHeightC.constant = 0
+       
+     
         self.totalView.isHidden = true
-        self.totalViewHeightC.constant = 0
+        self.loadingView.isHidden = false
         self.cartActivity.isHidden = false
         self.cartEmptyLbl.isHidden = true
         self.tryAgainBtn.isHidden = true
-        self.continueShoppingBtn.isHidden = true
+        
         
         let url = Site.init().CART + userSession.ID
         
@@ -143,16 +139,11 @@ class CartViewController: NoBarViewController {
                     if (items.count < 1) {
                         //no result 
                         self.view.makeToast("Empty Cart!")
-                        self.cartTableViewHeightC.constant = 0
-                        self.cartTableView.isHidden = true
-                        self.couponView.isHidden = true
-                        self.couponViewHeightC.constant = 0
                         self.totalView.isHidden = true
-                        self.totalViewHeightC.constant = 0
+                        self.loadingView.isHidden = false
                         self.cartActivity.isHidden = true
                         self.cartEmptyLbl.isHidden = false
-                        self.tryAgainBtn.isHidden = false
-                        self.continueShoppingBtn.isHidden = true
+                        self.tryAgainBtn.isHidden = true
                     } else {
                     
                         self.cartProducts = []
@@ -172,24 +163,36 @@ class CartViewController: NoBarViewController {
                             self.cartTableView.isHidden = false
                         }
                         let subtotalDouble: Double = json["subtotal"].doubleValue
+
+                        var couponDiscount: Double = 0
+                        
+                        if (json["has_coupon"].stringValue == "true") {
+                            couponDiscount = json[""].doubleValue
+                            self.couponStackHeightC.constant = 30
+                            self.couponStack.isHidden = false
+                            self.couponDiscountLbl.text = "-" + Site.init().CURRENCY + PriceFormatter.format(price: couponDiscount)
+                        } else {
+                            self.couponStackHeightC.constant = 0
+                            self.couponStack.isHidden = true
+                        }
+                        
                         
                         self.subtotalLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: subtotalDouble)
                         //TODO: change this for another project - coupon might be added
-                        self.totalLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: subtotalDouble)
+                        self.totalLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: subtotalDouble - couponDiscount
+                        )
                         
                         
                         if (subtotalDouble < 1) {
                             self.completeBtn.isEnabled = false
                         }
                         
-                        self.couponView.isHidden = true// false for other project
-                        self.couponViewHeightC.constant = 0 //50 for other project
+        
                         self.totalView.isHidden = false
-                        self.totalViewHeightC.constant = 130
+                        self.loadingView.isHidden = true
                         self.cartActivity.isHidden = true
                         self.cartEmptyLbl.isHidden = true
                         self.tryAgainBtn.isHidden = true
-                        self.continueShoppingBtn.isHidden = false
                         
                     }
                     
@@ -197,15 +200,11 @@ class CartViewController: NoBarViewController {
                 } else {
                     //no result
                     self.view.makeToast("Empty Cart!")
-                    self.cartTableViewHeightC.constant = 0
-                    self.cartTableView.isHidden = true
-                    self.couponView.isHidden = true
-                    self.couponViewHeightC.constant = 0
                     self.totalView.isHidden = true
-                    self.totalViewHeightC.constant = 0
+                    self.loadingView.isHidden = false
                     self.cartActivity.isHidden = true
                     self.cartEmptyLbl.isHidden = false
-                    self.tryAgainBtn.isHidden = false
+                    self.tryAgainBtn.isHidden = true
                 }
                 
                 
@@ -215,12 +214,8 @@ class CartViewController: NoBarViewController {
             } else {
                 //no result
                 self.view.makeToast("Empty Cart!")
-                self.cartTableViewHeightC.constant = 0
-                self.cartTableView.isHidden = true
-                self.couponView.isHidden = true
-                self.couponViewHeightC.constant = 0
                 self.totalView.isHidden = true
-                self.totalViewHeightC.constant = 0
+                self.loadingView.isHidden = false
                 self.cartActivity.isHidden = true
                 self.cartEmptyLbl.isHidden = false
                 self.tryAgainBtn.isHidden = false
@@ -234,7 +229,7 @@ class CartViewController: NoBarViewController {
     }
     
     @IBAction func applyCouponTapped(_ sender: Any) {
-        
+        applyCouponCode()
     }
     @IBAction func tryAgainTapped(_ sender: Any) {
         fetchCart()
@@ -252,7 +247,7 @@ class CartViewController: NoBarViewController {
         
     }
     @IBAction func continueShoppingTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissWithCondition(animated: true, completion: nil)
     }
     
     @objc func cartMenuTapped(_ sender: UIButton) {
@@ -309,6 +304,51 @@ class CartViewController: NoBarViewController {
         btn.layer.shadowRadius = 1.0
         btn.layer.masksToBounds = false
         btn.layer.cornerRadius = 4.0
+    }
+    
+    
+    
+    func applyCouponCode() {
+        self.loadingView.isHidden = false
+        self.cartActivity.isHidden = false
+        self.cartEmptyLbl.isHidden = true
+        self.tryAgainBtn.isHidden = true
+        
+        let coupon: String = (self.couponTextField.text?.isEmpty)! ? "null" : self.couponTextField.text!
+        
+        let url = Site.init().UPDATE_COUPON + userSession.ID + "/" + coupon;
+        let parameters: [String: AnyObject] = [:]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            (response:DataResponse) in
+            if let json_result = response.result.value {
+                let json = JSON(json_result)
+                if json["has_coupon"].stringValue == "true" {
+                    let subtotal = json["subtotal"].doubleValue
+                    let couponDiscount = json["coupon_discount"].doubleValue
+                     let total = subtotal - couponDiscount
+                    
+                    self.subtotalLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: subtotal)
+                    self.totalLbl.text = Site.init().CURRENCY + PriceFormatter.format(price: total)
+                    self.couponDiscountLbl.text = "-" + Site.init().CURRENCY + PriceFormatter.format(price: couponDiscount)
+                    
+                    self.couponStackHeightC.constant = 20
+                    self.couponStack.isHidden = false
+                    
+                    self.view.makeToast("Coupon Applied!")
+                    
+                } else {
+                    self.view.makeToast("Invalid Coupon!")
+                }
+            } else {
+                self.view.makeToast("Unable to apply coupon. Try Again");
+            }
+            self.loadingView.isHidden = true
+            self.cartActivity.isHidden = false
+            self.cartEmptyLbl.isHidden = true
+            self.tryAgainBtn.isHidden = true
+        }
+        
     }
     
     
@@ -392,7 +432,7 @@ extension CartViewController: AddToCartDelegate {
 
 extension CartViewController: PresentationDelegate {
     func dismissParent(dismiss: Bool) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismissWithCondition(animated: false, completion: nil)
     }
     
     func presentationDismissed(action: String) {
@@ -417,7 +457,7 @@ extension CartViewController: PaymentViewDelegate {
 
 extension CartViewController: WebPaymentDelegate {
     func paymentCanceled() {
-        self.dismiss(animated: false, completion: nil)
+        self.dismissWithCondition(animated: false, completion: nil)
     }
     
 }

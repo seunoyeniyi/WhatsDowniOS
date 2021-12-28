@@ -270,7 +270,7 @@ class ProductViewController: UIViewController {
     
     
     @IBAction func addToCartTapped(_ sender: Any) {
-        self.view.makeToast("Adding Product to cart...")
+        self.view.makeToast("Adding Product to cart...", position: .top)
         self.theCart.addToCart(productID: cartProductID, quantity: self.quantity)
     }
     @objc func menuCartTapped(_ sender: Any) {
@@ -464,12 +464,15 @@ extension ProductViewController: AttributeSelect {
 
 extension ProductViewController: AddToCartDelegate {
     func cartAdded(totalItems: String, subTotal: String, total: String) {
+        var style = ToastStyle()
+        style.imageSize = CGSize(width: 20, height: 20)
+        
         let totalItemsInt: Int = Int(totalItems) ?? 0
         
         if (totalItemsInt > 0) {
             self.cartNotification.text = totalItems
             self.cartNotification.isHidden = false
-            self.view.makeToast("Product added to cart!")
+            self.view.makeToast("Product added to cart!", position: .top, image: UIImage(named: "icons8_checked"), style: style)
         } else {
             self.cartNotification.isHidden = true
         }

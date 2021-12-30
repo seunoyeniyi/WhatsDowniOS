@@ -132,8 +132,12 @@ class OrderViewController: UIViewController {
                         self.checkout_url = json["checkout_payment_url"].stringValue
                         if (json["payment_method"] == "stripe_cc" || json["payment_method"] == "stripe") {
                             self.checkout_url += "&sk-web-payment=1&sk-stripe-checkout=1&sk-user-checkout=" + self.userSession.ID; //for stripe only
+                            self.checkout_url += "&in_sk_app=1"
+                            self.checkout_url += "&hide_elements=div*topbar.topbar, div.joinchat__button"
                         } else {
                             self.checkout_url += "&sk-web-payment=1&sk-user-checkout=" + self.userSession.ID; //for any payment method
+                            self.checkout_url += "&in_sk_app=1"
+                            self.checkout_url += "&hide_elements=div*topbar.topbar, div.joinchat__button"
                         }
                         self.payNowBtnHeightC.constant = 40
                         self.payNowBtn.isHidden = false

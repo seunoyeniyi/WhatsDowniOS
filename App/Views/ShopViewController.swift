@@ -152,7 +152,7 @@ class ShopViewController: NoBarViewController {
         }
         
         
-        var url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&user_id=" + userSession.ID;
+        var url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&hide_description=1&user_id=" + userSession.ID;
         
         switch sort {
         case "title menu_order":
@@ -174,16 +174,17 @@ class ShopViewController: NoBarViewController {
             url += "&tag=" + tag
         }
         if (priceRange.count > 1) {
-            url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&user_id=" + userSession.ID + "&price_range=" + priceRange[0] + "|" + priceRange[1]
+            url = Site.init().SIMPLE_PRODUCTS + "?per_page=20" + "&paged=\(paged)" + "&hide_description=1&user_id=" + userSession.ID + "&price_range=" + priceRange[0] + "%7C" + priceRange[1]
         }
         
 //                print(url)
         
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result)
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
                 let results = json["results"] //array
                 
                 if (emptyProducts) {
@@ -231,6 +232,7 @@ class ShopViewController: NoBarViewController {
                     self.productShimmerContainer.isHidden = true
                     self.productShimmerContainer.stopShimmering()
                     self.refreshBtn.isHidden = true
+                }
                 }
             } else {
                 //no result

@@ -120,10 +120,14 @@ class OrdersViewController: UIViewController {
             break
         }
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+//        print(url)
+        
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result)
+//                print(json_result)
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
 //                print(json)
                 let orders = json["orders"]
                 if orders.count > 0 {
@@ -160,6 +164,7 @@ class OrdersViewController: UIViewController {
                     self.anyErrorView.isHidden = false
                 }
                 
+                }
                 
                 
             } else {

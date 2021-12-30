@@ -315,6 +315,8 @@ class PaymentViewController: UIViewController {
                     let info = json["info"]
                     var checkout_url = info["checkout_payment_url"].stringValue
                     checkout_url += "&sk-web-payment=1&sk-browser=1&sk-user-checkout=" + self.userSession.ID;
+                    checkout_url += "&in_sk_app=1"
+                    checkout_url += "&hide_elements=div*topbar.topbar, div.joinchat__button"
                     //go to browser
                     self.dismiss(animated: false, completion: {
                         self.paymentDelegate?.orderCreated(paymentMethod: paymentMethod, status: status, checkout_url: checkout_url)

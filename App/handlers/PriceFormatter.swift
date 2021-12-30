@@ -10,7 +10,11 @@ import Foundation
 
 class PriceFormatter {
     public static func format(price: String) -> String {
-        let priceDouble: Double = Double(price)!
+        var priceDouble: Double = 0;
+        if (price.count > 0) {
+            priceDouble = Double(price)!
+        }
+        
         //back to double
         let toDouble = Double(String(format: "%.2f", priceDouble))
         

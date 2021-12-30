@@ -23,17 +23,17 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyq-Rj-q5A" userLabel="Card">
-                            <rect key="frame" x="20" y="5" width="152" height="209"/>
+                            <rect key="frame" x="20" y="5" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ri-dN-6ee" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="xFX-R9-dWF"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bib-k0-CtP" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Vqb-fM-hnf"/>
@@ -51,7 +51,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="209" id="0kw-Vu-llk"/>
-                                <constraint firstAttribute="width" constant="152" id="13u-xi-6pH"/>
+                                <constraint firstAttribute="width" constant="160" id="13u-xi-6pH"/>
                                 <constraint firstAttribute="trailing" secondItem="Bib-k0-CtP" secondAttribute="trailing" id="1Ar-at-YOT"/>
                                 <constraint firstItem="Bib-k0-CtP" firstAttribute="leading" secondItem="vyq-Rj-q5A" secondAttribute="leading" id="9VV-a3-gsY"/>
                                 <constraint firstItem="uGP-5Q-nVQ" firstAttribute="leading" secondItem="vyq-Rj-q5A" secondAttribute="leading" id="Gqk-GY-NBl"/>
@@ -63,17 +63,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9e-8T-UHc" userLabel="Card">
-                            <rect key="frame" x="203" y="5" width="152" height="209"/>
+                            <rect key="frame" x="195" y="5" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHa-ZW-p2X" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="sBL-wN-3cu"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9al-wi-15a" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="RzB-fe-Q3A"/>
@@ -92,7 +92,7 @@
                             <constraints>
                                 <constraint firstItem="rbC-Z6-QLq" firstAttribute="leading" secondItem="t9e-8T-UHc" secondAttribute="leading" id="AO4-Je-PYb"/>
                                 <constraint firstItem="WHa-ZW-p2X" firstAttribute="leading" secondItem="t9e-8T-UHc" secondAttribute="leading" id="H6P-QY-UYv"/>
-                                <constraint firstAttribute="width" constant="152" id="H8S-PE-j7I"/>
+                                <constraint firstAttribute="width" constant="160" id="H8S-PE-j7I"/>
                                 <constraint firstItem="WHa-ZW-p2X" firstAttribute="top" secondItem="t9e-8T-UHc" secondAttribute="top" id="Nw4-of-fXo"/>
                                 <constraint firstAttribute="height" constant="209" id="PT5-bp-1Pj"/>
                                 <constraint firstItem="9al-wi-15a" firstAttribute="leading" secondItem="t9e-8T-UHc" secondAttribute="leading" id="VLS-an-ijb"/>
@@ -103,17 +103,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXN-B6-bl5" userLabel="Card">
-                            <rect key="frame" x="20" y="224" width="152" height="209"/>
+                            <rect key="frame" x="20" y="224" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBL-v8-UpL" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="13M-eh-PFL"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btm-Nc-lJO" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="7DB-kp-8h6"/>
@@ -131,7 +131,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Btm-Nc-lJO" firstAttribute="leading" secondItem="yXN-B6-bl5" secondAttribute="leading" id="1Iu-Z8-e1Z"/>
-                                <constraint firstAttribute="width" constant="152" id="BrG-B9-j28"/>
+                                <constraint firstAttribute="width" constant="160" id="BrG-B9-j28"/>
                                 <constraint firstAttribute="trailing" secondItem="Btm-Nc-lJO" secondAttribute="trailing" id="Hno-nC-FFU"/>
                                 <constraint firstItem="Fbz-5d-4Vi" firstAttribute="leading" secondItem="yXN-B6-bl5" secondAttribute="leading" id="IYN-9b-hwF"/>
                                 <constraint firstAttribute="trailing" secondItem="uBL-v8-UpL" secondAttribute="trailing" id="LLM-kQ-9ay"/>
@@ -143,17 +143,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyR-9Y-wQA" userLabel="Card">
-                            <rect key="frame" x="203" y="224" width="152" height="209"/>
+                            <rect key="frame" x="195" y="224" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BL8-Vq-dH2" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="9kB-6X-zyr"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AY5-mZ-bSK" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="MZw-I7-3yx"/>
@@ -173,7 +173,7 @@
                                 <constraint firstAttribute="height" constant="209" id="5eK-yp-fdB"/>
                                 <constraint firstAttribute="trailing" secondItem="AY5-mZ-bSK" secondAttribute="trailing" id="BK2-oW-KTo"/>
                                 <constraint firstItem="AY5-mZ-bSK" firstAttribute="leading" secondItem="vyR-9Y-wQA" secondAttribute="leading" id="BPY-Ma-rJC"/>
-                                <constraint firstAttribute="width" constant="152" id="DC2-mp-ELR"/>
+                                <constraint firstAttribute="width" constant="160" id="DC2-mp-ELR"/>
                                 <constraint firstAttribute="bottom" secondItem="xDP-14-9Uu" secondAttribute="bottom" constant="10" id="Mr0-TO-0Tu"/>
                                 <constraint firstItem="AY5-mZ-bSK" firstAttribute="top" secondItem="BL8-Vq-dH2" secondAttribute="bottom" constant="5" id="Nni-B8-epS"/>
                                 <constraint firstAttribute="trailing" secondItem="BL8-Vq-dH2" secondAttribute="trailing" id="YY2-47-P3m"/>
@@ -183,17 +183,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfn-zZ-uKR" userLabel="Card">
-                            <rect key="frame" x="20" y="443" width="152" height="209"/>
+                            <rect key="frame" x="20" y="443" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGT-Rg-iQM" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="5Us-5h-kk8"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ytt-5V-QjN" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="J6a-lc-kaM"/>
@@ -212,7 +212,7 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="kiP-Ky-p6y" secondAttribute="bottom" constant="10" id="1XX-F2-Aiw"/>
                                 <constraint firstAttribute="height" constant="209" id="3a0-2y-18e"/>
-                                <constraint firstAttribute="width" constant="152" id="6LV-pF-qTF"/>
+                                <constraint firstAttribute="width" constant="160" id="6LV-pF-qTF"/>
                                 <constraint firstItem="Ytt-5V-QjN" firstAttribute="top" secondItem="fGT-Rg-iQM" secondAttribute="bottom" constant="5" id="AQ4-Rk-mxf"/>
                                 <constraint firstItem="kiP-Ky-p6y" firstAttribute="leading" secondItem="dfn-zZ-uKR" secondAttribute="leading" id="KzV-Be-Uf1"/>
                                 <constraint firstItem="fGT-Rg-iQM" firstAttribute="top" secondItem="dfn-zZ-uKR" secondAttribute="top" id="Nte-5T-mLp"/>
@@ -223,17 +223,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-Ni-v8r" userLabel="Card">
-                            <rect key="frame" x="203" y="443" width="152" height="209"/>
+                            <rect key="frame" x="195" y="443" width="160" height="209"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wb-e1-P2m" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="zaE-qy-AaK"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhL-Xo-ALG" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                    <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="lgj-Fo-DKd"/>
@@ -258,7 +258,7 @@
                                 <constraint firstItem="vhL-Xo-ALG" firstAttribute="top" secondItem="3Wb-e1-P2m" secondAttribute="bottom" constant="5" id="XEC-aU-3wY"/>
                                 <constraint firstAttribute="bottom" secondItem="rs7-aq-UA6" secondAttribute="bottom" constant="10" id="eX0-VV-RFt"/>
                                 <constraint firstAttribute="trailing" secondItem="vhL-Xo-ALG" secondAttribute="trailing" id="pxd-Ou-FAY"/>
-                                <constraint firstAttribute="width" constant="152" id="w3z-jX-5Jd"/>
+                                <constraint firstAttribute="width" constant="160" id="w3z-jX-5Jd"/>
                                 <constraint firstItem="3Wb-e1-P2m" firstAttribute="leading" secondItem="M2a-Ni-v8r" secondAttribute="leading" id="yJl-oV-WeC"/>
                             </constraints>
                         </view>

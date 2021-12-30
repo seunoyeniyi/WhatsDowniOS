@@ -75,10 +75,11 @@ class FilterViewController: UIViewController {
         
         let url = Site.init().CATEGORIES + "?hide_empty=1&order_by=menu_order";
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result) //array
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
                 
                 self.categories = []
                 for (_, parent): (String, JSON) in json {
@@ -91,6 +92,7 @@ class FilterViewController: UIViewController {
                 
                 self.cateogryDropDown.optionArray = self.categoriesString
      
+                }
             } else {
                 self.view.makeToast("No Category")
             }
@@ -106,10 +108,11 @@ class FilterViewController: UIViewController {
         
         let url = Site.init().TAGS + "?hide_empty=1&order_by=menu_order";
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result) //array
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
                 
                 self.tags = []
                 for (_, parent): (String, JSON) in json {
@@ -121,7 +124,7 @@ class FilterViewController: UIViewController {
                 }
                 
                 self.tagDropDown.optionArray = self.tagsString
-                
+                }
             } else {
                 self.view.makeToast("No Tag")
             }

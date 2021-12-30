@@ -106,10 +106,11 @@ class MainViewController: UIViewController {
             
             let url = Site.init().BANNERS
             
-            Alamofire.request(url).responseJSON { (response) -> Void in
+            Alamofire.request(url).responseString { (response) -> Void in
                 //check if the result has a value
                 if let json_result = response.result.value {
-                    let json = JSON(json_result)
+                    if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                        let json = JSON(data: dataFromString)
                     //print(json)
                     let banners = json["results"]
                     
@@ -138,7 +139,7 @@ class MainViewController: UIViewController {
                         self.bannerShimmer.isHidden = false
                         self.bannerRefreshBtn.isHidden = false
                     }
-                    
+                    }
                    
                 } else {
                     //no result
@@ -173,63 +174,70 @@ class MainViewController: UIViewController {
             self.productRefreshBtn.isHidden = true
         }
         
-        var url = Site.init().SIMPLE_PRODUCTS + "?orderby=popularity&per_page=20&paged=\(paged)";
+        var url = Site.init().SIMPLE_PRODUCTS + "?orderby=popularity&hide_description=1&per_page=20&paged=\(paged)";
         if (userSession.logged()) {
             url += "&user_id=" + userSession.ID;
         }
         
        
-        Alamofire.request(url).responseJSON { (response) -> Void in
+       
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
+
             if let json_result = response.result.value {
-                let json = JSON(json_result)
-                let results = json["results"] //array
-                
-                self.products = []
-                for (_, subJson): (String, JSON) in results {
-                    let id = subJson["ID"].stringValue;
-                    let name = subJson["name"].stringValue;
-                    let image = subJson["image"].stringValue;
-                    let price = subJson["price"].stringValue;
-                    let product_type = subJson["product_type"].stringValue;
-                    let ptype = subJson["type"].stringValue;
-                    let description = subJson["description"].stringValue;
-                    let in_wishlist = subJson["in_wishlist"].stringValue;
-//                    let categories = subJson["categories"].stringValue;
-                    let stock_status = subJson["stock_status"].stringValue;
+//                print(json_result);
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
+                    let results = json["results"] //array
                     
-                    self.products.append([
-                        "ID": id,
-                        "name": name,
-                        "image": image,
-                        "price": price,
-                        "product_type": product_type,
-                        "type": ptype,
-                        "description": description,
-                        "in_wishlist": in_wishlist,
-                        "stock_status": stock_status
-                        ])
-                }
-                
-                DispatchQueue.main.async {
-                    self.productCollectionView.reloadData()
-                    self.productCollectionViewHeightC.constant = CGFloat((210 + 10) * 10)
-//                    self.productCollectionView.layoutIfNeeded()
-                }
-                
-                if json["pagination"].exists() {
-                    if json["paged"].exists() {
-                        self.currentPaged = Int(json["paged"].stringValue)!
+                    self.products = []
+                    for (_, subJson): (String, JSON) in results {
+                        let id = subJson["ID"].stringValue;
+                        let name = subJson["name"].stringValue;
+                        let image = subJson["image"].stringValue;
+                        let price = subJson["price"].stringValue;
+                        let product_type = subJson["product_type"].stringValue;
+                        let ptype = subJson["type"].stringValue;
+                        let description = subJson["description"].stringValue;
+                        let in_wishlist = subJson["in_wishlist"].stringValue;
+                        //                    let categories = subJson["categories"].stringValue;
+                        let stock_status = subJson["stock_status"].stringValue;
+                        
+                        self.products.append([
+                            "ID": id,
+                            "name": name,
+                            "image": image,
+                            "price": price,
+                            "product_type": product_type,
+                            "type": ptype,
+                            "description": description,
+                            "in_wishlist": in_wishlist,
+                            "stock_status": stock_status
+                            ])
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.productCollectionView.reloadData()
+                        self.productCollectionViewHeightC.constant = CGFloat((210 + 10) * 10)
+                        //                    self.productCollectionView.layoutIfNeeded()
+                    }
+                    
+                    if json["pagination"].exists() {
+                        if json["paged"].exists() {
+                            self.currentPaged = Int(json["paged"].stringValue)!
+                        }
+                    }
+                    //                print(json)
+                    
+                    if (shim) {
+                        self.productsShimmer.isHidden = true
+                        self.productsShimmer.stopShimmering()
+                        self.productRefreshBtn.isHidden = true
                     }
                 }
-                //                print(json)
                 
-                if (shim) {
-                    self.productsShimmer.isHidden = true
-                    self.productsShimmer.stopShimmering()
-                    self.productRefreshBtn.isHidden = true
-                }
             } else {
+//                print("no result");
                 //no result
                 if (shim) {
                     self.productsShimmer.isHidden = false
@@ -502,7 +510,7 @@ extension MainViewController: ModalDelegate {
             return
         case .support:
             self.browser.headTitle = "Support"
-            self.browser.url = Site.init().ADDRESS + "support"
+            self.browser.url = Site.init().ADDRESS + "support?in_sk_app=1"
             self.present(self.browser, animated: true, completion: nil)
             return
         case .logout:

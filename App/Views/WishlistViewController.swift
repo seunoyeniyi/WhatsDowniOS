@@ -88,14 +88,15 @@ class WishlistViewController: NoBarViewController {
         }
         
         
-        let url = Site.init().WISH_LIST + userSession.ID;
+        let url = Site.init().WISH_LIST + userSession.ID + "?hide_description=1";
        
-      
+
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result)
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
                 let results = json["results"] //array
                 
                 if (emptyProducts) {
@@ -143,6 +144,7 @@ class WishlistViewController: NoBarViewController {
                     self.productShimmerContainer.isHidden = true
                     self.productShimmerContainer.stopShimmering()
                     self.refreshBtn.isHidden = true
+                }
                 }
             } else {
                 //no result

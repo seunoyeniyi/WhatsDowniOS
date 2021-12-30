@@ -311,17 +311,17 @@
                                                 <rect key="frame" x="0.0" y="309.33333333333331" width="375" height="399.99999999999994"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5j4-Ix-RY7" userLabel="Card">
-                                                        <rect key="frame" x="20" y="5" width="152" height="209"/>
+                                                        <rect key="frame" x="20" y="5" width="160" height="209"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxK-rP-PSu" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="dx4-s2-oOL"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0u-Q1-wUw" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="133.00000000000006" width="152" height="30"/>
+                                                                <rect key="frame" x="0.0" y="133.00000000000006" width="160" height="30"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="qnU-Ll-Zdg"/>
@@ -338,7 +338,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="152" id="1WU-gh-pGH"/>
+                                                            <constraint firstAttribute="width" constant="160" id="1WU-gh-pGH"/>
                                                             <constraint firstAttribute="bottom" secondItem="VeH-QC-mlb" secondAttribute="bottom" constant="10" id="2yp-VN-5c9"/>
                                                             <constraint firstAttribute="height" constant="209" id="4wX-Xi-UOO"/>
                                                             <constraint firstItem="W0u-Q1-wUw" firstAttribute="leading" secondItem="5j4-Ix-RY7" secondAttribute="leading" id="Eah-cM-Qbv"/>
@@ -351,17 +351,17 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naO-cJ-qsV" userLabel="Card">
-                                                        <rect key="frame" x="203" y="5" width="152" height="209"/>
+                                                        <rect key="frame" x="195" y="5" width="160" height="209"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xc-tX-ZEh" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="MhU-SZ-jH8"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZh-oG-F1d" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="133.00000000000006" width="152" height="30"/>
+                                                                <rect key="frame" x="0.0" y="133.00000000000006" width="160" height="30"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="g47-Cp-IAi"/>
@@ -387,21 +387,21 @@
                                                             <constraint firstItem="aZh-oG-F1d" firstAttribute="leading" secondItem="naO-cJ-qsV" secondAttribute="leading" id="oon-FG-66u"/>
                                                             <constraint firstItem="Ub9-m4-PFz" firstAttribute="leading" secondItem="naO-cJ-qsV" secondAttribute="leading" id="pvj-lC-WpI"/>
                                                             <constraint firstItem="aZh-oG-F1d" firstAttribute="top" secondItem="4Xc-tX-ZEh" secondAttribute="bottom" constant="5" id="wqg-bj-vAJ"/>
-                                                            <constraint firstAttribute="width" constant="152" id="xhj-zO-u64"/>
+                                                            <constraint firstAttribute="width" constant="160" id="xhj-zO-u64"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Li-Vf-WmT" userLabel="Card">
-                                                        <rect key="frame" x="20" y="224.00000000000006" width="152" height="209"/>
+                                                        <rect key="frame" x="20" y="224.00000000000006" width="160" height="209"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ii-pM-eUt" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="g9E-3v-xq0"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuB-Ow-ttd" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                                                <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="5k5-wO-eka"/>
@@ -426,7 +426,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="m9a-kJ-8cw" secondAttribute="bottom" constant="10" id="W4x-cD-n0p"/>
                                                             <constraint firstItem="m9a-kJ-8cw" firstAttribute="leading" secondItem="3Li-Vf-WmT" secondAttribute="leading" id="amY-T6-Qan"/>
                                                             <constraint firstItem="3ii-pM-eUt" firstAttribute="leading" secondItem="3Li-Vf-WmT" secondAttribute="leading" id="hiN-Bg-aYG"/>
-                                                            <constraint firstAttribute="width" constant="152" id="mTa-V2-rVJ"/>
+                                                            <constraint firstAttribute="width" constant="160" id="mTa-V2-rVJ"/>
                                                             <constraint firstItem="KuB-Ow-ttd" firstAttribute="top" secondItem="3ii-pM-eUt" secondAttribute="bottom" constant="5" id="rtk-ZS-Gf0"/>
                                                         </constraints>
                                                     </view>
@@ -444,17 +444,17 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxP-qW-q2F" userLabel="Card">
-                                                        <rect key="frame" x="203" y="224.00000000000006" width="152" height="209"/>
+                                                        <rect key="frame" x="195" y="224.00000000000006" width="160" height="209"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGq-tE-oxe" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="128"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="V9T-Jm-HuF"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9CI-J1-gLX" customClass="ShimmerView" customModule="WhatsDown" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="133" width="152" height="30"/>
+                                                                <rect key="frame" x="0.0" y="133" width="160" height="30"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="j6Q-E2-Knk"/>
@@ -477,7 +477,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="yGq-tE-oxe" secondAttribute="trailing" id="B9o-A5-sOc"/>
                                                             <constraint firstAttribute="height" constant="209" id="CMn-6J-2hZ"/>
                                                             <constraint firstItem="yGq-tE-oxe" firstAttribute="top" secondItem="fxP-qW-q2F" secondAttribute="top" id="FFB-Um-p17"/>
-                                                            <constraint firstAttribute="width" constant="152" id="PeQ-uG-GE0"/>
+                                                            <constraint firstAttribute="width" constant="160" id="PeQ-uG-GE0"/>
                                                             <constraint firstItem="yGq-tE-oxe" firstAttribute="leading" secondItem="fxP-qW-q2F" secondAttribute="leading" id="ahJ-vE-JGv"/>
                                                             <constraint firstItem="6mb-pA-G1d" firstAttribute="leading" secondItem="fxP-qW-q2F" secondAttribute="leading" id="iDA-Uf-7bS"/>
                                                             <constraint firstItem="9CI-J1-gLX" firstAttribute="top" secondItem="yGq-tE-oxe" secondAttribute="bottom" constant="5" id="qIJ-ca-fqh"/>
@@ -608,13 +608,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-Fn-Vax">
-                                        <rect key="frame" x="110" y="101" width="255" height="20"/>
+                                        <rect key="frame" x="110" y="100.33333333333333" width="255" height="20"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-Vg-96G">
-                                        <rect key="frame" x="110" y="123" width="255" height="28"/>
+                                        <rect key="frame" x="110" y="122.33333333333331" width="255" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="View Profile">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

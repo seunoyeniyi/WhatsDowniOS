@@ -9,10 +9,18 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebPaymentViewController" customModule="WhatsDown" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="ls7-wg-sqj" id="J3T-9a-Jab"/>
+                <outlet property="continueBtn" destination="jo2-xd-d1S" id="gRY-df-O0y"/>
                 <outlet property="loadingView" destination="Rng-Gv-5Ot" id="JbV-Dp-VSJ"/>
+                <outlet property="orderPlacedView" destination="Tdq-9Y-iS7" id="ZyN-Rr-R4d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="dSQ-tJ-vOh" id="DDj-8G-MHo"/>
             </connections>
@@ -41,14 +49,26 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSQ-tJ-vOh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ls7-wg-sqj" userLabel="Container">
                     <rect key="frame" x="0.0" y="65" width="375" height="602"/>
-                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <wkWebViewConfiguration key="configuration">
-                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                        <wkPreferences key="preferences"/>
-                    </wkWebViewConfiguration>
-                </wkWebView>
+                    <subviews>
+                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSQ-tJ-vOh">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <wkWebViewConfiguration key="configuration">
+                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkPreferences key="preferences"/>
+                            </wkWebViewConfiguration>
+                        </wkWebView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dSQ-tJ-vOh" secondAttribute="bottom" id="15Y-mK-UqE"/>
+                        <constraint firstItem="dSQ-tJ-vOh" firstAttribute="top" secondItem="ls7-wg-sqj" secondAttribute="top" id="Log-zP-pww"/>
+                        <constraint firstItem="dSQ-tJ-vOh" firstAttribute="leading" secondItem="ls7-wg-sqj" secondAttribute="leading" id="OT7-dW-JMT"/>
+                        <constraint firstAttribute="trailing" secondItem="dSQ-tJ-vOh" secondAttribute="trailing" id="lff-2G-phn"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rng-Gv-5Ot" userLabel="Loading View">
                     <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                     <subviews>
@@ -57,8 +77,8 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </activityIndicatorView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for web payment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-yL-Z3S">
-                            <rect key="frame" x="81" y="274.5" width="214" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-yL-Z3S">
+                            <rect key="frame" x="134.5" y="274.5" width="106" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -72,25 +92,76 @@
                         <constraint firstItem="x4A-gB-KFR" firstAttribute="centerX" secondItem="Rng-Gv-5Ot" secondAttribute="centerX" id="xE8-tP-gbN"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdq-9Y-iS7" userLabel="Order Placed">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_placed" translatesAutoresizingMaskIntoConstraints="NO" id="Vaj-hg-Ley">
+                            <rect key="frame" x="0.0" y="103.5" width="375" height="300"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="xWJ-qt-5NT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Placed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agC-RQ-qgU">
+                            <rect key="frame" x="117.5" y="403.5" width="141.5" height="28"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-xd-d1S">
+                            <rect key="frame" x="113" y="441.5" width="150" height="40"/>
+                            <color key="backgroundColor" name="Primary"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="92q-hk-vvz"/>
+                                <constraint firstAttribute="height" constant="40" id="Lhw-qr-erX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                            <state key="normal" title="CONTINUE">
+                                <color key="titleColor" name="White"/>
+                            </state>
+                            <connections>
+                                <action selector="continueBtnTapped:" destination="-1" eventType="touchUpInside" id="5WU-4G-h3f"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="agC-RQ-qgU" firstAttribute="top" secondItem="Vaj-hg-Ley" secondAttribute="bottom" id="9UP-fh-yMe"/>
+                        <constraint firstItem="jo2-xd-d1S" firstAttribute="top" secondItem="agC-RQ-qgU" secondAttribute="bottom" constant="10" id="DX1-7H-Q53"/>
+                        <constraint firstAttribute="trailing" secondItem="Vaj-hg-Ley" secondAttribute="trailing" id="Ilp-dx-fxb"/>
+                        <constraint firstItem="Vaj-hg-Ley" firstAttribute="centerY" secondItem="Tdq-9Y-iS7" secondAttribute="centerY" constant="-80" id="M1I-SJ-Gcr"/>
+                        <constraint firstItem="agC-RQ-qgU" firstAttribute="centerX" secondItem="Tdq-9Y-iS7" secondAttribute="centerX" id="Vfh-z2-JqR"/>
+                        <constraint firstItem="Vaj-hg-Ley" firstAttribute="leading" secondItem="Tdq-9Y-iS7" secondAttribute="leading" id="eaz-Hr-C3J"/>
+                        <constraint firstItem="jo2-xd-d1S" firstAttribute="centerX" secondItem="Tdq-9Y-iS7" secondAttribute="centerX" id="yl1-ep-mtM"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" name="White"/>
             <constraints>
+                <constraint firstItem="Tdq-9Y-iS7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Nq-Wg-uFb"/>
+                <constraint firstItem="ls7-wg-sqj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7ML-e5-mDH"/>
+                <constraint firstItem="ls7-wg-sqj" firstAttribute="top" secondItem="SPb-14-QU6" secondAttribute="bottom" constant="1" id="Dbc-m7-NqF"/>
                 <constraint firstItem="Rng-Gv-5Ot" firstAttribute="top" secondItem="SPb-14-QU6" secondAttribute="bottom" constant="1" id="Dtd-tg-5bb"/>
-                <constraint firstItem="dSQ-tJ-vOh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KcX-AP-Bnk"/>
                 <constraint firstItem="SPb-14-QU6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PI9-tL-dqq"/>
-                <constraint firstItem="dSQ-tJ-vOh" firstAttribute="top" secondItem="SPb-14-QU6" secondAttribute="bottom" constant="1" id="Pfa-cQ-PgA"/>
+                <constraint firstAttribute="bottom" secondItem="Tdq-9Y-iS7" secondAttribute="bottom" id="Wvj-Yo-nNE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ls7-wg-sqj" secondAttribute="trailing" id="YOI-tJ-dOp"/>
                 <constraint firstItem="Rng-Gv-5Ot" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bbf-Cs-8Ib"/>
                 <constraint firstItem="SPb-14-QU6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="c9p-C9-GBO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dSQ-tJ-vOh" secondAttribute="bottom" id="cbB-19-Ktd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ls7-wg-sqj" secondAttribute="bottom" id="fgk-jz-Tye"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rng-Gv-5Ot" secondAttribute="trailing" id="lUt-RM-ale"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dSQ-tJ-vOh" secondAttribute="trailing" id="quU-1K-qkC"/>
+                <constraint firstAttribute="trailing" secondItem="Tdq-9Y-iS7" secondAttribute="trailing" id="mks-VG-lX7"/>
+                <constraint firstItem="Tdq-9Y-iS7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oUw-1r-7Kz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Rng-Gv-5Ot" secondAttribute="bottom" id="tkG-dc-6Ly"/>
                 <constraint firstItem="SPb-14-QU6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uck-mY-e9R"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
     <resources>
+        <image name="order_placed" width="3710" height="3710"/>
+        <namedColor name="Primary">
+            <color red="0.024000000208616257" green="0.0040000001899898052" blue="0.0040000001899898052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

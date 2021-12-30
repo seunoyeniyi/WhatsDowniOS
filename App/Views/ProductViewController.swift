@@ -39,6 +39,7 @@ class ProductViewController: UIViewController {
     @IBOutlet var refreshBtn: UIButton!
     @IBOutlet var wishListBtn: WishListButton!
     @IBOutlet var galleryCollectionView: UICollectionView!
+    @IBOutlet var descriptionContainer: UIView!
     
     let userSession = UserSession()
     
@@ -115,6 +116,8 @@ class ProductViewController: UIViewController {
         descriptionLabel.attributedText = productDescription.htmlToAttributedString
         cartProductID = productID
       
+        descriptionLabel.isHidden = true
+        descriptionContainer.isHidden = true
         
         let attrCell = UINib(nibName: attributeCellReuseIdentifier, bundle: nil)
         self.attributesTableView.register(attrCell, forCellReuseIdentifier: attributeCellReuseIdentifier)
@@ -187,10 +190,13 @@ class ProductViewController: UIViewController {
         
         let url = Site.init().PRODUCT + productID + "?user_id=" + userSession.ID
         
-        Alamofire.request(url).responseJSON { (response) -> Void in
+        Alamofire.request(url).responseString { (response) -> Void in
             //check if the result has a value
             if let json_result = response.result.value {
-                let json = JSON(json_result)
+                if let dataFromString = json_result.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
+                    
+//                    print(json)
                 
                 //set galleries
                 self.galleries = []
@@ -202,6 +208,13 @@ class ProductViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.galleryCollectionView.reloadData()
                 }
+                    
+                let description = json["description"].stringValue
+                    if (description.count > 0) {
+                        self.descriptionLabel.attributedText = description.htmlToAttributedString
+                        self.descriptionLabel.isHidden = false
+                        self.descriptionContainer.isHidden = false
+                    }
                 
                 
                 //for category tag after titlte
@@ -243,6 +256,7 @@ class ProductViewController: UIViewController {
                 self.priceLabel.isHidden = false
                 self.addToCartContainer.isHidden = false
                 self.refreshBtn.isHidden = true
+                }
         
             } else {
                 //no result

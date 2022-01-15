@@ -42,9 +42,7 @@
 		D66BF9F027726190001CA06F /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66BF9EE27726190001CA06F /* BrowserViewController.xib */; };
 		D66BF9F32772670B001CA06F /* ProfileAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66BF9F12772670B001CA06F /* ProfileAddressViewController.swift */; };
 		D66BF9F42772670B001CA06F /* ProfileAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */; };
-		D67C3E8F277AAC4000831716 /* WhatsDown-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */; };
 		D67F87142775C3F3009BF4A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D67F87132775C3F2009BF4A7 /* README.md */; };
-		D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = D67F87172775C670009BF4A7 /* WhatsDown-Black.png */; };
 		D67F871C2775CD7F009BF4A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F871B2775CD7F009BF4A7 /* MainViewController.swift */; };
 		D67F87232775DED2009BF4A7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */; };
 		D67F87242775DED2009BF4A7 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */; };
@@ -129,9 +127,7 @@
 		D66BF9EE27726190001CA06F /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		D66BF9F12772670B001CA06F /* ProfileAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddressViewController.swift; sourceTree = "<group>"; };
 		D66BF9F22772670B001CA06F /* ProfileAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddressViewController.xib; sourceTree = "<group>"; };
-		D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Icon.png"; path = "../../../Downloads/WhatsDown/ic_launcher-61ca736e2ffdd/ios/WhatsDown-Icon.png"; sourceTree = "<group>"; };
 		D67F87132775C3F2009BF4A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D67F87172775C670009BF4A7 /* WhatsDown-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WhatsDown-Black.png"; path = "../../../Downloads/WhatsDown/WhatsDown-Black.png"; sourceTree = "<group>"; };
 		D67F871B2775CD7F009BF4A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D67F871D2775DECF009BF4A7 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		D67F871E2775DECF009BF4A7 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../Downloads/Montserrat/Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -302,8 +298,6 @@
 				D6C4E04D2737360300A49BB3 /* SlideInTransition.swift */,
 				D6BAC13D27380035001A4825 /* Site.swift */,
 				D6AE037F275801BB00CD1D3A /* MenuViewController.swift */,
-				D67F87172775C670009BF4A7 /* WhatsDown-Black.png */,
-				D67C3E8E277AAC3F00831716 /* WhatsDown-Icon.png */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -430,7 +424,6 @@
 				D6F120772778D08B00BBAE59 /* ArchiveViewController.xib in Resources */,
 				D6BB354B2779B26400F777FD /* SearchViewController.xib in Resources */,
 				D67F87262775DED2009BF4A7 /* Montserrat-Regular.ttf in Resources */,
-				D67C3E8F277AAC4000831716 /* WhatsDown-Icon.png in Resources */,
 				D66BF9EC277238B3001CA06F /* OrderItemsTableViewCell.xib in Resources */,
 				D6C1764B2730B8D800714298 /* Assets.xcassets in Resources */,
 				D6123A18276A538B003404D5 /* PaymentViewController.xib in Resources */,
@@ -441,7 +434,6 @@
 				D6B51E6F27501C14003ED7C0 /* AttributeTableViewCell.xib in Resources */,
 				D67F87242775DED2009BF4A7 /* Montserrat-Light.ttf in Resources */,
 				D6E7E365276B7316001CDC7B /* LoadingView.xib in Resources */,
-				D67F87182775C671009BF4A7 /* WhatsDown-Black.png in Resources */,
 				D689ABB1276225CE009CA318 /* CartTableViewCell.xib in Resources */,
 				D6328F48274B82840034DA73 /* ProductViewController.xib in Resources */,
 				D6023613277A307E00BB51A6 /* GalleryCollectionViewCell.xib in Resources */,

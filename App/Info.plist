@@ -12,7 +12,7 @@
 	<string>AppIcon</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>WhatsDown-Icon.png</string>
+		<string>AppIcon</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
